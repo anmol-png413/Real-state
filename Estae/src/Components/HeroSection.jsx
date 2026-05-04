@@ -97,13 +97,13 @@ const HeroSection = () => {
         />
 
         {/* Subtle left gradient only — to make left text readable */}
-        <div
+        {/* <div
           className="absolute inset-0"
           style={{
             background:
               "linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.18) 55%, rgba(0,0,0,0) 100%)",
           }}
-        />
+        /> */}
 
         {/* Content */}
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between h-full px-8 md:px-14 lg:px-20 py-20 gap-10">
@@ -111,20 +111,21 @@ const HeroSection = () => {
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">
 
-            <p
-              style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: "11px",
-                fontWeight: 400,
-                letterSpacing: "0.3em",
-                color: "rgba(255,255,255,0.7)",
-                textTransform: "uppercase",
-              }}
-            >
-              Siddharth Vihar, Ghaziabad
-            </p>
+           
+            <span
+                style={{
+                  fontFamily: "'lato', sans-serif",
+                  fontSize: "30px",
+                  fontWeight: 700,
+                  letterSpacing: "0.15em",
+                  color: "#fff",
+                  textTransform: "uppercase",
+                }}
+              >
+               Siddharth Vihar, Ghaziabad
+              </span>
 
-            <h1
+            {/* <h1
               style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 fontSize: "clamp(3rem, 7vw, 5.5rem)",
@@ -138,12 +139,12 @@ const HeroSection = () => {
               <span style={{ color: "#f5e6c0", fontStyle: "italic", fontWeight: 300 }}>
                 Estate
               </span>
-            </h1>
+            </h1> */}
 
             <p
               style={{
                 fontFamily: "'Jost', sans-serif",
-                fontSize: "12px",
+                fontSize: "20px",
                 fontWeight: 400,
                 letterSpacing: "0.25em",
                 color: "rgba(255,255,255,0.65)",
@@ -167,8 +168,8 @@ const HeroSection = () => {
               <span
                 style={{
                   fontFamily: "'Jost', sans-serif",
-                  fontSize: "13px",
-                  fontWeight: 500,
+                  fontSize: "20px",
+                  fontWeight: 400,
                   letterSpacing: "0.15em",
                   color: "#fff",
                   textTransform: "uppercase",

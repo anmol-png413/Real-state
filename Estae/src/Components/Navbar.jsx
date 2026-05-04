@@ -1,4 +1,5 @@
  import { useState } from "react";
+ import logo from "../assets/au-logo-black.png";
 
 // const Navbar = () => { 
   const Navbar = ({ onBookVisit }) => {
@@ -14,19 +15,28 @@
   ];
 
   return (
-   <nav className="w-full bg-black z-50 sticky top-0 border-b border-yellow-600/30">
+   <nav className="w-full bg-white z-50 sticky top-0 border-b border-yellow-600/30">
 
       {/* ── Top Bar ── */}
       <div className="flex items-center justify-between px-6 md:px-10 lg:px-16 py-4">
 
-        {/* Logo */}
-        <div className="flex flex-col leading-tight">
-          <span className="text-2xl md:text-3xl font-bold tracking-[4px] uppercase text-yellow-300"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-      AU Realestate
-          </span>
-         
+         {/* Logo with white background */}
+        <div className="flex items-center">
+          <div style={{
+            background: "#fff",
+            padding: "4px 10px",
+            borderRadius: "4px",
+            display: "inline-flex",
+            alignItems: "center",
+          }}>
+            <img
+              src={logo}
+              alt="AU Realestate"
+              style={{ height: "60px", width: "auto", objectFit: "contain", display: "block" }}
+            />
+          </div>
         </div>
+
 
         {/* Desktop Nav Links */}
         <ul className="hidden lg:flex items-center gap-8 list-none m-0 p-0">
@@ -35,7 +45,7 @@
               <a
                 href={link.href}
                 className={`text-[13px] font-medium tracking-[2px] uppercase no-underline transition-colors duration-300 hover:text-yellow-400
-                  ${link.name === "Home" ? "text-yellow-500" : "text-white"}`}
+                  ${link.name === "Home" ? "text-yellow-500" : "text-black"}`}
               >
                 {link.name}
               </a>
