@@ -292,7 +292,7 @@ export default function ProjectHighlights({ onBookVisit }) {  {/* ← prop add k
               {/* Row 2 */}
               <tr className="hover:bg-gray-50 transition-colors border-b border-gray-100">
                 <td className="px-6 py-5">
-                  <p className="font-medium text-gray-900">3 BHK + Servant</p>
+                  <p className="font-medium text-gray-900">2.3 BHK + 3 Toilet+ Servant</p>
                   <p className="text-xs text-gray-400 mt-0.5">Premium Configuration</p>
                 </td>
                 <td className="px-6 py-5">
@@ -312,7 +312,7 @@ export default function ProjectHighlights({ onBookVisit }) {  {/* ← prop add k
               {/* Row 3 */}
               <tr className="hover:bg-gray-50 transition-colors">
                 <td className="px-6 py-5">
-                  <p className="font-medium text-gray-900">5 BHK + Servant</p>
+                  <p className="font-medium text-gray-900">3.5 BHK + 3 Toilet + Servant</p>
                   <p className="text-xs text-gray-400 mt-0.5">Ultra Luxury Configuration</p>
                 </td>
                 <td className="px-6 py-5">

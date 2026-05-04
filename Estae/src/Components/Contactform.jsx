@@ -243,6 +243,8 @@ export default function ContactForm() {
         Fill in your details and our team will get back to you within 24 hours.
       </p>
 
+
+
       <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
         <div className="flex flex-col md:flex-row">
 
@@ -338,6 +340,10 @@ export default function ContactForm() {
                   >
                     <option value="">Select configuration</option>
                     <option value="3bhk">3 BHK + 3 Toilet (1780 Sq.Ft.)</option>
+                      <option value="3bhk">3 BHK + Servant (1972 Sq.Ft.)</option>
+                      <option value="3bhk">5 BHK + Servant (3175 Sq.Ft.)</option>
+
+
                     <option value="site-visit">Free Site Visit</option>
                     <option value="investment">Investment / Rental</option>
                   </select>
