@@ -295,7 +295,14 @@ const HeroSection = () => {
                   <input className="hero-input" type="text" name="name" placeholder="Name" value={form.name} onChange={handleChange} required />
                   <input className="hero-input" type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} />
                   <input className="hero-input" type="tel" name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} required />
-                  <input className="hero-input" type="text" name="interest" placeholder="I am Interested in..." value={form.interest} onChange={handleChange} />
+            <select className="hero-input" name="interest" value={form.interest} onChange={handleChange} required>
+  <option value="" disabled>I am Interested in...</option>
+  <option value="3 BHK + 3 Toilet (1780 Sq.Ft.)">3 BHK + 3 Toilet (1780 Sq.Ft.)</option>
+  <option value="3 BHK + Servant (1972 Sq.Ft.)">3 BHK + Servant (1972 Sq.Ft.)</option>
+  <option value="5 BHK + Servant (3175 Sq.Ft.)">5 BHK + Servant (3175 Sq.Ft.)</option>
+  <option value="Free Site Visit">Free Site Visit</option>
+  <option value="Investment / Rental">Investment / Rental</option>
+</select>
 
                   <button className="hero-submit" type="submit" style={{ marginTop: "4px" }}>
                     Submit
