@@ -126,7 +126,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </div>  
 
       {/* Divider */}
       <div className="border-t border-gray-800 mx-4 md:mx-10" />
