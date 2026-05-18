@@ -1,336 +1,308 @@
-// import React from "react";
-
-// const amenities = [
-//   "Grand Clubhouse",
-//   "Swimming Pool",
-//   "Equipped Gym",
-//   "Landscaped Gardens",
-//   "Jogging Track",
-//   "Kids' Play Area",
-//   "Indoor Games",
-//   "Open Green Spaces",
-// ];
-
-// export default function ProjectHighlights() {
-//   return (
-//     <div id="highlights" className="max-w-5xl mx-auto px-3 md:px-6 py-12 bg-white">
-
-//       <p className="text-center text-xs uppercase tracking-widest text-gray-400 mb-1">
-//         Siddharth Vihar, Ghaziabad
-//       </p>
-//       <h2 className="text-2xl md:text-3xl font-medium text-center text-gray-900 mb-8">
-//         Project Highlights
-//       </h2>
-
-//       <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-5">
-//         The apartments at{" "}
-//         <span className="text-yellow-600 font-medium">AU Realestate</span>{" "}
-//         are thoughtfully designed with smart layouts and modern architecture. Spacious rooms,
-//         wide balconies, and large windows ensure proper ventilation and natural light.
-//       </p>
-//       <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-8">
-//         With approx.{" "}
-//         <span className="text-gray-900 font-medium">1780 sq. ft.</span> of space and{" "}
-//         <span className="text-gray-900 font-medium">11 ft ceiling height</span>, the homes feel
-//         more open and luxurious. Premium finishes and elegant design add to the overall appeal.
-//       </p>
-
-//       {/* ── Stats Row ── */}
-//       <div className="grid grid-cols-2 gap-4 mb-10">
-//         <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl px-5 py-4">
-//           <div className="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center text-yellow-600 text-xl">🏢</div>
-//           <div>
-//             <p className="text-2xl font-bold text-gray-900">7</p>
-//             <p className="text-xs text-gray-500 uppercase tracking-wide">Apartments Per Floor</p>
-//           </div>
-//         </div>
-//         <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl px-5 py-4">
-//           <div className="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center text-yellow-600 text-xl">🛗</div>
-//           <div>
-//             <p className="text-2xl font-bold text-gray-900">7</p>
-//             <p className="text-xs text-gray-500 uppercase tracking-wide">High-Speed Lifts</p>
-//           </div>
-//         </div>
-//       </div>
-
-//       <h3 className="text-xl font-medium text-gray-900 mb-4">Amenities &amp; Lifestyle</h3>
-//       <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-4">
-//         Residents can enjoy a wide range of modern amenities within the project. A grand
-//         clubhouse, swimming pool, and fully equipped gym provide a perfect lifestyle upgrade.
-//       </p>
-//       <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-8">
-//         Landscaped gardens, jogging tracks, and open green spaces offer relaxation and a healthy
-//         living environment. Kids' play areas and indoor games ensure entertainment for all age groups.
-//       </p>
-
-//       <div className="flex flex-wrap gap-3 mb-12">
-//         {amenities.map((item) => (
-//           <span
-//             key={item}
-//             className="flex items-center gap-2 text-sm text-gray-500 bg-gray-50 border border-gray-200 rounded-full px-4 py-1.5"
-//           >
-//             <span className="w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0" />
-//             {item}
-//           </span>
-//         ))}
-//       </div>
-
-//       <hr className="border-gray-200 mb-12" />
-
-//       {/* ── Price List ── */}
-//       <p className="text-center text-xs uppercase tracking-widest text-gray-400 mb-1">
-//         Investment Overview
-//       </p>
-//       <h2 className="text-2xl md:text-3xl font-medium text-center text-gray-900 mb-10">
-//         AU Realestate — Price List
-//       </h2>
-
-//       <div className="border border-gray-200 rounded-xl overflow-hidden">
-//         <div className="flex items-center justify-between px-6 py-4 bg-gray-50 border-b border-gray-200">
-//           <span className="text-sm font-medium text-gray-800">Available Units</span>
-//           <span className="text-xs text-gray-500 bg-white border border-gray-200 rounded-full px-3 py-1">
-//             Ready to Book
-//           </span>
-//         </div>
-
-//         <div className="overflow-x-auto">
-//           <table className="w-full text-sm md:text-base">
-//             <thead>
-//               <tr className="bg-white">
-//                 <th className="text-left text-xs uppercase tracking-widest text-gray-400 font-medium px-6 py-4 border-b border-gray-200">
-//                   Unit Type
-//                 </th>
-//                 <th className="text-left text-xs uppercase tracking-widest text-gray-400 font-medium px-6 py-4 border-b border-gray-200">
-//                   Unit Area
-//                 </th>
-//                 <th className="text-left text-xs uppercase tracking-widest text-gray-400 font-medium px-6 py-4 border-b border-gray-200">
-//                   Unit Price
-//                 </th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {/* Row 1 */}
-//               <tr className="hover:bg-gray-50 transition-colors border-b border-gray-100">
-//                 <td className="px-6 py-5">
-//                   <p className="font-medium text-gray-900">3BHK + 3 Toilet</p>
-//                   <p className="text-xs text-gray-400 mt-0.5">Premium Configuration</p>
-//                 </td>
-//                 <td className="px-6 py-5">
-//                   <p className="font-medium text-gray-900">1780 Sq.Ft.</p>
-//                   <p className="text-xs text-gray-400 mt-0.5">11 ft ceiling</p>
-//                 </td>
-//                 <td className="px-6 py-5">
-//                   <p className="font-medium text-yellow-600">₹ CTA</p>
-//                   <p className="text-xs text-gray-400 mt-0.5">Contact for pricing</p>
-//                 </td>
-//               </tr>
-//               {/* Row 2 */}
-//               <tr className="hover:bg-gray-50 transition-colors border-b border-gray-100">
-//                 <td className="px-6 py-5">
-//                   <p className="font-medium text-gray-900">2.3 BHK + 3 Toilet+ Servant</p>
-//                   <p className="text-xs text-gray-400 mt-0.5">Premium Configuration</p>
-//                 </td>
-//                 <td className="px-6 py-5">
-//                   <p className="font-medium text-gray-900">1972 Sq.Ft.</p>
-//                   <p className="text-xs text-gray-400 mt-0.5">11 ft ceiling</p>
-//                 </td>
-//                 <td className="px-6 py-5">
-//                   <p className="font-medium text-yellow-600">₹ CTA</p>
-//                   <p className="text-xs text-gray-400 mt-0.5">Contact for pricing</p>
-//                 </td>
-//               </tr>
-//               {/* Row 3 */}
-//               <tr className="hover:bg-gray-50 transition-colors">
-//                 <td className="px-6 py-5">
-//                   <p className="font-medium text-gray-900">3.5 BHK + 3 Toilet + Servant</p>
-//                   <p className="text-xs text-gray-400 mt-0.5">Ultra Luxury Configuration</p>
-//                 </td>
-//                 <td className="px-6 py-5">
-//                   <p className="font-medium text-gray-900">3175 Sq.Ft.</p>
-//                   <p className="text-xs text-gray-400 mt-0.5">11 ft ceiling</p>
-//                 </td>
-//                 <td className="px-6 py-5">
-//                   <p className="font-medium text-yellow-600">₹ CTA</p>
-//                   <p className="text-xs text-gray-400 mt-0.5">Contact for pricing</p>
-//                 </td>
-//               </tr>
-//             </tbody>
-//           </table>
-//         </div>
-//       </div>
-
-//     </div>
-//   );
-// }
-
 import React from "react";
 
-const amenities = [
-  "Grand Clubhouse",
-  "Swimming Pool",
-  "Equipped Gym",
-  "Landscaped Gardens",
-  "Jogging Track",
-  "Kids' Play Area",
-  "Indoor Games",
-  "Open Green Spaces",
+const highlightCards = [
+  {
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="44" height="44">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+        <circle cx="12" cy="9" r="2.5" />
+      </svg>
+    ),
+    label: "Siddharth Vihar,\nGhaziabad",
+  },
+  {
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="44" height="44">
+        <rect x="3" y="10" width="18" height="11" rx="1" />
+        <path d="M12 2L2 10h20L12 2z" />
+        <rect x="9" y="14" width="2" height="4" />
+        <rect x="13" y="14" width="2" height="4" />
+      </svg>
+    ),
+    label: "3 Exclusive Towers",
+  },
+  {
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="44" height="44">
+        <rect x="2" y="7" width="20" height="13" rx="2" />
+        <path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2" />
+        <line x1="12" y1="12" x2="12" y2="16" />
+        <line x1="10" y1="14" x2="14" y2="14" />
+      </svg>
+    ),
+    label: "3 BHK, 3 BHK + Servant,\n5 BHK + Servant",
+  },
+  {
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="44" height="44">
+        <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z" />
+        <path d="M12 6v6l4 2" />
+        <circle cx="12" cy="12" r="1" fill="currentColor" />
+      </svg>
+    ),
+    label: "5.60 Acres of\nGreen Living",
+  },
+  {
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="44" height="44">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+        <polyline points="16 7 22 7 22 13" />
+      </svg>
+    ),
+    label: "Starting from\n1780 Sq.Ft.",
+  },
+  {
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="44" height="44">
+        <rect x="5" y="2" width="14" height="20" rx="1" />
+        <line x1="9" y1="7" x2="15" y2="7" />
+        <line x1="9" y1="11" x2="15" y2="11" />
+        <line x1="9" y1="15" x2="15" y2="15" />
+        <line x1="9" y1="19" x2="12" y2="19" />
+      </svg>
+    ),
+    label: "G+36 Floors",
+  },
+  {
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="44" height="44">
+        <rect x="4" y="2" width="6" height="20" rx="1" />
+        <rect x="14" y="2" width="6" height="20" rx="1" />
+        <line x1="7" y1="8" x2="7" y2="10" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="17" y1="14" x2="17" y2="16" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+    ),
+    label: "7 Apartments\nPer Floor",
+  },
+  {
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width="44" height="44">
+        <rect x="7" y="3" width="10" height="18" rx="1" />
+        <line x1="10" y1="3" x2="10" y2="21" />
+        <line x1="14" y1="3" x2="14" y2="21" />
+        <path d="M9 8h6M9 12h6M9 16h6" strokeLinecap="round" />
+        <path d="M12 3V1M12 23v-2" strokeLinecap="round" />
+      </svg>
+    ),
+    label: "7 High-Speed\nLifts",
+  },
 ];
 
-export default function ProjectHighlights({ onBookVisit }) {  {/* ← prop add kiya */}
+export default function ProjectHighlights({ onBookVisit }) {
   return (
-    <div id="highlights" className="max-w-5xl mx-auto px-3 md:px-6 py-12 bg-white">
+    <div id="highlights" style={{ background: "#fff", paddingBottom: "60px" }}>
 
-      <p className="text-center text-xs uppercase tracking-widest text-gray-400 mb-1">
-        Siddharth Vihar, Ghaziabad
-      </p>
-      <h2 className="text-2xl md:text-3xl font-medium text-center text-gray-900 mb-8">
-        Project Highlights
-      </h2>
-
-      <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-5">
-        The apartments at{" "}
-        <span className="text-yellow-600 font-medium">AU Realestate</span>{" "}
-        are thoughtfully designed with smart layouts and modern architecture. Spacious rooms,
-        wide balconies, and large windows ensure proper ventilation and natural light.
-      </p>
-      <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-8">
-        With approx.{" "}
-        <span className="text-gray-900 font-medium">1780 sq. ft.</span> of space and{" "}
-        <span className="text-gray-900 font-medium">11 ft ceiling height</span>, the homes feel
-        more open and luxurious. Premium finishes and elegant design add to the overall appeal.
-      </p>
-
-      {/* Stats Row */}
-      <div className="grid grid-cols-2 gap-4 mb-10">
-        <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl px-5 py-4">
-          <div className="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center text-yellow-600 text-xl">🏢</div>
-          <div>
-            <p className="text-2xl font-bold text-gray-900">7</p>
-            <p className="text-xs text-gray-500 uppercase tracking-wide">Apartments Per Floor</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-xl px-5 py-4">
-          <div className="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center text-yellow-600 text-xl">🛗</div>
-          <div>
-            <p className="text-2xl font-bold text-gray-900">7</p>
-            <p className="text-xs text-gray-500 uppercase tracking-wide">High-Speed Lifts</p>
-          </div>
-        </div>
+      {/* ── Section Heading ── */}
+      <div style={{ textAlign: "center", paddingTop: "60px", paddingBottom: "40px" }}>
+        <p style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
+          fontWeight: 700,
+          color: "#111",
+          letterSpacing: "0.02em",
+          marginBottom: "6px",
+        }}>
+          AU Realestate
+        </p>
+        <p style={{
+          fontFamily: "'Jost', sans-serif",
+          fontSize: "11px",
+          fontWeight: 700,
+          letterSpacing: "0.3em",
+          textTransform: "uppercase",
+          color: "#c8a042",
+          marginBottom: "8px",
+        }}>
+          HIGHLIGHTS
+        </p>
+        <div style={{
+          width: "40px",
+          height: "2px",
+          background: "#c8a042",
+          margin: "0 auto",
+        }} />
       </div>
 
-      <h3 className="text-xl font-medium text-gray-900 mb-4">Amenities &amp; Lifestyle</h3>
-      <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-4">
-        Residents can enjoy a wide range of modern amenities within the project. A grand
-        clubhouse, swimming pool, and fully equipped gym provide a perfect lifestyle upgrade.
-      </p>
-      <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-8">
-        Landscaped gardens, jogging tracks, and open green spaces offer relaxation and a healthy
-        living environment. Kids' play areas and indoor games ensure entertainment for all age groups.
-      </p>
+      {/* ── Highlight Cards Grid ── */}
+      <div style={{
+        maxWidth: "900px",
+        margin: "0 auto",
+        padding: "0 20px",
+        display: "grid",
+        gridTemplateColumns: "repeat(4, 1fr)",
+        gap: "20px",
+      }}
+        className="highlights-grid"
+      >
+        <style>{`
+          @media (max-width: 768px) {
+            .highlights-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          }
+          .highlight-card:hover {
+            box-shadow: 0 8px 28px rgba(200,160,66,0.18);
+            transform: translateY(-3px);
+          }
+        `}</style>
 
-      <div className="flex flex-wrap gap-3 mb-12">
-        {amenities.map((item) => (
-          <span
-            key={item}
-            className="flex items-center gap-2 text-sm text-gray-500 bg-gray-50 border border-gray-200 rounded-full px-4 py-1.5"
+        {highlightCards.map((card, i) => (
+          <div
+            key={i}
+            className="highlight-card"
+            style={{
+              border: "1.5px solid #c8a042",
+              borderRadius: "10px",
+              padding: "32px 20px 28px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "14px",
+              background: "#fff",
+              transition: "transform 0.25s, box-shadow 0.25s",
+              cursor: "default",
+            }}
           >
-            <span className="w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0" />
-            {item}
-          </span>
+            <div style={{ color: "#b8893a" }}>{card.svg}</div>
+            <p style={{
+              fontFamily: "'Jost', sans-serif",
+              fontSize: "15px",
+              fontWeight: 600,
+              color: "#1a1a1a",
+              textAlign: "center",
+              lineHeight: 1.45,
+              whiteSpace: "pre-line",
+            }}>
+              {card.label}
+            </p>
+          </div>
         ))}
       </div>
 
-      <hr className="border-gray-200 mb-12" />
+      {/* ── Divider ── */}
+      <div style={{ maxWidth: "900px", margin: "52px auto 0", padding: "0 20px" }}>
+        <hr style={{ border: "none", borderTop: "1px solid #e5e7eb" }} />
+      </div>
 
-      {/* Price List */}
-      <p className="text-center text-xs uppercase tracking-widest text-gray-400 mb-1">
-        Investment Overview
-      </p>
-      <h2 className="text-2xl md:text-3xl font-medium text-center text-gray-900 mb-10">
-        AU Realestate — Price List
-      </h2>
+      {/* ── Price List ── */}
+      <div id="pricelist" style={{ maxWidth: "900px", margin: "0 auto", padding: "52px 20px 0" }}>
+        <p style={{
+          textAlign: "center",
+          fontFamily: "'Jost', sans-serif",
+          fontSize: "11px",
+          fontWeight: 700,
+          letterSpacing: "0.3em",
+          textTransform: "uppercase",
+          color: "#c8a042",
+          marginBottom: "6px",
+        }}>
+          INVESTMENT OVERVIEW
+        </p>
+        <h2 style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: "clamp(1.4rem, 3vw, 2rem)",
+          fontWeight: 700,
+          textAlign: "center",
+          color: "#111",
+          marginBottom: "28px",
+          letterSpacing: "0.02em",
+        }}>
+          AU Realestate — Price List
+        </h2>
 
-      <div className="border border-gray-200 rounded-xl overflow-hidden">
-        <div className="flex items-center justify-between px-6 py-4 bg-gray-50 border-b border-gray-200">
-          <span className="text-sm font-medium text-gray-800">Available Units</span>
-          <span className="text-xs text-gray-500 bg-white border border-gray-200 rounded-full px-3 py-1">
-            Ready to Book
-          </span>
-        </div>
+        <div style={{ border: "1px solid #e5e7eb", borderRadius: "12px", overflow: "hidden" }}>
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "14px 24px",
+            background: "#f9fafb",
+            borderBottom: "1px solid #e5e7eb",
+          }}>
+            <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "13px", fontWeight: 600, color: "#111" }}>
+              Available Units
+            </span>
+            <span style={{
+              fontFamily: "'Jost', sans-serif",
+              fontSize: "11px",
+              color: "#6b7280",
+              background: "#fff",
+              border: "1px solid #e5e7eb",
+              borderRadius: "999px",
+              padding: "3px 12px",
+            }}>
+              Ready to Book
+            </span>
+          </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm md:text-base">
-            <thead>
-              <tr className="bg-white">
-                <th className="text-left text-xs uppercase tracking-widest text-gray-400 font-medium px-6 py-4 border-b border-gray-200">Unit Type</th>
-                <th className="text-left text-xs uppercase tracking-widest text-gray-400 font-medium px-6 py-4 border-b border-gray-200">Unit Area</th>
-                <th className="text-left text-xs uppercase tracking-widest text-gray-400 font-medium px-6 py-4 border-b border-gray-200">Unit Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Row 1 */}
-              <tr className="hover:bg-gray-50 transition-colors border-b border-gray-100">
-                <td className="px-6 py-5">
-                  <p className="font-medium text-gray-900">3 BHK + 3 Toilet</p>
-                  <p className="text-xs text-gray-400 mt-0.5">Premium Configuration</p>
-                </td>
-                <td className="px-6 py-5">
-                  <p className="font-medium text-gray-900">1780 Sq.Ft.</p>
-                  <p className="text-xs text-gray-400 mt-0.5">11 ft ceiling</p>
-                </td>
-                <td className="px-6 py-5">
-                  {/* ← CTA button */}
-                  <button
-                    onClick={onBookVisit}
-                    className="font-medium text-yellow-600 hover:text-yellow-700 hover:underline cursor-pointer"
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr style={{ background: "#fff" }}>
+                  {["Unit Type", "Unit Area", "Unit Price"].map((h) => (
+                    <th key={h} style={{
+                      textAlign: "left",
+                      fontFamily: "'Jost', sans-serif",
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      letterSpacing: "0.15em",
+                      textTransform: "uppercase",
+                      color: "#9ca3af",
+                      padding: "14px 24px",
+                      borderBottom: "1px solid #e5e7eb",
+                    }}>
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { type: "3 BHK + 3 Toilet", sub: "Premium Configuration", area: "1780 Sq.Ft.", areaSub: "11 ft ceiling" },
+                  { type: "3 BHK + 3 Toilet + Servant", sub: "Premium Configuration", area: "1972 Sq.Ft.", areaSub: "11 ft ceiling" },
+                  { type: "5 BHK + 3 Toilet + Servant", sub: "Ultra Luxury Configuration", area: "3175 Sq.Ft.", areaSub: "11 ft ceiling" },
+                ].map((row, i, arr) => (
+                  <tr
+                    key={i}
+                    style={{
+                      borderBottom: i < arr.length - 1 ? "1px solid #f3f4f6" : "none",
+                      background: "#fff",
+                      transition: "background 0.15s",
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.background = "#fefce8"}
+                    onMouseLeave={e => e.currentTarget.style.background = "#fff"}
                   >
-                    ₹ Get Price
-                  </button>
-                  <p className="text-xs text-gray-400 mt-0.5">Contact for pricing</p>
-                </td>
-              </tr>
-              {/* Row 2 */}
-              <tr className="hover:bg-gray-50 transition-colors border-b border-gray-100">
-                <td className="px-6 py-5">
-                  <p className="font-medium text-gray-900">2.3 BHK + 3 Toilet+ Servant</p>
-                  <p className="text-xs text-gray-400 mt-0.5">Premium Configuration</p>
-                </td>
-                <td className="px-6 py-5">
-                  <p className="font-medium text-gray-900">1972 Sq.Ft.</p>
-                  <p className="text-xs text-gray-400 mt-0.5">11 ft ceiling</p>
-                </td>
-                <td className="px-6 py-5">
-                  <button
-                    onClick={onBookVisit}
-                    className="font-medium text-yellow-600 hover:text-yellow-700 hover:underline cursor-pointer"
-                  >
-                    ₹ Get Price
-                  </button>
-                  <p className="text-xs text-gray-400 mt-0.5">Contact for pricing</p>
-                </td>
-              </tr>
-              {/* Row 3 */}
-              <tr className="hover:bg-gray-50 transition-colors">
-                <td className="px-6 py-5">
-                  <p className="font-medium text-gray-900">3.5 BHK + 3 Toilet + Servant</p>
-                  <p className="text-xs text-gray-400 mt-0.5">Ultra Luxury Configuration</p>
-                </td>
-                <td className="px-6 py-5">
-                  <p className="font-medium text-gray-900">3175 Sq.Ft.</p>
-                  <p className="text-xs text-gray-400 mt-0.5">11 ft ceiling</p>
-                </td>
-                <td className="px-6 py-5">
-                  <button
-                    onClick={onBookVisit}
-                    className="font-medium text-yellow-600 hover:text-yellow-700 hover:underline cursor-pointer"
-                  >
-                    ₹ Get Price
-                  </button>
-                  <p className="text-xs text-gray-400 mt-0.5">Contact for pricing</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                    <td style={{ padding: "18px 24px" }}>
+                      <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 600, color: "#111", fontSize: "14px" }}>{row.type}</p>
+                      <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{row.sub}</p>
+                    </td>
+                    <td style={{ padding: "18px 24px" }}>
+                      <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 600, color: "#111", fontSize: "14px" }}>{row.area}</p>
+                      <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{row.areaSub}</p>
+                    </td>
+                    <td style={{ padding: "18px 24px" }}>
+                      <button
+                        onClick={onBookVisit}
+                        style={{
+                          fontFamily: "'Jost', sans-serif",
+                          fontWeight: 700,
+                          fontSize: "13px",
+                          color: "#b8893a",
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          padding: 0,
+                          textDecoration: "underline",
+                          textUnderlineOffset: "3px",
+                        }}
+                      >
+                        ₹ Get Price
+                      </button>
+                      <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>Contact for pricing</p>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

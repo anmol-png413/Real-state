@@ -20,7 +20,7 @@ const nearbyPlaces = [
   "Akshardham Temple — 33 Min.", "IGI Airport — 63 Min.",
 ];
 
-export default function Footer() {
+export default function Footer({ onBookVisit }) {
   return (
     <footer className="w-full bg-gray-900 text-white">
 
@@ -101,10 +101,13 @@ export default function Footer() {
                 <span className="text-yellow-500 mt-0.5">📍</span>
                 Siddharth Vihar, Ghaziabad, Uttar Pradesh
               </p>
-              <p className="text-gray-400 text-sm flex items-center gap-2">
-                <span className="text-yellow-500">📞</span>
+              <button
+                onClick={onBookVisit}
+                className="text-yellow-400 text-sm flex items-center gap-2 bg-transparent border-none p-0 cursor-pointer font-bold hover:underline"
+              >
+                <span>📞</span>
                 9711557670
-              </p>
+              </button>
               <p className="text-gray-400 text-sm flex items-center gap-2">
                 <span className="text-yellow-500">✉️</span>
                 info@trueeliteestate.com

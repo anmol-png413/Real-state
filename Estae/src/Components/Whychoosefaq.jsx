@@ -184,10 +184,13 @@ export default function WhyChooseFAQ({ onBookVisit }) {
         {/* Bottom note */}
         <p className="text-center text-gray-400 text-sm mt-10">
           Still have questions?{" "}
-          <span className="text-yellow-600 font-medium cursor-pointer hover:underline">
-            Call us at 9711557670
-
-          </span>
+          <button
+            onClick={onBookVisit}
+            className="text-yellow-600 font-bold cursor-pointer hover:underline bg-transparent border-none p-0"
+            style={{ fontFamily: "inherit", fontSize: "inherit" }}
+          >
+            📞 Call us at 9711557670
+          </button>
         </p>
       </section>
 

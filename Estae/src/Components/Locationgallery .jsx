@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
-const locationPoints = [
-  { left: "City Centre", leftTime: "20 Min.", right: "Amity University", rightTime: "16 Min." },
-  { left: "Fortis Hospital", leftTime: "15 Min.", right: "Mall Of India", rightTime: "18 Min." },
-  { left: "Akshardham Temple", leftTime: "25 Min.", right: "Indira Gandhi International Airport", rightTime: "60 Min." },
+const locationCards = [
+  { label: "City Centre", time: "20 Min." },
+  { label: "Amity University", time: "16 Min." },
+  { label: "Fortis Hospital", time: "15 Min." },
+  { label: "Mall Of India", time: "18 Min." },
+  { label: "Akshardham Temple", time: "25 Min." },
+  { label: "NH-24 / Delhi-Meerut Expressway", time: "2 Min." },
+  { label: "Noida Sector 62", time: "10 Min." },
+  { label: "IGI Airport", time: "60 Min." },
 ];
 
 const galleryImages = [
@@ -74,29 +79,61 @@ export default function LocationGallery() {
           </div>
         </div>
 
-        {/* Distance Table */}
-        <div className="border border-gray-200 rounded-xl overflow-hidden">
-          {locationPoints.map((row, i) => (
+        {/* Location Cards Grid */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "14px",
+        }} className="loc-grid">
+          <style>{`
+            @media (max-width: 768px) { .loc-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+            @media (max-width: 480px) { .loc-grid { grid-template-columns: repeat(1, 1fr) !important; } }
+          `}</style>
+
+          {locationCards.map((card, i) => (
             <div
               key={i}
-              className={`flex flex-col sm:flex-row ${
-                i !== locationPoints.length - 1 ? "border-b border-gray-200" : ""
-              }`}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "14px",
+                background: "#fff",
+                border: "1px solid #e8e0d0",
+                borderRadius: "10px",
+                padding: "16px 18px",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+              }}
             >
-              <div className="flex items-center gap-3 px-6 py-4 w-full sm:w-1/2 border-b sm:border-b-0 sm:border-r border-gray-200">
-                <span className="text-yellow-500 font-bold text-lg">✓</span>
-                <span className="text-gray-800 text-sm md:text-base">
-                  {row.left}{" "}
-                  <span className="text-gray-500 font-normal">{row.leftTime}</span>
-                </span>
+              {/* Gold circle number */}
+              <div style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                background: "#c8a042",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "15px",
+                fontWeight: 700,
+                color: "#fff",
+              }}>
+                {i + 1}
               </div>
-              <div className="flex items-center gap-3 px-6 py-4 w-full sm:w-1/2">
-                <span className="text-yellow-500 font-bold text-lg">✓</span>
-                <span className="text-gray-800 text-sm md:text-base">
-                  {row.right}{" "}
-                  <span className="text-gray-500 font-normal">{row.rightTime}</span>
-                </span>
-              </div>
+
+              {/* Text */}
+              <p style={{
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "13px",
+                fontWeight: 700,
+                color: "#1a1a2e",
+                lineHeight: 1.4,
+                margin: 0,
+              }}>
+                {card.label}
+                <span style={{ color: "#888", fontWeight: 400 }}> – {card.time}</span>
+              </p>
             </div>
           ))}
         </div>
@@ -105,16 +142,16 @@ export default function LocationGallery() {
       {/* ══════════════════════════════
           SECTION 2 — GALLERY
       ══════════════════════════════ */}
-      <section className="w-full px-4 md:px-10 py-14 bg-gray-50">
+      {/* <section className="w-full px-4 md:px-10 py-14 bg-gray-50">
 
         {/* Heading */}
-        <h2 className="text-2xl md:text-4xl font-bold text-center tracking-widest text-gray-900 uppercase mb-2">
+        {/* <h2 className="text-2xl md:text-4xl font-bold text-center tracking-widest text-gray-900 uppercase mb-2">
          AU Realestate — Gallery
-        </h2>
-        <div className="w-20 h-0.5 bg-yellow-600 mx-auto mb-10 rounded" />
+        </h2> */}
+        {/* <div className="w-20 h-0.5 bg-yellow-600 mx-auto mb-10 rounded" /> */}
 
         {/* Image Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {galleryImages.map((img, i) => (
             <div
               key={i}
@@ -130,7 +167,7 @@ export default function LocationGallery() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */} 
 
       {/* Lightbox */}
       {activeImg && (

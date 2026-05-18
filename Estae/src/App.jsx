@@ -13,6 +13,21 @@ import ProjectGallery from './Components/Projectgallery';
 import About from './Components/About ';
 import SitePlan from './Components/SitePlan';
 
+const floatingBtnBase = {
+  position: "fixed",
+  top: "50%",
+  zIndex: 40,
+  writingMode: "vertical-rl",
+  fontSize: "11px",
+  fontWeight: 800,
+  letterSpacing: "0.18em",
+  textTransform: "uppercase",
+  padding: "18px 10px",
+  border: "none",
+  cursor: "pointer",
+  fontFamily: "'Jost', sans-serif",
+};
+
 function App() {
   const [showModal, setShowModal] = useState(false);
 
@@ -22,26 +37,60 @@ function App() {
       {/* Fixed Navbar */}
       <Navbar onBookVisit={() => setShowModal(true)} />
 
-      {/* pt-20 — navbar ke neeche content overlap na ho */}
       <div>
-        <HeroSection />
+        <HeroSection onBookVisit={() => setShowModal(true)} />
 
-    <OverviewSection onBookVisit={() => setShowModal(true)} />
+
+        <OverviewSection onBookVisit={() => setShowModal(true)} />
         <About />
         <SitePlan />
         <AmenitiesSection />
 
-        <Projecthighlights  onBookVisit={() => setShowModal(true)}/>
+        <Projecthighlights onBookVisit={() => setShowModal(true)} />
         <LocationGallery />
-     <Whychoosefaq onBookVisit={() => setShowModal(true)} />
+        {/* <Whychoosefaq onBookVisit={() => setShowModal(true)} /> */}
         <ProjectGallery />
-        <ContactForm />
-        <Footer />
+        <ContactForm onPhoneClick={() => setShowModal(true)} />
+        <Footer onBookVisit={() => setShowModal(true)} />
       </div>
+
+      {/* Left Floating Button — Download Brochure */}
+      <button
+        onClick={() => setShowModal(true)}
+        style={{
+          ...floatingBtnBase,
+          left: 0,
+          transform: "translateY(-50%) rotate(180deg)",
+          background: "#111",
+          color: "#fff",
+          boxShadow: "3px 0 12px rgba(0,0,0,0.25)",
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = "#333"}
+        onMouseLeave={e => e.currentTarget.style.background = "#111"}
+      >
+        Download Brochure
+      </button>
+
+      {/* Right Floating Button — Download Prices */}
+      <button
+        onClick={() => setShowModal(true)}
+        style={{
+          ...floatingBtnBase,
+          right: 0,
+          transform: "translateY(-50%)",
+          background: "#eab308",
+          color: "#111",
+          boxShadow: "-3px 0 12px rgba(0,0,0,0.2)",
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = "#ca8a04"}
+        onMouseLeave={e => e.currentTarget.style.background = "#eab308"}
+      >
+        Download Prices
+      </button>
 
       {/* WhatsApp Fixed Floating Button */}
       <a
-       href="https://wa.me/9711557670?text=Hello%2C%20I%20am%20interested%20in%20buying%20a%20property%20at%20AU%20Real%20Estate.%20Please%20share%20details."
+        href="https://wa.me/9711557670?text=Hello%2C%20I%20am%20interested%20in%20buying%20a%20property%20at%20AU%20Real%20Estate.%20Please%20share%20details."
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-6 right-5 z-50"

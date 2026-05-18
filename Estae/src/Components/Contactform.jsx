@@ -1,17 +1,44 @@
-
-
 import React, { useState } from "react";
 
-export default function ContactForm() {
+const nameRegex = /^[a-zA-Z\s]{2,50}$/;
+const phoneRegex = /^[6-9]\d{9}$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export default function ContactForm({ onPhoneClick }) {
   const [form, setForm] = useState({
     name: "", phone: "", email: "", interest: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({ name: "", phone: "", email: "" });
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
+
+  const validate = () => {
+    const newErrors = { name: "", phone: "", email: "" };
+    if (!form.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (!nameRegex.test(form.name.trim())) {
+      newErrors.name = "Only letters and spaces allowed";
+    }
+    const cleanPhone = form.phone.replace(/[\s\-()+ ]/g, "").replace(/^91/, "");
+    if (!form.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!phoneRegex.test(cleanPhone)) {
+      newErrors.phone = "Enter valid 10-digit mobile number";
+    }
+    if (form.email && !emailRegex.test(form.email)) {
+      newErrors.email = "Enter a valid email address";
+    }
+    setErrors(newErrors);
+    return !newErrors.name && !newErrors.phone && !newErrors.email;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
     try {
       const response = await fetch('https://real-state-udkw.vercel.app/api/enquiry', {
       // const response = await fetch('http://localhost:3000/api/enquiry', {
@@ -60,17 +87,31 @@ export default function ContactForm() {
             </div>
             <div className="flex flex-col gap-3">
               {[
-                { icon: "📍", label: "ADDRESS", value: "Siddharth Vihar, Ghaziabad, UP" },
-                { icon: "📞", label: "PHONE", value: "9711557670" },
-                { icon: "🕐", label: "WORKING HOURS", value: "Mon – Sun: 9:00 AM – 7:00 PM" },
+                { icon: "📍", label: "ADDRESS", value: "Siddharth Vihar, Ghaziabad, UP", clickable: false },
+                { icon: "📞", label: "PHONE", value: "9711557670", clickable: true },
+                { icon: "🕐", label: "WORKING HOURS", value: "Mon – Sun: 9:00 AM – 7:00 PM", clickable: false },
               ].map((item) => (
-                <div key={item.label} className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-yellow-400 flex items-center justify-center text-sm flex-shrink-0">
+                <div
+                  key={item.label}
+                  className="flex items-center gap-3"
+                  style={item.clickable ? { cursor: "pointer" } : {}}
+                  onClick={item.clickable && onPhoneClick ? onPhoneClick : undefined}
+                >
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center text-sm flex-shrink-0"
+                    style={{ background: item.clickable ? "#f59e0b" : "#facc15" }}
+                  >
                     {item.icon}
                   </div>
                   <div>
                     <p className="text-white text-xs font-semibold uppercase tracking-wide leading-none mb-0.5">{item.label}</p>
-                    <p className="text-yellow-100 text-xs">{item.value}</p>
+                    <p
+                      className="text-xs"
+                      style={item.clickable ? { color: "#fff", fontWeight: 800, fontSize: "14px", letterSpacing: "0.04em" } : { color: "#fef9c3" }}
+                    >
+                      {item.value}
+                      {item.clickable && <span style={{ marginLeft: "6px", fontSize: "11px", opacity: 0.8 }}>→ Get Callback</span>}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -110,8 +151,9 @@ export default function ContactForm() {
                     <input
                       type="text" name="name" value={form.name}
                       onChange={handleChange} required placeholder="Rahul Sharma"
-                      className="border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 transition"
+                      className={`border rounded-xl px-3 py-2.5 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:ring-2 transition ${errors.name ? "border-red-400 focus:ring-red-100" : "border-gray-200 focus:border-yellow-400 focus:ring-yellow-100"}`}
                     />
+                    {errors.name && <p className="text-red-500 text-xs mt-0.5">{errors.name}</p>}
                   </div>
                   <div className="flex-1 flex flex-col gap-1">
                     <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">
@@ -120,18 +162,23 @@ export default function ContactForm() {
                     <input
                       type="tel" name="phone" value={form.phone}
                       onChange={handleChange} required placeholder="+91 98765 43210"
-                      className="border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 transition"
+                      className={`border rounded-xl px-3 py-2.5 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:ring-2 transition ${errors.phone ? "border-red-400 focus:ring-red-100" : "border-gray-200 focus:border-yellow-400 focus:ring-yellow-100"}`}
                     />
+                    {errors.phone && <p className="text-red-500 text-xs mt-0.5">{errors.phone}</p>}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">Email Address</label>
+                  <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                    Email Address{" "}
+                    <span className="text-gray-400 normal-case text-xs font-normal">(optional)</span>
+                  </label>
                   <input
                     type="email" name="email" value={form.email}
                     onChange={handleChange} placeholder="rahul@email.com"
-                    className="border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 transition"
+                    className={`border rounded-xl px-3 py-2.5 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:ring-2 transition ${errors.email ? "border-red-400 focus:ring-red-100" : "border-gray-200 focus:border-yellow-400 focus:ring-yellow-100"}`}
                   />
+                  {errors.email && <p className="text-red-500 text-xs mt-0.5">{errors.email}</p>}
                 </div>
 
                 <div className="flex flex-col gap-1">
