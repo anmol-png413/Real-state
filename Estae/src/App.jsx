@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import HeroSection from './Components/HeroSection';
 import Navbar from './Components/Navbar';
@@ -12,6 +13,7 @@ import Footer from './Components/Footer ';
 import ProjectGallery from './Components/Projectgallery';
 import About from './Components/About ';
 import SitePlan from './Components/SitePlan';
+import ThankYou from './Components/ThankYou';
 
 const floatingBtnBase = {
   position: "fixed",
@@ -28,7 +30,7 @@ const floatingBtnBase = {
   fontFamily: "'Jost', sans-serif",
 };
 
-function App() {
+function HomePage() {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -125,6 +127,17 @@ function App() {
       )}
 
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/thank-you" element={<ThankYou />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
