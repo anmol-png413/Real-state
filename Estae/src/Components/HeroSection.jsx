@@ -108,7 +108,7 @@ setErrors({});
         }
       `}</style>
 
-      <section className="relative w-full h-screen overflow-hidden">
+      <section className="relative w-full min-h-screen overflow-hidden">
 
         {/* Background Image */}
         <img
@@ -127,7 +127,7 @@ setErrors({});
 />
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between h-full px-8 md:px-14 lg:px-20 py-20 gap-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 py-20 gap-10">
 
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">

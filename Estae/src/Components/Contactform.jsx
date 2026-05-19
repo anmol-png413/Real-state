@@ -78,7 +78,7 @@ export default function ContactForm({ onPhoneClick }) {
         <div className="flex flex-col md:flex-row">
 
           {/* Left Yellow Panel */}
-          <div className="bg-yellow-500 md:w-2/5 px-6 py-6 flex flex-col justify-between gap-4">
+          <div className="bg-yellow-500 md:w-2/5 px-6 py-6 hidden md:flex flex-col justify-between gap-4">
             <div>
               <h3 className="text-white text-lg font-bold mb-1">AU Realestate</h3>
               <p className="text-yellow-100 text-xs leading-relaxed">
