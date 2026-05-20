@@ -4,22 +4,31 @@ import { useNavigate } from "react-router-dom";
 export default function ThankYou() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Google Ads Conversion Tracking — apna conversion ID yahan lagao
-    // if (typeof window.gtag === "function") {
-    //   window.gtag("event", "conversion", {
-    //     send_to: "AW-XXXXXXXXX/YYYYYYYYYYY", // <-- apna Google Ads conversion ID
-    //   });
-    // }
+  // useEffect(() => {
+  //   // Google Ads Conversion Tracking — apna conversion ID yahan lagao
+  //   // if (typeof window.gtag === "function") {
+  //   //   window.gtag("event", "conversion", {
+  //   //     send_to: "AW-XXXXXXXXX/YYYYYYYYYYY", // <-- apna Google Ads conversion ID
+  //   //   });
+  //   // }
 
-    // Google Analytics Event
-    // if (typeof window.gtag === "function") {
-    //   window.gtag("event", "form_submit", {
-    //     event_category: "Lead",
-    //     event_label: "Enquiry Form",
-    //   });
-    // }
-  }, []);
+  //   // Google Analytics Event
+  //   // if (typeof window.gtag === "function") {
+  //   //   window.gtag("event", "form_submit", {
+  //   //     event_category: "Lead",
+  //   //     event_label: "Enquiry Form",
+  //   //   });
+  //   // }
+  // }, []); 
+  useEffect(() => {
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: "thank_you_page",
+      eventCategory: "Lead",
+      eventLabel: "Enquiry Form Submitted",
+    });
+  }
+}, []);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
