@@ -13,11 +13,11 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ success: false });
 
-  const { full_name, phone, email, interested_in, message } = req.body;
+  const { full_name, phone, email, interested_in, message ,  source} = req.body;
 
   const { error } = await supabase
     .from('enquiries')
-    .insert([{ full_name, phone, email, interested_in, message }]);
+    .insert([{ full_name, phone, email, interested_in, message , source }]);
 
   if (error) return res.status(500).json({ success: false, error: error.message });
 
