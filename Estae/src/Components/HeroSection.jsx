@@ -150,21 +150,87 @@ const HeroSection = ({ onBookVisit }) => {
           }}
         />
 
+        {/* RERA Stamp — absolute top-center */}
+        <div style={{
+          position: "absolute",
+          top: "10px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 20,
+        }}>
+          <div style={{
+            position: "relative",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "130px",
+            height: "130px",
+            borderRadius: "50%",
+            border: "4px solid #f5c842",
+            boxShadow: "0 0 0 2px rgba(245,200,66,0.3), 0 0 0 6px rgba(245,200,66,0.1), 0 4px 24px rgba(0,0,0,0.5)",
+            background: "rgba(0,0,0,0.5)",
+            backdropFilter: "blur(6px)",
+          }}>
+            {/* Dashed inner ring */}
+            <div style={{
+              position: "absolute",
+              inset: "6px",
+              borderRadius: "50%",
+              border: "1.5px dashed rgba(245,200,66,0.55)",
+              pointerEvents: "none",
+            }} />
+
+            {/* Inner content */}
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "2px",
+              padding: "14px",
+              textAlign: "center",
+            }}>
+              <span style={{ fontSize: "11px", color: "#f5c842", lineHeight: 1 }}>★</span>
+              <span style={{
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "9px",
+                fontWeight: 800,
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "#f5c842",
+                lineHeight: 1.1,
+              }}>RERA</span>
+              <span style={{
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "13px",
+                fontWeight: 900,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "#fff",
+                lineHeight: 1.1,
+              }}>APPROVED</span>
+              <div style={{ width: "40px", height: "1px", background: "#f5c842", margin: "3px 0" }} />
+              <span style={{
+                fontSize: "11.5px",
+                fontWeight: 700,
+                letterSpacing: "0.03em",
+                color: "#fff",
+                lineHeight: 1.6,
+                wordBreak: "break-all",
+                maxWidth: "100px",
+                textAlign: "center",
+              }}>UPRERAPRJ466336<br/>05/2026</span>
+              <span style={{ fontSize: "11px", color: "#f5c842", lineHeight: 1, marginTop: "2px" }}>★</span>
+            </div>
+          </div>
+        </div>
+
         {/* Content */}
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 py-20 gap-10">
 
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">
 
-{/* RERA Badge */}
-<div className="flex flex-col items-start w-full mb-1">
-  <span className="text-yellow-400 text-4xl font-extrabold tracking-widest uppercase px-4 py-1.5 rounded">
-    RERA Approved
-  </span>
-  <span className="text-white/80 text-3xl font-medium tracking-wider mt-1 px-4">
-   UPRERAPRJ466336/05/2026
-  </span>
-</div>
 
             <span style={{
               fontFamily: "'Lato', sans-serif",
