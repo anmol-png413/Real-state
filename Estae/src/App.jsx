@@ -13,6 +13,7 @@ import Footer from './Components/Footer ';
 import ProjectGallery from './Components/Projectgallery';
 import About from './Components/About ';
 import SitePlan from './Components/SitePlan';
+import CosmosCorner from './Components/CosmosCorner';
 import ThankYou from './Components/ThankYou';
 
 const floatingBtnBase = {
@@ -32,33 +33,37 @@ const floatingBtnBase = {
 
 function HomePage() {
   const [showModal, setShowModal] = useState(false);
+  const [modalSource, setModalSource] = useState("General");
+const [downloadBrochure, setDownloadBrochure] = useState(false);
 
   return (
     <div className="App">
 
       {/* Fixed Navbar */}
-      <Navbar onBookVisit={() => setShowModal(true)} />
+      <Navbar onBookVisit={() => { setModalSource("Navbar"); setShowModal(true); }} />
 
       <div>
-        <HeroSection onBookVisit={() => setShowModal(true)} />
+      <HeroSection onBookVisit={() => { setModalSource("Hero Section"); setShowModal(true); }} />
 
 
-        <OverviewSection onBookVisit={() => setShowModal(true)} />
+<OverviewSection onBookVisit={() => { setModalSource("Overview"); setShowModal(true); }} />
         <About />
         <SitePlan />
+        <CosmosCorner onBookVisit={() => { setModalSource("Cosmos Corner"); setShowModal(true); }} />
         <AmenitiesSection />
 
-        <Projecthighlights onBookVisit={() => setShowModal(true)} />
+        <Projecthighlights onBookVisit={() => { setModalSource("Project Highlights"); setShowModal(true); }} />
         <LocationGallery />
         {/* <Whychoosefaq onBookVisit={() => setShowModal(true)} /> */}
         <ProjectGallery />
-        <ContactForm onPhoneClick={() => setShowModal(true)} />
-        <Footer onBookVisit={() => setShowModal(true)} />
+       <ContactForm onPhoneClick={() => { setModalSource("Contact Form Phone"); setShowModal(true); }} source="Contact Form" />
+        <Footer onBookVisit={() => { setModalSource("Footer"); setShowModal(true); }} />
       </div>
 
       {/* Left Floating Button — Download Brochure */}
       <button
-        onClick={() => setShowModal(true)}
+        // onClick={() => setShowModal(true)}
+        onClick={() => { setModalSource("Download Brochure"); setDownloadBrochure(true); setShowModal(true); }}
         style={{
           ...floatingBtnBase,
           left: 0,
@@ -75,7 +80,8 @@ function HomePage() {
 
       {/* Right Floating Button — Download Prices */}
       <button
-        onClick={() => setShowModal(true)}
+       
+        onClick={() => { setModalSource("Download Prices"); setDownloadBrochure(false); setShowModal(true); }}
         style={{
           ...floatingBtnBase,
           right: 0,
@@ -108,7 +114,9 @@ function HomePage() {
       {showModal && (
         <div
           className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
-          onClick={() => setShowModal(false)}
+          // onClick={() => setShowModal(false)}
+          onClick={() => { setShowModal(false); setDownloadBrochure(false); setModalSource("General"); }}
+
         >
           <div
             className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl"
@@ -116,12 +124,13 @@ function HomePage() {
           >
             {/* Close Button */}
             <button
-              onClick={() => setShowModal(false)}
+              // onClick={() => setShowModal(false)}
+              onClick={() => { setShowModal(false); setDownloadBrochure(false); setModalSource("General"); }}
               className="absolute top-3 right-4 text-white hover:text-yellow-400 text-3xl font-light z-10 bg-black/40 rounded-full w-9 h-9 flex items-center justify-center"
             >
               ✕
             </button>
-            <ContactForm />
+         <ContactForm source={modalSource} downloadBrochure={downloadBrochure} />
           </div>
         </div>
       )}
