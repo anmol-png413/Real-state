@@ -31,39 +31,45 @@ const floatingBtnBase = {
   fontFamily: "'Jost', sans-serif",
 };
 
+const trackEvent = (source, event_type) => {
+  fetch('https://real-state-udkw.vercel.app/api/event', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ source, event_type })
+  }).catch(() => {});
+};
+
 function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [modalSource, setModalSource] = useState("General");
-const [downloadBrochure, setDownloadBrochure] = useState(false);
+  const [downloadBrochure, setDownloadBrochure] = useState(false);
 
   return (
     <div className="App">
 
       {/* Fixed Navbar */}
-      <Navbar onBookVisit={() => { setModalSource("Navbar"); setShowModal(true); }} />
+      <Navbar onBookVisit={() => { trackEvent("Navbar", "book_visit_click"); setModalSource("Navbar"); setShowModal(true); }} />
 
       <div>
-      <HeroSection onBookVisit={() => { setModalSource("Hero Section"); setShowModal(true); }} />
+      <HeroSection onBookVisit={() => { trackEvent("Hero Section", "book_visit_click"); setModalSource("Hero Section"); setShowModal(true); }} />
 
-
-<OverviewSection onBookVisit={() => { setModalSource("Overview"); setShowModal(true); }} />
+      <OverviewSection onBookVisit={() => { trackEvent("Overview", "book_visit_click"); setModalSource("Overview"); setShowModal(true); }} />
         <About />
         <SitePlan />
-        <CosmosCorner onBookVisit={() => { setModalSource("Cosmos Corner"); setShowModal(true); }} />
+        <CosmosCorner onBookVisit={() => { trackEvent("Cosmos Corner", "brochure_download_click"); setModalSource("Cosmos Corner"); setDownloadBrochure(true); setShowModal(true); }} />
         <AmenitiesSection />
 
-        <Projecthighlights onBookVisit={() => { setModalSource("Project Highlights"); setShowModal(true); }} />
+        <Projecthighlights onBookVisit={() => { trackEvent("Project Highlights", "book_visit_click"); setModalSource("Project Highlights"); setShowModal(true); }} />
         <LocationGallery />
         {/* <Whychoosefaq onBookVisit={() => setShowModal(true)} /> */}
         <ProjectGallery />
-       <ContactForm onPhoneClick={() => { setModalSource("Contact Form Phone"); setShowModal(true); }} source="Contact Form" />
-        <Footer onBookVisit={() => { setModalSource("Footer"); setShowModal(true); }} />
+        <ContactForm onPhoneClick={() => { trackEvent("Contact Form Phone", "phone_click"); setModalSource("Contact Form Phone"); setShowModal(true); }} source="Contact Form" />
+        <Footer onBookVisit={() => { trackEvent("Footer", "book_visit_click"); setModalSource("Footer"); setShowModal(true); }} />
       </div>
 
       {/* Left Floating Button — Download Brochure */}
       <button
-        // onClick={() => setShowModal(true)}
-        onClick={() => { setModalSource("Download Brochure"); setDownloadBrochure(true); setShowModal(true); }}
+        onClick={() => { trackEvent("Download Brochure", "brochure_download_click"); setModalSource("Download Brochure"); setDownloadBrochure(true); setShowModal(true); }}
         style={{
           ...floatingBtnBase,
           left: 0,
@@ -81,7 +87,7 @@ const [downloadBrochure, setDownloadBrochure] = useState(false);
       {/* Right Floating Button — Download Prices */}
       <button
        
-        onClick={() => { setModalSource("Download Prices"); setDownloadBrochure(false); setShowModal(true); }}
+        onClick={() => { trackEvent("Download Prices", "price_list_click"); setModalSource("Download Prices"); setDownloadBrochure(false); setShowModal(true); }}
         style={{
           ...floatingBtnBase,
           right: 0,
