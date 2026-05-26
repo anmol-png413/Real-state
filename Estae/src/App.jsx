@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import HeroSection from './Components/HeroSection';
@@ -15,6 +15,14 @@ import About from './Components/About ';
 import SitePlan from './Components/SitePlan';
 import CosmosCorner from './Components/CosmosCorner';
 import ThankYou from './Components/ThankYou';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Disclaimer from './pages/Disclaimer';
+import ReraDisclaimer from './pages/ReraDisclaimer';
+import TermsAndConditions from './pages/TermsAndConditions';
+import DataUsage from './pages/DataUsage';
+import AuthorizedPartner from './pages/AuthorizedPartner';
 
 const floatingBtnBase = {
   position: "fixed",
@@ -31,49 +39,98 @@ const floatingBtnBase = {
   fontFamily: "'Jost', sans-serif",
 };
 
-const trackEvent = (source, event_type) => {
-  fetch('https://real-state-udkw.vercel.app/api/event', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ source, event_type })
-  }).catch(() => {});
-};
-
 function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [modalSource, setModalSource] = useState("General");
   const [downloadBrochure, setDownloadBrochure] = useState(false);
+  const [buttonsVisible, setButtonsVisible] = useState(false);
+  const reopenTimerRef = useRef(null);
+  const scrollTimerRef = useRef(null);
+  const initialShownRef = useRef(false);
+
+  // Auto-open popup after 3s on landing
+  useEffect(() => {
+    const initialTimer = setTimeout(() => {
+      setModalSource("Auto Popup");
+      setShowModal(true);
+    }, 3000);
+    return () => clearTimeout(initialTimer);
+  }, []);
+
+  // Show floating buttons after 4s, then toggle on scroll activity
+  useEffect(() => {
+    const btnTimer = setTimeout(() => {
+      setButtonsVisible(true);
+      initialShownRef.current = true;
+    }, 4000);
+
+    const handleScroll = () => {
+      if (!initialShownRef.current) return;
+      // Hide while scrolling
+      setButtonsVisible(false);
+      // Show again 1.5s after scroll stops
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+      scrollTimerRef.current = setTimeout(() => setButtonsVisible(true), 1500);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      clearTimeout(btnTimer);
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Start 30s reopen timer when modal is closed
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setDownloadBrochure(false);
+    setModalSource("General");
+    if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
+    reopenTimerRef.current = setTimeout(() => {
+      setModalSource("Auto Reopen");
+      setShowModal(true);
+    }, 30000);
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => { if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current); };
+  }, []);
 
   return (
     <div className="App">
 
       {/* Fixed Navbar */}
-      <Navbar onBookVisit={() => { trackEvent("Navbar", "book_visit_click"); setModalSource("Navbar"); setShowModal(true); }} />
+      <Navbar onBookVisit={() => { setModalSource("Navbar"); setShowModal(true); }} />
 
       <div>
-      <HeroSection onBookVisit={() => { trackEvent("Hero Section", "book_visit_click"); setModalSource("Hero Section"); setShowModal(true); }} />
+      <HeroSection onBookVisit={() => { setModalSource("Hero Section"); setShowModal(true); }} />
 
-      <OverviewSection onBookVisit={() => { trackEvent("Overview", "book_visit_click"); setModalSource("Overview"); setShowModal(true); }} />
+
+<OverviewSection onBookVisit={() => { setModalSource("Overview"); setShowModal(true); }} />
         <About />
         <SitePlan />
-        <CosmosCorner onBookVisit={() => { trackEvent("Cosmos Corner", "brochure_download_click"); setModalSource("Cosmos Corner"); setDownloadBrochure(true); setShowModal(true); }} />
+        <CosmosCorner onBookVisit={() => { setModalSource("Download Brochure from Collection"); setDownloadBrochure(true); setShowModal(true); }} />
         <AmenitiesSection />
 
-        <Projecthighlights onBookVisit={() => { trackEvent("Project Highlights", "book_visit_click"); setModalSource("Project Highlights"); setShowModal(true); }} />
+        <Projecthighlights onBookVisit={() => { setModalSource("Project Highlights"); setShowModal(true); }} />
         <LocationGallery />
         {/* <Whychoosefaq onBookVisit={() => setShowModal(true)} /> */}
         <ProjectGallery />
-        <ContactForm onPhoneClick={() => { trackEvent("Contact Form Phone", "phone_click"); setModalSource("Contact Form Phone"); setShowModal(true); }} source="Contact Form" />
-        <Footer onBookVisit={() => { trackEvent("Footer", "book_visit_click"); setModalSource("Footer"); setShowModal(true); }} />
+       <ContactForm onPhoneClick={() => { setModalSource("Contact Form Phone"); setShowModal(true); }} source="Contact Form" />
+        <Footer onBookVisit={() => { setModalSource("Footer"); setShowModal(true); }} />
       </div>
 
       {/* Left Floating Button — Download Brochure */}
       <button
-        onClick={() => { trackEvent("Download Brochure", "brochure_download_click"); setModalSource("Download Brochure"); setDownloadBrochure(true); setShowModal(true); }}
+        onClick={() => { setModalSource("Download Brochure"); setDownloadBrochure(true); setShowModal(true); }}
         style={{
           ...floatingBtnBase,
           left: 0,
-          transform: "translateY(-50%) rotate(180deg)",
+          transform: buttonsVisible ? "translateY(-50%) rotate(180deg) translateX(0)" : "translateY(-50%) rotate(180deg) translateX(-100%)",
+          opacity: buttonsVisible ? 1 : 0,
+          transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease",
           background: "#111",
           color: "#fff",
           boxShadow: "3px 0 12px rgba(0,0,0,0.25)",
@@ -86,12 +143,13 @@ function HomePage() {
 
       {/* Right Floating Button — Download Prices */}
       <button
-       
-        onClick={() => { trackEvent("Download Prices", "price_list_click"); setModalSource("Download Prices"); setDownloadBrochure(false); setShowModal(true); }}
+        onClick={() => { setModalSource("Download Prices"); setDownloadBrochure(false); setShowModal(true); }}
         style={{
           ...floatingBtnBase,
           right: 0,
-          transform: "translateY(-50%)",
+          transform: buttonsVisible ? "translateY(-50%) translateX(0)" : "translateY(-50%) translateX(100%)",
+          opacity: buttonsVisible ? 1 : 0,
+          transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease",
           background: "#eab308",
           color: "#111",
           boxShadow: "-3px 0 12px rgba(0,0,0,0.2)",
@@ -120,8 +178,7 @@ function HomePage() {
       {showModal && (
         <div
           className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
-          // onClick={() => setShowModal(false)}
-          onClick={() => { setShowModal(false); setDownloadBrochure(false); setModalSource("General"); }}
+          onClick={handleCloseModal}
 
         >
           <div
@@ -130,8 +187,7 @@ function HomePage() {
           >
             {/* Close Button */}
             <button
-              // onClick={() => setShowModal(false)}
-              onClick={() => { setShowModal(false); setDownloadBrochure(false); setModalSource("General"); }}
+              onClick={handleCloseModal}
               className="absolute top-3 right-4 text-white hover:text-yellow-400 text-3xl font-light z-10 bg-black/40 rounded-full w-9 h-9 flex items-center justify-center"
             >
               ✕
@@ -151,6 +207,14 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/rera-disclaimer" element={<ReraDisclaimer />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/data-usage" element={<DataUsage />} />
+        <Route path="/authorized-partner" element={<AuthorizedPartner />} />
       </Routes>
     </BrowserRouter>
   );

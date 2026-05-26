@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const quickLinks = [
   { name: "Overview", href: "#overview" },
@@ -110,7 +110,7 @@ export default function Footer({ onBookVisit }) {
               </button>
               <p className="text-gray-400 text-sm flex items-center gap-2">
                 <span className="text-yellow-500">✉️</span>
-                info@trueeliteestate.com
+                omvir.shishodia@truelitestates.com
               </p>
             </div>
           </div>
@@ -134,20 +134,34 @@ export default function Footer({ onBookVisit }) {
       {/* Divider */}
       <div className="border-t border-gray-800 mx-4 md:mx-10" />
 
+      {/* Policy Links */}
+      <div className="w-full px-4 md:px-10 py-4 flex flex-wrap justify-center gap-x-5 gap-y-2 border-t border-gray-800">
+        {[
+          { label: "About Us", to: "/about" },
+          { label: "Contact Us", to: "/contact" },
+          { label: "Privacy Policy", to: "/privacy-policy" },
+          { label: "Disclaimer", to: "/disclaimer" },
+          { label: "RERA Disclaimer", to: "/rera-disclaimer" },
+          { label: "Terms & Conditions", to: "/terms" },
+          { label: "Data Usage", to: "/data-usage" },
+          { label: "Authorized Channel Partner", to: "/authorized-partner" },
+        ].map((link) => (
+          <Link key={link.to} to={link.to}
+            className="text-gray-500 text-xs hover:text-yellow-400 transition-colors"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+
       {/* Bottom Bar */}
-      <div className="w-full px-4 md:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div className="w-full px-4 md:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
         <p className="text-gray-500 text-xs text-center sm:text-left">
-          © {new Date().getFullYear()} AU Realestate. All rights reserved.
+          © {new Date().getFullYear()} Truelite Estates LLP. Authorized Channel Partner of AU Real Estate Pvt. Ltd.
         </p>
-        <div className="flex gap-4">
-          {["Privacy Policy", "Terms of Use", "RERA Info"].map((t) => (
-            <a key={t} href="#"
-              className="text-gray-500 text-xs hover:text-yellow-400 transition-colors"
-            >
-              {t}
-            </a>
-          ))}
-        </div>
+        <p className="text-gray-500 text-xs">
+          RERA: UPRERAPRJ466336 · omvir.shishodia@truelitestates.com
+        </p>
       </div>
 
     </footer>

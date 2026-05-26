@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd Estae && npm install && npm run build",
+  "outputDirectory": "Estae/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

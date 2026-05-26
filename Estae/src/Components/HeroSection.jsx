@@ -53,8 +53,7 @@ const HeroSection = ({ onBookVisit }) => {
           phone: form.phone,
           email: '',
           interested_in: form.interest,
-          message: '',
-          source: 'Hero Section'
+          message: ''
         })
       });
       const data = await response.json();
@@ -131,42 +130,6 @@ const HeroSection = ({ onBookVisit }) => {
           animation: spin 0.7s linear infinite;
           flex-shrink: 0;
         }
-
-        /* RERA Stamp responsive */
-        .rera-stamp-wrap {
-          position: absolute;
-          top: 10px;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 20;
-        }
-        .rera-stamp-circle {
-          width: 130px;
-          height: 130px;
-        }
-        .rera-stamp-approved { font-size: 13px; }
-        .rera-stamp-number  { font-size: 11.5px; max-width: 100px; }
-        .rera-stamp-star    { font-size: 11px; }
-        .rera-stamp-rera    { font-size: 9px; }
-        .rera-stamp-divider { width: 40px; }
-
-        @media (max-width: 768px) {
-          .rera-stamp-wrap {
-            top: 62px;
-            right: 8px;
-            left: auto;
-            transform: none;
-          }
-          .rera-stamp-circle {
-            width: 88px;
-            height: 88px;
-          }
-          .rera-stamp-approved { font-size: 9px; }
-          .rera-stamp-number  { font-size: 7.5px; max-width: 68px; }
-          .rera-stamp-star    { font-size: 8px; }
-          .rera-stamp-rera    { font-size: 6.5px; }
-          .rera-stamp-divider { width: 28px; }
-        }
       `}</style>
 
       <section className="relative w-full min-h-screen overflow-hidden">
@@ -187,71 +150,79 @@ const HeroSection = ({ onBookVisit }) => {
           }}
         />
 
-        {/* RERA Stamp — desktop: top-center | mobile: top-right */}
-        <div className="rera-stamp-wrap">
-          <div className="rera-stamp-circle" style={{
+        {/* RERA — Circular stamp on desktop, inline strip on mobile */}
+
+        {/* Desktop stamp (hidden on mobile/tablet) */}
+        <div className="hidden xl:flex" style={{
+          position: "absolute",
+          top: "20px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 20,
+        }}>
+          <div style={{
             position: "relative",
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
+            width: "170px",
+            height: "170px",
             borderRadius: "50%",
-            border: "4px solid #f5c842",
-            boxShadow: "0 0 0 2px rgba(245,200,66,0.3), 0 0 0 6px rgba(245,200,66,0.1), 0 4px 24px rgba(0,0,0,0.5)",
-            background: "rgba(0,0,0,0.5)",
-            backdropFilter: "blur(6px)",
+            border: "5px solid #f5c842",
+            boxShadow: "0 0 0 2px rgba(245,200,66,0.3), 0 0 0 8px rgba(245,200,66,0.1), 0 6px 32px rgba(0,0,0,0.6)",
+            background: "rgba(0,0,0,0.55)",
+            backdropFilter: "blur(8px)",
           }}>
-            {/* Dashed inner ring */}
             <div style={{
               position: "absolute",
-              inset: "6px",
+              inset: "8px",
               borderRadius: "50%",
               border: "1.5px dashed rgba(245,200,66,0.55)",
               pointerEvents: "none",
             }} />
-
-            {/* Inner content */}
             <div style={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: "2px",
-              padding: "10px",
+              gap: "3px",
+              padding: "16px",
               textAlign: "center",
             }}>
-              <span className="rera-stamp-star" style={{ color: "#f5c842", lineHeight: 1 }}>★</span>
-              <span className="rera-stamp-rera" style={{
-                fontFamily: "'Jost', sans-serif",
-                fontWeight: 800,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "#f5c842",
-                lineHeight: 1.1,
-              }}>RERA</span>
-              <span className="rera-stamp-approved" style={{
-                fontFamily: "'Jost', sans-serif",
-                fontWeight: 900,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "#fff",
-                lineHeight: 1.1,
-              }}>APPROVED</span>
-              <div className="rera-stamp-divider" style={{ height: "1px", background: "#f5c842", margin: "3px 0" }} />
-              <span className="rera-stamp-number" style={{
-                fontWeight: 700,
-                letterSpacing: "0.03em",
-                color: "#fff",
-                lineHeight: 1.5,
-                wordBreak: "break-all",
-                textAlign: "center",
-              }}>UPRERAPRJ466336<br/>05/2026</span>
-              <span className="rera-stamp-star" style={{ color: "#f5c842", lineHeight: 1, marginTop: "2px" }}>★</span>
+              <span style={{ fontSize: "14px", color: "#f5c842", lineHeight: 1 }}>★</span>
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "#f5c842", lineHeight: 1.2 }}>RERA</span>
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "17px", fontWeight: 900, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", lineHeight: 1.2 }}>APPROVED</span>
+              <div style={{ width: "50px", height: "1px", background: "#f5c842", margin: "4px 0" }} />
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 700, letterSpacing: "0.02em", color: "#fff", lineHeight: 1.5, textAlign: "center" }}>UPRERAPRJ466336</span>
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.75)", letterSpacing: "0.05em" }}>05/2026</span>
+              <span style={{ fontSize: "14px", color: "#f5c842", lineHeight: 1, marginTop: "2px" }}>★</span>
             </div>
           </div>
         </div>
 
+        {/* Mobile/tablet RERA strip (hidden on xl+) */}
+        <div className="xl:hidden flex items-center justify-center gap-3" style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 20,
+          background: "rgba(0,0,0,0.65)",
+          backdropFilter: "blur(6px)",
+          borderBottom: "1px solid rgba(245,200,66,0.4)",
+          padding: "9px 16px",
+        }}>
+          <span style={{ fontSize: "11px", color: "#f5c842" }}>★</span>
+          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", fontWeight: 800, letterSpacing: "0.12em", color: "#f5c842", textTransform: "uppercase", whiteSpace: "nowrap" }}>RERA APPROVED</span>
+          <span style={{ width: "1px", height: "16px", background: "rgba(245,200,66,0.5)" }} />
+          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", fontWeight: 600, color: "#fff", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>UPRERAPRJ466336</span>
+          <span style={{ width: "1px", height: "16px", background: "rgba(245,200,66,0.5)" }} />
+          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>05/2026</span>
+          <span style={{ fontSize: "11px", color: "#f5c842" }}>★</span>
+        </div>
+
         {/* Content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 py-20 gap-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 pt-10 xl:pt-20 pb-20 gap-10">
 
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">
@@ -463,7 +434,9 @@ const HeroSection = ({ onBookVisit }) => {
                   marginTop: "2px",
                   letterSpacing: "0.04em",
                 }}>
-                  Your details are 100% secure with us.
+                  By submitting, you agree to our{" "}
+                  <a href="/privacy-policy" style={{ color: "#f5c842", textDecoration: "underline" }}>Privacy Policy</a>.
+                  Your details are secure with us.
                 </p>
               </form>
             </div>
