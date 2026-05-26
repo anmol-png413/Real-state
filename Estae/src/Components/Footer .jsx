@@ -154,8 +154,18 @@ export default function Footer({ onBookVisit }) {
         ))}
       </div>
 
+      {/* SEO keyword-rich text block — visible to crawlers */}
+      <div className="w-full border-t border-gray-800 px-4 md:px-10 py-6">
+        <p className="text-gray-600 text-xs leading-relaxed text-center max-w-4xl mx-auto">
+          AU Cosmos Corner offers premium <strong className="text-gray-500">3 BHK apartments in Siddharth Vihar Ghaziabad</strong>, <strong className="text-gray-500">3 BHK+Servant luxury flats Ghaziabad</strong>, and <strong className="text-gray-500">5 BHK apartments Ghaziabad</strong> at a pre-launch price of ₹6,900/sq ft.
+          This <strong className="text-gray-500">RERA approved residential project in Ghaziabad</strong> (UPRERAPRJ466336) by AU Real Estate Pvt. Ltd. features G+36 towers on 5.6 acres in <strong className="text-gray-500">Siddharth Vihar, Ghaziabad, Uttar Pradesh</strong>.
+          Marketed by Truelite Estates LLP, Authorized Channel Partner — Golden I Tower T3, Unit 314, Greater Noida West 201309.
+          For <strong className="text-gray-500">3 BHK flat booking in Ghaziabad</strong> or <strong className="text-gray-500">luxury apartment investment near Delhi NCR</strong>, call 9711557670.
+        </p>
+      </div>
+
       {/* Bottom Bar */}
-      <div className="w-full px-4 md:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div className="w-full px-4 md:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-gray-800">
         <p className="text-gray-500 text-xs text-center sm:text-left">
           © {new Date().getFullYear()} Truelite Estates LLP. Authorized Channel Partner of AU Real Estate Pvt. Ltd.
         </p>

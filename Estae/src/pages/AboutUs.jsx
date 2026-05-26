@@ -2,7 +2,7 @@ import PolicyLayout from "../Components/PolicyLayout";
 
 export default function AboutUs() {
   return (
-    <PolicyLayout title="About Us">
+    <PolicyLayout title="About Us" description="Learn about Truelite Estates LLP, authorized channel partner of AU Real Estate Pvt. Ltd. for AU Cosmos Corner, Siddharth Vihar Ghaziabad." canonicalPath="/about">
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">Who We Are</h2>
         <p className="text-gray-600 leading-relaxed">

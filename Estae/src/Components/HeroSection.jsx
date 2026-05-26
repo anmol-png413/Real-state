@@ -137,7 +137,7 @@ const HeroSection = ({ onBookVisit }) => {
         {/* Background Image */}
         <img
           src={img}
-          alt="AU Realestate"
+          alt="AU Cosmos Corner luxury 3 BHK apartment towers, Siddharth Vihar Ghaziabad"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
 
@@ -227,28 +227,30 @@ const HeroSection = ({ onBookVisit }) => {
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">
 
-
-            <span style={{
+            {/* H1 — Primary keyword for SEO, styled as part of the layout */}
+            <h1 style={{
               fontFamily: "'Lato', sans-serif",
               fontSize: "25px",
               fontWeight: 700,
               letterSpacing: "0.15em",
               color: "#fff",
               textTransform: "uppercase",
+              margin: 0,
             }}>
-              Siddharth Vihar, Ghaziabad
-            </span>
+              AU Cosmos Corner — Siddharth Vihar, Ghaziabad
+            </h1>
 
-            <span style={{
+            <p style={{
               fontFamily: "'Lato', sans-serif",
               fontSize: "40px",
               fontWeight: 800,
               letterSpacing: "0.15em",
               color: "#fff",
               textTransform: "uppercase",
+              margin: 0,
             }}>
               Pre-launch at <br /> ₹6900/sq ft
-            </span>
+            </p>
 
             <p style={{
               fontFamily: "'Jost', sans-serif",

@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Block thank-you page from indexing (not useful for SEO, only for tracking)
+Disallow: /thank-you
+
+# Sitemap location
+Sitemap: https://aucosmos.truelitestates.com/sitemap.xml
+
+# Crawl-delay for bots other than Googlebot
+Crawl-delay: 1

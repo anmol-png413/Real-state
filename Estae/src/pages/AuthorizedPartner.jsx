@@ -2,7 +2,7 @@ import PolicyLayout from "../Components/PolicyLayout";
 
 export default function AuthorizedPartner() {
   return (
-    <PolicyLayout title="Authorized Channel Partner">
+    <PolicyLayout title="Authorized Channel Partner" description="Truelite Estates LLP is the authorized channel partner of AU Real Estate Pvt. Ltd. for AU Cosmos Corner, Siddharth Vihar Ghaziabad." canonicalPath="/authorized-partner">
       <section>
         <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-6 space-y-2">
           <p className="text-xs text-yellow-800 font-semibold uppercase tracking-widest">Official Authorization</p>

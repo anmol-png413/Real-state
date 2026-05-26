@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage — Highest Priority -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://aucosmos.truelitestates.com/og-image.jpg</image:loc>
+      <image:title>AU Cosmos Corner — Luxury 3 BHK Apartments Siddharth Vihar Ghaziabad</image:title>
+      <image:caption>Pre-launch luxury apartments at ₹6900/sq ft in Siddharth Vihar, Ghaziabad</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Thank You -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/thank-you</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- About Us -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/about</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact Us -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/contact</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/privacy-policy</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Disclaimer -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/disclaimer</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- RERA Disclaimer -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/rera-disclaimer</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Terms and Conditions -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/terms</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Data Usage -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/data-usage</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Authorized Channel Partner -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/authorized-partner</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

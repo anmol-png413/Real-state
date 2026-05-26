@@ -11,6 +11,7 @@ const Navbar = ({ onBookVisit }) => {
     { name: "Highlights", href: "#highlights" },
     { name: "Price List", href: "#pricelist" },
     { name: "Location Map", href: "#location" },
+    { name: "FAQ", href: "#faq" },
   ];
 
   return (
@@ -37,7 +38,7 @@ const Navbar = ({ onBookVisit }) => {
           }}>
             <img
               src={logo}
-              alt="AU Realestate"
+              alt="AU Cosmos Corner - Truelite Estates LLP Authorized Channel Partner"
               style={{ height: "60px", width: "auto", objectFit: "contain", display: "block" }}
             />
           </div>
