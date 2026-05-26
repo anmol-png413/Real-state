@@ -155,7 +155,7 @@ const HeroSection = ({ onBookVisit }) => {
         {/* Desktop stamp (hidden on mobile/tablet) */}
         <div className="hidden xl:flex" style={{
           position: "absolute",
-          top: "10px",
+          top: "20px",
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 20,
@@ -165,17 +165,17 @@ const HeroSection = ({ onBookVisit }) => {
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "130px",
-            height: "130px",
+            width: "170px",
+            height: "170px",
             borderRadius: "50%",
-            border: "4px solid #f5c842",
-            boxShadow: "0 0 0 2px rgba(245,200,66,0.3), 0 0 0 6px rgba(245,200,66,0.1), 0 4px 24px rgba(0,0,0,0.5)",
-            background: "rgba(0,0,0,0.5)",
-            backdropFilter: "blur(6px)",
+            border: "5px solid #f5c842",
+            boxShadow: "0 0 0 2px rgba(245,200,66,0.3), 0 0 0 8px rgba(245,200,66,0.1), 0 6px 32px rgba(0,0,0,0.6)",
+            background: "rgba(0,0,0,0.55)",
+            backdropFilter: "blur(8px)",
           }}>
             <div style={{
               position: "absolute",
-              inset: "6px",
+              inset: "8px",
               borderRadius: "50%",
               border: "1.5px dashed rgba(245,200,66,0.55)",
               pointerEvents: "none",
@@ -185,16 +185,17 @@ const HeroSection = ({ onBookVisit }) => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: "2px",
-              padding: "14px",
+              gap: "3px",
+              padding: "16px",
               textAlign: "center",
             }}>
-              <span style={{ fontSize: "11px", color: "#f5c842", lineHeight: 1 }}>★</span>
-              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "9px", fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "#f5c842", lineHeight: 1.1 }}>RERA</span>
-              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "13px", fontWeight: 900, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", lineHeight: 1.1 }}>APPROVED</span>
-              <div style={{ width: "40px", height: "1px", background: "#f5c842", margin: "3px 0" }} />
-              <span style={{ fontSize: "11.5px", fontWeight: 700, letterSpacing: "0.03em", color: "#fff", lineHeight: 1.6, wordBreak: "break-all", maxWidth: "100px", textAlign: "center" }}>UPRERAPRJ466336<br/>05/2026</span>
-              <span style={{ fontSize: "11px", color: "#f5c842", lineHeight: 1, marginTop: "2px" }}>★</span>
+              <span style={{ fontSize: "14px", color: "#f5c842", lineHeight: 1 }}>★</span>
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "#f5c842", lineHeight: 1.2 }}>RERA</span>
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "17px", fontWeight: 900, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", lineHeight: 1.2 }}>APPROVED</span>
+              <div style={{ width: "50px", height: "1px", background: "#f5c842", margin: "4px 0" }} />
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 700, letterSpacing: "0.02em", color: "#fff", lineHeight: 1.5, textAlign: "center" }}>UPRERAPRJ466336</span>
+              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.75)", letterSpacing: "0.05em" }}>05/2026</span>
+              <span style={{ fontSize: "14px", color: "#f5c842", lineHeight: 1, marginTop: "2px" }}>★</span>
             </div>
           </div>
         </div>
