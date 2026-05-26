@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import HeroSection from './Components/HeroSection';
@@ -42,7 +42,41 @@ const floatingBtnBase = {
 function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [modalSource, setModalSource] = useState("General");
-const [downloadBrochure, setDownloadBrochure] = useState(false);
+  const [downloadBrochure, setDownloadBrochure] = useState(false);
+  const [buttonsVisible, setButtonsVisible] = useState(false);
+  const reopenTimerRef = useRef(null);
+
+  // Auto-open popup after 3s on landing
+  useEffect(() => {
+    const initialTimer = setTimeout(() => {
+      setModalSource("Auto Popup");
+      setShowModal(true);
+    }, 3000);
+    return () => clearTimeout(initialTimer);
+  }, []);
+
+  // Show floating buttons after 4s
+  useEffect(() => {
+    const btnTimer = setTimeout(() => setButtonsVisible(true), 4000);
+    return () => clearTimeout(btnTimer);
+  }, []);
+
+  // Start 30s reopen timer when modal is closed
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setDownloadBrochure(false);
+    setModalSource("General");
+    if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
+    reopenTimerRef.current = setTimeout(() => {
+      setModalSource("Auto Reopen");
+      setShowModal(true);
+    }, 30000);
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => { if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current); };
+  }, []);
 
   return (
     <div className="App">
@@ -70,12 +104,13 @@ const [downloadBrochure, setDownloadBrochure] = useState(false);
 
       {/* Left Floating Button — Download Brochure */}
       <button
-        // onClick={() => setShowModal(true)}
         onClick={() => { setModalSource("Download Brochure"); setDownloadBrochure(true); setShowModal(true); }}
         style={{
           ...floatingBtnBase,
           left: 0,
-          transform: "translateY(-50%) rotate(180deg)",
+          transform: buttonsVisible ? "translateY(-50%) rotate(180deg) translateX(0)" : "translateY(-50%) rotate(180deg) translateX(-100%)",
+          opacity: buttonsVisible ? 1 : 0,
+          transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease",
           background: "#111",
           color: "#fff",
           boxShadow: "3px 0 12px rgba(0,0,0,0.25)",
@@ -88,12 +123,13 @@ const [downloadBrochure, setDownloadBrochure] = useState(false);
 
       {/* Right Floating Button — Download Prices */}
       <button
-       
         onClick={() => { setModalSource("Download Prices"); setDownloadBrochure(false); setShowModal(true); }}
         style={{
           ...floatingBtnBase,
           right: 0,
-          transform: "translateY(-50%)",
+          transform: buttonsVisible ? "translateY(-50%) translateX(0)" : "translateY(-50%) translateX(100%)",
+          opacity: buttonsVisible ? 1 : 0,
+          transition: "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease",
           background: "#eab308",
           color: "#111",
           boxShadow: "-3px 0 12px rgba(0,0,0,0.2)",
@@ -122,8 +158,7 @@ const [downloadBrochure, setDownloadBrochure] = useState(false);
       {showModal && (
         <div
           className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
-          // onClick={() => setShowModal(false)}
-          onClick={() => { setShowModal(false); setDownloadBrochure(false); setModalSource("General"); }}
+          onClick={handleCloseModal}
 
         >
           <div
@@ -132,8 +167,7 @@ const [downloadBrochure, setDownloadBrochure] = useState(false);
           >
             {/* Close Button */}
             <button
-              // onClick={() => setShowModal(false)}
-              onClick={() => { setShowModal(false); setDownloadBrochure(false); setModalSource("General"); }}
+              onClick={handleCloseModal}
               className="absolute top-3 right-4 text-white hover:text-yellow-400 text-3xl font-light z-10 bg-black/40 rounded-full w-9 h-9 flex items-center justify-center"
             >
               ✕
