@@ -45,6 +45,8 @@ function HomePage() {
   const [downloadBrochure, setDownloadBrochure] = useState(false);
   const [buttonsVisible, setButtonsVisible] = useState(false);
   const reopenTimerRef = useRef(null);
+  const scrollTimerRef = useRef(null);
+  const initialShownRef = useRef(false);
 
   // Auto-open popup after 3s on landing
   useEffect(() => {
@@ -55,10 +57,28 @@ function HomePage() {
     return () => clearTimeout(initialTimer);
   }, []);
 
-  // Show floating buttons after 4s
+  // Show floating buttons after 4s, then toggle on scroll activity
   useEffect(() => {
-    const btnTimer = setTimeout(() => setButtonsVisible(true), 4000);
-    return () => clearTimeout(btnTimer);
+    const btnTimer = setTimeout(() => {
+      setButtonsVisible(true);
+      initialShownRef.current = true;
+    }, 4000);
+
+    const handleScroll = () => {
+      if (!initialShownRef.current) return;
+      // Hide while scrolling
+      setButtonsVisible(false);
+      // Show again 1.5s after scroll stops
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+      scrollTimerRef.current = setTimeout(() => setButtonsVisible(true), 1500);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      clearTimeout(btnTimer);
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // Start 30s reopen timer when modal is closed
