@@ -200,7 +200,7 @@ const HeroSection = ({ onBookVisit }) => {
         </div>
 
         {/* Mobile/tablet RERA strip (hidden on xl+) */}
-        <div className="xl:hidden" style={{
+        <div className="xl:hidden flex items-center justify-center gap-2.5" style={{
           position: "absolute",
           top: 0,
           left: 0,
@@ -210,10 +210,6 @@ const HeroSection = ({ onBookVisit }) => {
           backdropFilter: "blur(6px)",
           borderBottom: "1px solid rgba(245,200,66,0.4)",
           padding: "8px 16px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "10px",
         }}>
           <span style={{ fontSize: "10px", color: "#f5c842" }}>★</span>
           <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", fontWeight: 800, letterSpacing: "0.18em", color: "#f5c842", textTransform: "uppercase" }}>RERA APPROVED</span>
