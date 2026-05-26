@@ -111,7 +111,7 @@ function HomePage() {
 <OverviewSection onBookVisit={() => { setModalSource("Overview"); setShowModal(true); }} />
         <About />
         <SitePlan />
-        <CosmosCorner onBookVisit={() => { setModalSource("Cosmos Corner"); setShowModal(true); }} />
+        <CosmosCorner onBookVisit={() => { setModalSource("Download Brochure from Collection"); setDownloadBrochure(true); setShowModal(true); }} />
         <AmenitiesSection />
 
         <Projecthighlights onBookVisit={() => { setModalSource("Project Highlights"); setShowModal(true); }} />
