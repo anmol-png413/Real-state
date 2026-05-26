@@ -54,7 +54,7 @@ export default function PrivacyPolicy() {
         <h2 className="text-xl font-bold text-gray-900 mb-3">6. Your Rights</h2>
         <p className="text-gray-600 leading-relaxed">
           You have the right to access, correct, or request deletion of your personal data at any time. To exercise these rights, email us at{" "}
-          <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline">info@trueeliteestate.com</a>.
+          <a href="mailto:omvir.shishodia@truelitestates.com" className="text-yellow-600 hover:underline">omvir.shishodia@truelitestates.com</a>.
         </p>
       </section>
 
@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
         <p className="text-gray-600">
           <strong>True Elite Estate</strong><br />
           Golden I, Tower T3, Unit 314, Greater Noida West – 201309<br />
-          <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline">info@trueeliteestate.com</a><br />
+          <a href="mailto:omvir.shishodia@truelitestates.com" className="text-yellow-600 hover:underline">omvir.shishodia@truelitestates.com</a><br />
           +91 97115 57670
         </p>
       </section>

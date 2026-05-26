@@ -84,7 +84,7 @@ export default function DataUsage() {
         </ul>
         <p className="text-gray-600 mt-3">
           To exercise any of these rights, email us at{" "}
-          <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline">info@trueeliteestate.com</a>.
+          <a href="mailto:omvir.shishodia@truelitestates.com" className="text-yellow-600 hover:underline">omvir.shishodia@truelitestates.com</a>.
         </p>
       </section>
     </PolicyLayout>

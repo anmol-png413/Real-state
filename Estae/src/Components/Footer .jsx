@@ -110,7 +110,7 @@ export default function Footer({ onBookVisit }) {
               </button>
               <p className="text-gray-400 text-sm flex items-center gap-2">
                 <span className="text-yellow-500">✉️</span>
-                info@trueeliteestate.com
+                omvir.shishodia@truelitestates.com
               </p>
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function Footer({ onBookVisit }) {
           © {new Date().getFullYear()} True Elite Estate. Authorized Channel Partner of AU Real Estate Pvt. Ltd.
         </p>
         <p className="text-gray-500 text-xs">
-          RERA: UPRERAPRJ466336 · info@trueeliteestate.com
+          RERA: UPRERAPRJ466336 · omvir.shishodia@truelitestates.com
         </p>
       </div>
 

@@ -13,8 +13,8 @@ export default function ContactUs() {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-gray-50 rounded-xl p-6 space-y-1">
           <h3 className="font-bold text-gray-900">Business Email</h3>
-          <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline text-sm">
-            info@trueeliteestate.com
+          <a href="mailto:omvir.shishodia@truelitestates.com" className="text-yellow-600 hover:underline text-sm">
+            omvir.shishodia@truelitestates.com
           </a>
         </div>
         <div className="bg-gray-50 rounded-xl p-6 space-y-1">

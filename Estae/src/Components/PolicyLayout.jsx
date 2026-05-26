@@ -35,7 +35,7 @@ export default function PolicyLayout({ title, children }) {
 
       {/* Footer */}
       <div className="border-t border-gray-200 px-6 md:px-16 py-6 text-center text-xs text-gray-400">
-        © {new Date().getFullYear()} True Elite Estate. All rights reserved. · Golden I, Tower T3, Unit 314, Greater Noida West – 201309 · info@trueeliteestate.com
+        © {new Date().getFullYear()} True Elite Estate. All rights reserved. · Golden I, Tower T3, Unit 314, Greater Noida West – 201309 · omvir.shishodia@truelitestates.com
       </div>
     </div>
   );

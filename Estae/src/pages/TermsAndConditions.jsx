@@ -62,7 +62,7 @@ export default function TermsAndConditions() {
         <h2 className="text-xl font-bold text-gray-900 mb-3">8. Contact</h2>
         <p className="text-gray-600">
           <strong>True Elite Estate</strong> · Golden I, Tower T3, Unit 314, Greater Noida West – 201309<br />
-          <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline">info@trueeliteestate.com</a> · <a href="tel:+919711557670" className="text-yellow-600 hover:underline">+91 97115 57670</a>
+          <a href="mailto:omvir.shishodia@truelitestates.com" className="text-yellow-600 hover:underline">omvir.shishodia@truelitestates.com</a> · <a href="tel:+919711557670" className="text-yellow-600 hover:underline">+91 97115 57670</a>
         </p>
       </section>
     </PolicyLayout>
