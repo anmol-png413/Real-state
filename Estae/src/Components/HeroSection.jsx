@@ -110,7 +110,7 @@ const HeroSection = ({ onBookVisit }) => {
         }
         .hero-submit:hover:not(:disabled) {
           background: #333;
-          letter-spacing: 0.38em;RERARERA
+          letter-spacing: 0.38em;
         }
         .hero-submit:disabled {
           background: #555;
@@ -438,7 +438,9 @@ const HeroSection = ({ onBookVisit }) => {
                   marginTop: "2px",
                   letterSpacing: "0.04em",
                 }}>
-                  Your details are 100% secure with us.
+                  By submitting, you agree to our{" "}
+                  <a href="/privacy-policy" style={{ color: "#f5c842", textDecoration: "underline" }}>Privacy Policy</a>.
+                  Your details are secure with us.
                 </p>
               </form>
             </div>

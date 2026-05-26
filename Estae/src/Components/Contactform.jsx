@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const nameRegex = /^[a-zA-Z\s]{2,50}$/;
@@ -226,7 +226,8 @@ export default function ContactForm({ onPhoneClick, source = "Contact Form", dow
               </button>
 
               <p className="text-center text-gray-400 text-xs">
-                By submitting, you agree to be contacted by our sales team.
+                By submitting, you agree to be contacted by our team and accept our{" "}
+                <a href="/privacy-policy" className="text-yellow-600 underline hover:text-yellow-700">Privacy Policy</a>.
               </p>
             </form>
           </div>
