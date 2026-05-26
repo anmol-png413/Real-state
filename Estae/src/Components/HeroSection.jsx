@@ -212,13 +212,13 @@ const HeroSection = ({ onBookVisit }) => {
           borderBottom: "1px solid rgba(245,200,66,0.4)",
           padding: "9px 16px",
         }}>
-          <span style={{ fontSize: "13px", color: "#f5c842" }}>★</span>
-          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "13px", fontWeight: 800, letterSpacing: "0.18em", color: "#f5c842", textTransform: "uppercase" }}>RERA APPROVED</span>
+          <span style={{ fontSize: "11px", color: "#f5c842" }}>★</span>
+          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", fontWeight: 800, letterSpacing: "0.12em", color: "#f5c842", textTransform: "uppercase", whiteSpace: "nowrap" }}>RERA APPROVED</span>
           <span style={{ width: "1px", height: "16px", background: "rgba(245,200,66,0.5)" }} />
-          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "13px", fontWeight: 600, color: "#fff", letterSpacing: "0.05em" }}>UPRERAPRJ466336</span>
+          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", fontWeight: 600, color: "#fff", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>UPRERAPRJ466336</span>
           <span style={{ width: "1px", height: "16px", background: "rgba(245,200,66,0.5)" }} />
-          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>05/2026</span>
-          <span style={{ fontSize: "13px", color: "#f5c842" }}>★</span>
+          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>05/2026</span>
+          <span style={{ fontSize: "11px", color: "#f5c842" }}>★</span>
         </div>
 
         {/* Content */}
