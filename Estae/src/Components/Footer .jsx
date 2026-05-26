@@ -157,7 +157,7 @@ export default function Footer({ onBookVisit }) {
       {/* Bottom Bar */}
       <div className="w-full px-4 md:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
         <p className="text-gray-500 text-xs text-center sm:text-left">
-          © {new Date().getFullYear()} AU RealEstate LLP. All rights reserved.
+          © {new Date().getFullYear()} True Elite Estate. Authorized Channel Partner of AU Real Estate Pvt. Ltd.
         </p>
         <p className="text-gray-500 text-xs">
           RERA: UPRERAPRJ466336 · info@trueeliteestate.com

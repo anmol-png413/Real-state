@@ -5,42 +5,44 @@ export default function Disclaimer() {
     <PolicyLayout title="Disclaimer">
       <section>
         <p className="text-gray-600 leading-relaxed">
-          The information provided on this website is for general informational purposes only. AU RealEstate LLP makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information displayed.
+          This website is operated by <strong>True Elite Estate</strong>, an officially authorized channel partner of <strong>AU Real Estate Pvt. Ltd.</strong> (RERA No. UPRERAPRJ466336). The information provided here is for general informational purposes and intended for prospective homebuyers interested in AU Cosmos Corner, Greater Noida West.
         </p>
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-gray-900 mb-3">Property Information</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">Indicative Information</h2>
         <p className="text-gray-600 leading-relaxed">
-          All project details, floor plans, specifications, pricing, and images displayed on this website are indicative and subject to change without notice. The developer reserves the right to modify specifications and amenities. Final details will be as per the registered sale agreement.
+          All project details including floor plans, specifications, amenities, pricing, renders, and images displayed on this website are indicative and for representation purposes only. Final specifications, pricing, and terms are subject to change without prior notice and shall be governed solely by the registered agreement for sale executed between the buyer and AU Real Estate Pvt. Ltd.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">No Guarantee of Availability</h2>
         <p className="text-gray-600 leading-relaxed">
-          Listing of any property on this website does not constitute an offer or guarantee of availability. Prices and inventory are subject to change at any time without prior notice.
+          Listing or display of any unit, pricing, or floor plan does not constitute an offer, allotment, or guarantee of availability. Prices and inventory are subject to revision at the developer's discretion.
         </p>
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-gray-900 mb-3">Investment Advice</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">Not Financial or Legal Advice</h2>
         <p className="text-gray-600 leading-relaxed">
-          Nothing on this website constitutes financial, legal, or investment advice. Prospective buyers are advised to conduct their own due diligence and consult independent legal and financial advisors before making any investment decision.
+          Nothing on this website constitutes financial, investment, or legal advice. Prospective buyers are encouraged to conduct independent due diligence and seek advice from qualified legal and financial professionals before making any purchase decision.
         </p>
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-gray-900 mb-3">External Links</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">Authorized Marketing Partner</h3>
         <p className="text-gray-600 leading-relaxed">
-          This website may contain links to external websites. AU RealEstate LLP has no control over the content of those sites and accepts no responsibility for them.
+          True Elite Estate is officially authorized in writing by AU Real Estate Pvt. Ltd. to conduct all marketing and advertising activities, including digital advertising on platforms such as Google and Meta, for RERA project no. UPRERAPRJ466336.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">Contact Us</h2>
         <p className="text-gray-600">
-          For any queries regarding the information on this website, please contact us at <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline">info@trueeliteestate.com</a>.
+          For any queries, contact us at{" "}
+          <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline">info@trueeliteestate.com</a>{" "}
+          or call <a href="tel:+919711557670" className="text-yellow-600 hover:underline">+91 97115 57670</a>.
         </p>
       </section>
     </PolicyLayout>

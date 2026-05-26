@@ -5,65 +5,66 @@ export default function PrivacyPolicy() {
     <PolicyLayout title="Privacy Policy">
       <section>
         <p className="text-gray-600 leading-relaxed">
-          AU RealEstate LLP ("we", "us", "our") operates the website <strong>trueeliteestate.com</strong>. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website or submit an enquiry.
+          True Elite Estate ("we", "us", "our"), an authorized channel partner of AU Real Estate Pvt. Ltd., operates this website. This Privacy Policy describes how we collect, use, store, and protect your personal information when you visit our site or submit an enquiry.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">1. Information We Collect</h2>
         <ul className="list-disc list-inside text-gray-600 space-y-2 leading-relaxed">
-          <li>Full name, phone number, and email address (via enquiry/contact forms)</li>
-          <li>Your interest in specific property types</li>
-          <li>IP address, browser type, and pages visited (via analytics tools)</li>
+          <li>Full name, phone number, and email address (submitted via enquiry or contact forms)</li>
+          <li>Property interest and budget range (if provided)</li>
+          <li>IP address, browser type, device info, and pages visited (collected automatically via analytics)</li>
         </ul>
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">2. How We Use Your Information</h2>
         <ul className="list-disc list-inside text-gray-600 space-y-2 leading-relaxed">
-          <li>To respond to your property enquiries</li>
-          <li>To schedule site visits and share project details</li>
-          <li>To send you relevant property updates (only if you opt in)</li>
-          <li>To improve our website and services</li>
-          <li>To comply with legal and regulatory obligations</li>
+          <li>To respond to your property enquiry and schedule site visits</li>
+          <li>To share verified project details, pricing, and brochures</li>
+          <li>To send follow-up communications related to your expressed interest</li>
+          <li>To comply with legal and regulatory obligations under RERA</li>
+          <li>To measure and improve the performance of our advertising campaigns</li>
         </ul>
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-gray-900 mb-3">3. Data Storage</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">3. Data Storage & Security</h2>
         <p className="text-gray-600 leading-relaxed">
-          Your data is stored securely on Supabase cloud servers. We do not sell, trade, or rent your personal data to third parties. Data is retained only as long as necessary to fulfil the purpose for which it was collected.
+          Your data is stored securely on encrypted cloud servers. We do not sell, rent, or trade your personal data to any third party. Only authorised team members have access to submitted enquiry data.
         </p>
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-gray-900 mb-3">4. Cookies</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">4. Sharing of Information</h2>
         <p className="text-gray-600 leading-relaxed">
-          Our website may use cookies to enhance user experience and gather anonymous traffic data. You can disable cookies in your browser settings at any time.
+          We may share your enquiry details with <strong>AU Real Estate Pvt. Ltd.</strong> solely for the purpose of processing your property enquiry. No data is shared with unrelated third parties.
         </p>
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-gray-900 mb-3">5. Third-Party Services</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">5. Cookies & Analytics</h2>
         <p className="text-gray-600 leading-relaxed">
-          We use Google Ads and Google Analytics to measure advertising performance. These services may collect anonymised data as per their own privacy policies.
+          We use Google Analytics and Google Ads to understand website traffic and measure ad performance. These tools may place cookies on your device. You can manage cookie preferences in your browser settings.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">6. Your Rights</h2>
         <p className="text-gray-600 leading-relaxed">
-          You may request access to, correction of, or deletion of your personal data at any time by emailing us at <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline">info@trueeliteestate.com</a>.
+          You have the right to access, correct, or request deletion of your personal data at any time. To exercise these rights, email us at{" "}
+          <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline">info@trueeliteestate.com</a>.
         </p>
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-gray-900 mb-3">7. Contact</h2>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">7. Contact for Privacy Queries</h2>
         <p className="text-gray-600">
-          For privacy-related queries, contact:<br />
-          <strong>AU RealEstate LLP</strong><br />
-          Golden I, Unit 314, Greater Noida West, UP<br />
-          <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline">info@trueeliteestate.com</a>
+          <strong>True Elite Estate</strong><br />
+          Golden I, Tower T3, Unit 314, Greater Noida West – 201309<br />
+          <a href="mailto:info@trueeliteestate.com" className="text-yellow-600 hover:underline">info@trueeliteestate.com</a><br />
+          +91 97115 57670
         </p>
       </section>
     </PolicyLayout>
