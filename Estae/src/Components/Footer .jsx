@@ -34,8 +34,8 @@ export default function Footer({ onBookVisit }) {
               TE
             </div>
             <div>
-              <p className="font-bold text-white text-base leading-tight">AU Realestate</p>
-              <p className="text-gray-400 text-xs">Luxury Living, Redefined</p>
+              <p className="font-bold text-white text-base leading-tight">Truelite Estates LLP</p>
+              <p className="text-gray-400 text-xs">Authorized Channel Partner</p>
             </div>
           </div>
           <p className="text-gray-400 text-sm leading-relaxed">

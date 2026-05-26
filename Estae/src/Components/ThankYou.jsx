@@ -39,7 +39,7 @@ export default function ThankYou() {
         </div>
 
         <p className="text-xs uppercase tracking-widest text-yellow-600 font-semibold mb-2">
-          AU Realestate
+          AU Cosmos Corner · Truelite Estates LLP
         </p>
 
         <h1 className="text-2xl font-bold text-gray-900 mb-3">

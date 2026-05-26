@@ -336,7 +336,7 @@ const HeroSection = ({ onBookVisit }) => {
                 color: "#111",
                 letterSpacing: "0.06em",
               }}>
-                AU Realestate
+                AU Cosmos Corner
               </p>
               <p style={{
                 fontFamily: "'Jost', sans-serif",
