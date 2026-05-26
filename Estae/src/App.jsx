@@ -15,6 +15,14 @@ import About from './Components/About ';
 import SitePlan from './Components/SitePlan';
 import CosmosCorner from './Components/CosmosCorner';
 import ThankYou from './Components/ThankYou';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Disclaimer from './pages/Disclaimer';
+import ReraDisclaimer from './pages/ReraDisclaimer';
+import TermsAndConditions from './pages/TermsAndConditions';
+import DataUsage from './pages/DataUsage';
+import AuthorizedPartner from './pages/AuthorizedPartner';
 
 const floatingBtnBase = {
   position: "fixed",
@@ -145,6 +153,14 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/rera-disclaimer" element={<ReraDisclaimer />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/data-usage" element={<DataUsage />} />
+        <Route path="/authorized-partner" element={<AuthorizedPartner />} />
       </Routes>
     </BrowserRouter>
   );

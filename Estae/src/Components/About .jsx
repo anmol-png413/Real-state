@@ -72,7 +72,7 @@ export default function About() {
             <div className="relative z-10 rounded-sm overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=90"
-                alt="Luxury Bedroom Interior — True Elite Estate"
+                alt="Luxury Bedroom Interior — Truelite Estates LLP"
                 className="w-full h-[340px] md:h-[520px] object-cover"
                 style={{ filter: "brightness(0.97) contrast(1.02)" }}
               />
