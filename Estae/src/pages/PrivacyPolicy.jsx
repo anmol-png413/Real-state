@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
     <PolicyLayout title="Privacy Policy">
       <section>
         <p className="text-gray-600 leading-relaxed">
-          True Elite Estate ("we", "us", "our"), an authorized channel partner of AU Real Estate Pvt. Ltd., operates this website. This Privacy Policy describes how we collect, use, store, and protect your personal information when you visit our site or submit an enquiry.
+          Truelite Estates LLP ("we", "us", "our"), an authorized channel partner of AU Real Estate Pvt. Ltd., operates this website. This Privacy Policy describes how we collect, use, store, and protect your personal information when you visit our site or submit an enquiry.
         </p>
       </section>
 
@@ -61,7 +61,7 @@ export default function PrivacyPolicy() {
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">7. Contact for Privacy Queries</h2>
         <p className="text-gray-600">
-          <strong>True Elite Estate</strong><br />
+          <strong>Truelite Estates LLP</strong><br />
           Golden I, Tower T3, Unit 314, Greater Noida West – 201309<br />
           <a href="mailto:omvir.shishodia@truelitestates.com" className="text-yellow-600 hover:underline">omvir.shishodia@truelitestates.com</a><br />
           +91 97115 57670

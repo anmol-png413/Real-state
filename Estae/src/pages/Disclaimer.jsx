@@ -5,7 +5,7 @@ export default function Disclaimer() {
     <PolicyLayout title="Disclaimer">
       <section>
         <p className="text-gray-600 leading-relaxed">
-          This website is operated by <strong>True Elite Estate</strong>, an officially authorized channel partner of <strong>AU Real Estate Pvt. Ltd.</strong> (RERA No. UPRERAPRJ466336). The information provided here is for general informational purposes and intended for prospective homebuyers interested in AU Cosmos Corner, Greater Noida West.
+          This website is operated by <strong>Truelite Estates LLP</strong>, an officially authorized channel partner of <strong>AU Real Estate Pvt. Ltd.</strong> (RERA No. UPRERAPRJ466336). The information provided here is for general informational purposes and intended for prospective homebuyers interested in AU Cosmos Corner, Greater Noida West.
         </p>
       </section>
 
@@ -31,9 +31,9 @@ export default function Disclaimer() {
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-gray-900 mb-3">Authorized Marketing Partner</h3>
+        <h2 className="text-xl font-bold text-gray-900 mb-3">Authorized Marketing Partner</h2>
         <p className="text-gray-600 leading-relaxed">
-          True Elite Estate is officially authorized in writing by AU Real Estate Pvt. Ltd. to conduct all marketing and advertising activities, including digital advertising on platforms such as Google and Meta, for RERA project no. UPRERAPRJ466336.
+          Truelite Estates LLP is officially authorized in writing by AU Real Estate Pvt. Ltd. to conduct all marketing and advertising activities, including digital advertising on platforms such as Google and Meta, for RERA project no. UPRERAPRJ466336.
         </p>
       </section>
 

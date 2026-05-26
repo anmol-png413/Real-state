@@ -6,7 +6,7 @@ export default function AuthorizedPartner() {
       <section>
         <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-6 space-y-2">
           <p className="text-xs text-yellow-800 font-semibold uppercase tracking-widest">Official Authorization</p>
-          <p className="text-2xl font-bold text-gray-900">True Elite Estate</p>
+          <p className="text-2xl font-bold text-gray-900">Truelite Estates LLP</p>
           <p className="text-sm text-gray-700">Authorized Channel Partner of <strong>AU Real Estate Pvt. Ltd.</strong></p>
           <p className="text-sm text-gray-600">RERA Project No.: <strong>UPRERAPRJ466336</strong></p>
 
@@ -17,7 +17,7 @@ export default function AuthorizedPartner() {
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">Our Authorization from AU Real Estate Pvt. Ltd.</h2>
         <p className="text-gray-600 leading-relaxed">
-          True Elite Estate holds an official written authorization from <strong>AU Real Estate Pvt. Ltd.</strong> granting us full rights to market, advertise, and facilitate sales for their RERA-registered residential project — AU Cosmos Corner (RERA No. UPRERAPRJ466336). This authorization expressly covers all digital marketing activities including advertising on Google and Meta platforms.
+          Truelite Estates LLP holds an official written authorization from <strong>AU Real Estate Pvt. Ltd.</strong> granting us full rights to market, advertise, and facilitate sales for their RERA-registered residential project — AU Cosmos Corner (RERA No. UPRERAPRJ466336). This authorization expressly covers all digital marketing activities including advertising on Google and Meta platforms.
         </p>
       </section>
 
@@ -57,7 +57,7 @@ export default function AuthorizedPartner() {
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">Contact Us</h2>
         <p className="text-gray-600">
-          <strong>True Elite Estate</strong><br />
+          <strong>Truelite Estates LLP</strong><br />
           Golden I, Tower T3, Unit 314, Greater Noida West – 201309<br />
           <a href="mailto:omvir.shishodia@truelitestates.com" className="text-yellow-600 hover:underline">omvir.shishodia@truelitestates.com</a><br />
           <a href="tel:+919711557670" className="text-yellow-600 hover:underline">+91 97115 57670</a>

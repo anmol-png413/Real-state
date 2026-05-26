@@ -5,7 +5,7 @@ export default function DataUsage() {
     <PolicyLayout title="Data Usage Disclosure">
       <section>
         <p className="text-gray-600 leading-relaxed">
-          True Elite Estate is committed to being fully transparent about how we collect and use your data. This disclosure explains exactly what data we collect, why, how it is used, and your rights.
+          Truelite Estates LLP is committed to being fully transparent about how we collect and use your data. This disclosure explains exactly what data we collect, why, how it is used, and your rights.
         </p>
       </section>
 

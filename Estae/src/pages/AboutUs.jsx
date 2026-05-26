@@ -6,7 +6,7 @@ export default function AboutUs() {
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">Who We Are</h2>
         <p className="text-gray-600 leading-relaxed">
-          True Elite Estate is an officially authorized channel partner of <strong>AU Real Estate Pvt. Ltd.</strong>, one of the leading real estate developers in the National Capital Region (NCR). We are officially authorized by AU Real Estate Pvt. Ltd. to market, promote, and assist buyers with their flagship residential project — <strong>AU Cosmos Corner</strong>, RERA registration no. <strong>UPRERAPRJ466336</strong>.
+          Truelite Estates LLP is an officially authorized channel partner of <strong>AU Real Estate Pvt. Ltd.</strong>, one of the leading real estate developers in the National Capital Region (NCR). We are officially authorized by AU Real Estate Pvt. Ltd. to market, promote, and assist buyers with their flagship residential project — <strong>AU Cosmos Corner</strong>, RERA registration no. <strong>UPRERAPRJ466336</strong>.
         </p>
       </section>
 
@@ -31,7 +31,7 @@ export default function AboutUs() {
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">Our Office</h2>
         <p className="text-gray-600 leading-relaxed">
-          <strong>True Elite Estate</strong><br />
+          <strong>Truelite Estates LLP</strong><br />
           Golden I, Tower T3, Unit 314<br />
           Greater Noida West, Uttar Pradesh – 201309
         </p>

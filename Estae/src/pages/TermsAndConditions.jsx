@@ -5,14 +5,14 @@ export default function TermsAndConditions() {
     <PolicyLayout title="Terms & Conditions">
       <section>
         <p className="text-gray-600 leading-relaxed">
-          By accessing or using this website, you agree to be bound by the following Terms and Conditions. This website is operated by <strong>True Elite Estate</strong>, an officially authorized channel partner of <strong>AU Real Estate Pvt. Ltd.</strong> Please read these terms carefully before proceeding.
+          By accessing or using this website, you agree to be bound by the following Terms and Conditions. This website is operated by <strong>Truelite Estates LLP</strong>, an officially authorized channel partner of <strong>AU Real Estate Pvt. Ltd.</strong> Please read these terms carefully before proceeding.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">1. Nature of This Website</h2>
         <p className="text-gray-600 leading-relaxed">
-          This website is a marketing platform operated by True Elite Estate on behalf of AU Real Estate Pvt. Ltd., for the purpose of providing information about the residential project AU Cosmos Corner (RERA No. UPRERAPRJ466336). It is intended solely for individuals seeking information about purchasing a residential unit in the project.
+          This website is a marketing platform operated by Truelite Estates LLP on behalf of AU Real Estate Pvt. Ltd., for the purpose of providing information about the residential project AU Cosmos Corner (RERA No. UPRERAPRJ466336). It is intended solely for individuals seeking information about purchasing a residential unit in the project.
         </p>
       </section>
 
@@ -33,21 +33,21 @@ export default function TermsAndConditions() {
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">4. Authorized Advertising</h2>
         <p className="text-gray-600 leading-relaxed">
-          True Elite Estate is expressly authorized in writing by AU Real Estate Pvt. Ltd. to conduct marketing and advertising activities for RERA project no. UPRERAPRJ466336. All advertisements are truthful, non-misleading, and in compliance with Google Ads policies and applicable Indian laws.
+          Truelite Estates LLP is expressly authorized in writing by AU Real Estate Pvt. Ltd. to conduct marketing and advertising activities for RERA project no. UPRERAPRJ466336. All advertisements are truthful, non-misleading, and in compliance with Google Ads policies and applicable Indian laws.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">5. Intellectual Property</h2>
         <p className="text-gray-600 leading-relaxed">
-          All content on this website — including text, images, brochures, and logos — is the property of AU Real Estate Pvt. Ltd. or True Elite Estate. Reproduction or redistribution without written consent is prohibited.
+          All content on this website — including text, images, brochures, and logos — is the property of AU Real Estate Pvt. Ltd. or Truelite Estates LLP. Reproduction or redistribution without written consent is prohibited.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">6. Limitation of Liability</h2>
         <p className="text-gray-600 leading-relaxed">
-          True Elite Estate shall not be liable for any loss or damage arising from your reliance on information provided on this website. Buyers are advised to verify all details independently before making any purchase decision.
+          Truelite Estates LLP shall not be liable for any loss or damage arising from your reliance on information provided on this website. Buyers are advised to verify all details independently before making any purchase decision.
         </p>
       </section>
 
@@ -61,7 +61,7 @@ export default function TermsAndConditions() {
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">8. Contact</h2>
         <p className="text-gray-600">
-          <strong>True Elite Estate</strong> · Golden I, Tower T3, Unit 314, Greater Noida West – 201309<br />
+          <strong>Truelite Estates LLP</strong> · Golden I, Tower T3, Unit 314, Greater Noida West – 201309<br />
           <a href="mailto:omvir.shishodia@truelitestates.com" className="text-yellow-600 hover:underline">omvir.shishodia@truelitestates.com</a> · <a href="tel:+919711557670" className="text-yellow-600 hover:underline">+91 97115 57670</a>
         </p>
       </section>
