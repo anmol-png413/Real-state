@@ -131,6 +131,42 @@ const HeroSection = ({ onBookVisit }) => {
           animation: spin 0.7s linear infinite;
           flex-shrink: 0;
         }
+
+        /* RERA Stamp responsive */
+        .rera-stamp-wrap {
+          position: absolute;
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 20;
+        }
+        .rera-stamp-circle {
+          width: 130px;
+          height: 130px;
+        }
+        .rera-stamp-approved { font-size: 13px; }
+        .rera-stamp-number  { font-size: 11.5px; max-width: 100px; }
+        .rera-stamp-star    { font-size: 11px; }
+        .rera-stamp-rera    { font-size: 9px; }
+        .rera-stamp-divider { width: 40px; }
+
+        @media (max-width: 768px) {
+          .rera-stamp-wrap {
+            top: 62px;
+            right: 8px;
+            left: auto;
+            transform: none;
+          }
+          .rera-stamp-circle {
+            width: 88px;
+            height: 88px;
+          }
+          .rera-stamp-approved { font-size: 9px; }
+          .rera-stamp-number  { font-size: 7.5px; max-width: 68px; }
+          .rera-stamp-star    { font-size: 8px; }
+          .rera-stamp-rera    { font-size: 6.5px; }
+          .rera-stamp-divider { width: 28px; }
+        }
       `}</style>
 
       <section className="relative w-full min-h-screen overflow-hidden">
@@ -151,21 +187,13 @@ const HeroSection = ({ onBookVisit }) => {
           }}
         />
 
-        {/* RERA Stamp — absolute top-center */}
-        <div style={{
-          position: "absolute",
-          top: "10px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 20,
-        }}>
-          <div style={{
+        {/* RERA Stamp — desktop: top-center | mobile: top-right */}
+        <div className="rera-stamp-wrap">
+          <div className="rera-stamp-circle" style={{
             position: "relative",
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "130px",
-            height: "130px",
             borderRadius: "50%",
             border: "4px solid #f5c842",
             boxShadow: "0 0 0 2px rgba(245,200,66,0.3), 0 0 0 6px rgba(245,200,66,0.1), 0 4px 24px rgba(0,0,0,0.5)",
@@ -188,40 +216,36 @@ const HeroSection = ({ onBookVisit }) => {
               alignItems: "center",
               justifyContent: "center",
               gap: "2px",
-              padding: "14px",
+              padding: "10px",
               textAlign: "center",
             }}>
-              <span style={{ fontSize: "11px", color: "#f5c842", lineHeight: 1 }}>★</span>
-              <span style={{
+              <span className="rera-stamp-star" style={{ color: "#f5c842", lineHeight: 1 }}>★</span>
+              <span className="rera-stamp-rera" style={{
                 fontFamily: "'Jost', sans-serif",
-                fontSize: "9px",
                 fontWeight: 800,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
                 color: "#f5c842",
                 lineHeight: 1.1,
               }}>RERA</span>
-              <span style={{
+              <span className="rera-stamp-approved" style={{
                 fontFamily: "'Jost', sans-serif",
-                fontSize: "13px",
                 fontWeight: 900,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 color: "#fff",
                 lineHeight: 1.1,
               }}>APPROVED</span>
-              <div style={{ width: "40px", height: "1px", background: "#f5c842", margin: "3px 0" }} />
-              <span style={{
-                fontSize: "11.5px",
+              <div className="rera-stamp-divider" style={{ height: "1px", background: "#f5c842", margin: "3px 0" }} />
+              <span className="rera-stamp-number" style={{
                 fontWeight: 700,
                 letterSpacing: "0.03em",
                 color: "#fff",
-                lineHeight: 1.6,
+                lineHeight: 1.5,
                 wordBreak: "break-all",
-                maxWidth: "100px",
                 textAlign: "center",
               }}>UPRERAPRJ466336<br/>05/2026</span>
-              <span style={{ fontSize: "11px", color: "#f5c842", lineHeight: 1, marginTop: "2px" }}>★</span>
+              <span className="rera-stamp-star" style={{ color: "#f5c842", lineHeight: 1, marginTop: "2px" }}>★</span>
             </div>
           </div>
         </div>
