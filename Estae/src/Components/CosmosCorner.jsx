@@ -179,15 +179,12 @@ export default function CosmosCorner({ onBookVisit }) {
       </p>
 
       {/* Download Brochure Button */}
-   {/* Download Brochure Button */}
-<div style={{ textAlign: "center" }}>
-<a href="/brochure.pdf" download="AU-Cosmos-Corner-Brochure.pdf">
-    <button className="cc-brochure-btn">
-      <span>📄</span>
-      Download Brochure
-    </button>
-  </a>
-</div>
+      <div style={{ textAlign: "center" }}>
+        <button className="cc-brochure-btn" onClick={onBookVisit}>
+          <span>📄</span>
+          Download Brochure
+        </button>
+      </div>
 
     </section>
   );

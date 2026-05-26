@@ -201,28 +201,28 @@ const HeroSection = ({ onBookVisit }) => {
         </div>
 
         {/* Mobile/tablet RERA strip (hidden on xl+) */}
-        <div className="xl:hidden flex items-center justify-center gap-2.5" style={{
+        <div className="xl:hidden flex items-center justify-center gap-3" style={{
           position: "absolute",
           top: 0,
           left: 0,
           right: 0,
           zIndex: 20,
-          background: "rgba(0,0,0,0.6)",
+          background: "rgba(0,0,0,0.65)",
           backdropFilter: "blur(6px)",
           borderBottom: "1px solid rgba(245,200,66,0.4)",
-          padding: "8px 16px",
+          padding: "9px 16px",
         }}>
-          <span style={{ fontSize: "10px", color: "#f5c842" }}>★</span>
-          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", fontWeight: 800, letterSpacing: "0.18em", color: "#f5c842", textTransform: "uppercase" }}>RERA APPROVED</span>
-          <span style={{ width: "1px", height: "12px", background: "rgba(245,200,66,0.4)" }} />
-          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", fontWeight: 600, color: "#fff", letterSpacing: "0.05em" }}>UPRERAPRJ466336</span>
-          <span style={{ width: "1px", height: "12px", background: "rgba(245,200,66,0.4)" }} />
-          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "10px", color: "rgba(255,255,255,0.6)", letterSpacing: "0.05em" }}>05/2026</span>
-          <span style={{ fontSize: "10px", color: "#f5c842" }}>★</span>
+          <span style={{ fontSize: "11px", color: "#f5c842" }}>★</span>
+          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", fontWeight: 800, letterSpacing: "0.12em", color: "#f5c842", textTransform: "uppercase", whiteSpace: "nowrap" }}>RERA APPROVED</span>
+          <span style={{ width: "1px", height: "16px", background: "rgba(245,200,66,0.5)" }} />
+          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", fontWeight: 600, color: "#fff", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>UPRERAPRJ466336</span>
+          <span style={{ width: "1px", height: "16px", background: "rgba(245,200,66,0.5)" }} />
+          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>05/2026</span>
+          <span style={{ fontSize: "11px", color: "#f5c842" }}>★</span>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 pt-14 xl:pt-20 pb-20 gap-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 pt-10 xl:pt-20 pb-20 gap-10">
 
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">
