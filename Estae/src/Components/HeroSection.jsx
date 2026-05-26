@@ -110,7 +110,7 @@ const HeroSection = ({ onBookVisit }) => {
         }
         .hero-submit:hover:not(:disabled) {
           background: #333;
-          letter-spacing: 0.38em;
+          letter-spacing: 0.38em;RERARERA
         }
         .hero-submit:disabled {
           background: #555;
