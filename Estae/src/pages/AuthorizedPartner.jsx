@@ -9,7 +9,7 @@ export default function AuthorizedPartner() {
           <p className="text-2xl font-bold text-gray-900">True Elite Estate</p>
           <p className="text-sm text-gray-700">Authorized Channel Partner of <strong>AU Real Estate Pvt. Ltd.</strong></p>
           <p className="text-sm text-gray-600">RERA Project No.: <strong>UPRERAPRJ466336</strong></p>
-          <p className="text-sm text-gray-600">CP RERA No.: <strong>[YOUR-CP-RERA-NO]</strong></p>
+
           <p className="text-sm text-gray-600">Written authorization: Held from developer</p>
         </div>
       </section>

@@ -14,7 +14,7 @@ export default function ReraDisclaimer() {
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
             <p className="text-xs text-gray-500 font-semibold uppercase tracking-widest">Authorized Channel Partner</p>
             <p className="text-xl font-bold text-gray-900 mt-1">True Elite Estate</p>
-            <p className="text-sm text-gray-600 mt-1">CP RERA No.: [YOUR-CP-RERA-NO]</p>
+            
             <p className="text-sm text-gray-600">Written authorization held from developer</p>
           </div>
         </div>

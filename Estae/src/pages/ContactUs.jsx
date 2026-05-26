@@ -50,7 +50,7 @@ export default function ContactUs() {
           <p><strong>Developer:</strong> AU Real Estate Pvt. Ltd.</p>
           <p><strong>RERA Project No.:</strong> UPRERAPRJ466336</p>
           <p><strong>Channel Partner:</strong> True Elite Estate</p>
-          <p><strong>CP RERA No.:</strong> [YOUR-CP-RERA-NO]</p>
+
           <p><strong>Authorization:</strong> Written authorization held from AU Real Estate Pvt. Ltd.</p>
         </div>
       </section>
