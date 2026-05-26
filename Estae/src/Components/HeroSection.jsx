@@ -210,7 +210,7 @@ const HeroSection = ({ onBookVisit }) => {
           background: "rgba(0,0,0,0.65)",
           backdropFilter: "blur(6px)",
           borderBottom: "1px solid rgba(245,200,66,0.4)",
-          padding: "14px 16px",
+          padding: "9px 16px",
         }}>
           <span style={{ fontSize: "13px", color: "#f5c842" }}>★</span>
           <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "13px", fontWeight: 800, letterSpacing: "0.18em", color: "#f5c842", textTransform: "uppercase" }}>RERA APPROVED</span>
@@ -222,7 +222,7 @@ const HeroSection = ({ onBookVisit }) => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 pt-14 xl:pt-20 pb-20 gap-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 pt-10 xl:pt-20 pb-20 gap-10">
 
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">
