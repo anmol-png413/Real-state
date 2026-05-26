@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/au-logo-black.png";
+import logo from "../assets/au-logo-black.webp";
 
 const Navbar = ({ onBookVisit }) => {
   const [menuOpen, setMenuOpen] = useState(false);

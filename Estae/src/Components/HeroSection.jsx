@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import img from "../assets/image.png";
+import img from "../assets/image.webp";
 
 const HeroSection = ({ onBookVisit }) => {
   const navigate = useNavigate();

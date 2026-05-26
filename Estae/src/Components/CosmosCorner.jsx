@@ -1,12 +1,12 @@
 import { useState } from "react";
-import img1 from "../assets/corner/Screenshot 2026-05-24 115934.png";
-import img2 from "../assets/corner/Screenshot 2026-05-24 115953.png";
-import img3 from "../assets/corner/Screenshot 2026-05-24 120007.png";
-import img4 from "../assets/corner/Screenshot 2026-05-24 120020.png";
-import img5 from "../assets/corner/Screenshot 2026-05-24 120045.png";
-import img6 from "../assets/corner/Screenshot 2026-05-24 120102.png";
-import img7 from "../assets/corner/Screenshot 2026-05-24 120136.png";
-import img8 from "../assets/corner/Screenshot 2026-05-24 120149.png";
+import img1 from "../assets/corner/Screenshot 2026-05-24 115934.webp";
+import img2 from "../assets/corner/Screenshot 2026-05-24 115953.webp";
+import img3 from "../assets/corner/Screenshot 2026-05-24 120007.webp";
+import img4 from "../assets/corner/Screenshot 2026-05-24 120020.webp";
+import img5 from "../assets/corner/Screenshot 2026-05-24 120045.webp";
+import img6 from "../assets/corner/Screenshot 2026-05-24 120102.webp";
+import img7 from "../assets/corner/Screenshot 2026-05-24 120136.webp";
+import img8 from "../assets/corner/Screenshot 2026-05-24 120149.webp";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 

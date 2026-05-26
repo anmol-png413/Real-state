@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/au-logo-black.png";
+import logo from "../assets/au-logo-black.webp";
 import SEO from "./SEO";
 
 export default function PolicyLayout({ title, description, canonicalPath, children }) {
