@@ -152,8 +152,8 @@ const HeroSection = ({ onBookVisit }) => {
 
         {/* RERA — Circular stamp on desktop, inline strip on mobile */}
 
-        {/* Desktop stamp (hidden on mobile) */}
-        <div className="hidden lg:flex" style={{
+        {/* Desktop stamp (hidden on mobile/tablet) */}
+        <div className="hidden xl:flex" style={{
           position: "absolute",
           top: "10px",
           left: "50%",
@@ -199,8 +199,8 @@ const HeroSection = ({ onBookVisit }) => {
           </div>
         </div>
 
-        {/* Mobile RERA strip (hidden on desktop) */}
-        <div className="lg:hidden" style={{
+        {/* Mobile/tablet RERA strip (hidden on xl+) */}
+        <div className="xl:hidden" style={{
           position: "absolute",
           top: 0,
           left: 0,
@@ -225,7 +225,7 @@ const HeroSection = ({ onBookVisit }) => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 pt-14 lg:pt-20 pb-20 gap-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 pt-14 xl:pt-20 pb-20 gap-10">
 
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">
