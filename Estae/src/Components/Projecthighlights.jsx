@@ -49,7 +49,7 @@ const highlightCards = [
         <polyline points="16 7 22 7 22 13" />
       </svg>
     ),
-    label: "Starting from\n1780 Sq.Ft.",
+    label: "1780 | 1972 | 3175\nSq.Ft.",
   },
   {
     svg: (
@@ -61,7 +61,7 @@ const highlightCards = [
         <line x1="9" y1="19" x2="12" y2="19" />
       </svg>
     ),
-    label: "G+36 Floors",
+    label: "G+40 Floors",
   },
   {
     svg: (

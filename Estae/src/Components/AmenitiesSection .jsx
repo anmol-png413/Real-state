@@ -56,6 +56,7 @@ const AmenitiesSection = () => {
             <img
               src={item.image}
               alt={item.name}
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
@@ -79,6 +80,7 @@ const AmenitiesSection = () => {
             <img
               src={item.image}
               alt={item.name}
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />

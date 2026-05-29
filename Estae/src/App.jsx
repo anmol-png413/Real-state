@@ -24,7 +24,12 @@ import ReraDisclaimer from './pages/ReraDisclaimer';
 import TermsAndConditions from './pages/TermsAndConditions';
 import DataUsage from './pages/DataUsage';
 import AuthorizedPartner from './pages/AuthorizedPartner';
+import NotFound from './pages/NotFound';
 import FAQSection from './Components/FAQSection';
+import ThreeBHKSiddharthVihar from './pages/ThreeBHKSiddharthVihar';
+import FiveBHKSiddharthVihar from './pages/FiveBHKSiddharthVihar';
+import NewLaunchSiddharthVihar from './pages/NewLaunchSiddharthVihar';
+import SiddharthViharGhaziabad from './pages/SiddharthViharGhaziabad';
 
 const floatingBtnBase = {
   position: "fixed",
@@ -48,7 +53,7 @@ const homepageSchema = {
       "@type": "RealEstateListing",
       "@id": "https://aucosmos.truelitestates.com/#listing",
       "name": "AU Cosmos Corner",
-      "description": "Premium 3 BHK, 3 BHK+Servant and 5 BHK+Servant luxury apartments in Siddharth Vihar, Ghaziabad. G+36 towers on 5.6 acres. Pre-launch price ₹6900/sq ft. RERA: UPRERAPRJ466336.",
+      "description": "Premium 3 BHK, 3 BHK+Servant and 5 BHK+Servant luxury apartments in Siddharth Vihar, Ghaziabad. G+40 towers on 5.6 acres. Pre-launch price ₹6900/sq ft. RERA: UPRERAPRJ466336.",
       "url": "https://aucosmos.truelitestates.com",
       "image": "https://aucosmos.truelitestates.com/og-image.jpg",
       "address": {
@@ -204,7 +209,7 @@ function HomePage() {
     <div className="App">
       <SEO
         title="3 BHK Luxury Apartments in Siddharth Vihar Ghaziabad | Pre-launch ₹6900/sq ft"
-        description="Book 3 BHK, 3 BHK+Servant & 5 BHK+Servant luxury apartments at AU Cosmos Corner, Siddharth Vihar Ghaziabad. Pre-launch ₹6900/sq ft. G+36 towers, 5.6 acres. RERA: UPRERAPRJ466336. Call 9711557670."
+        description="Book 3 BHK, 3 BHK+Servant & 5 BHK+Servant luxury apartments at AU Cosmos Corner, Siddharth Vihar Ghaziabad. Pre-launch ₹6900/sq ft. G+40 towers, 5.6 acres. RERA: UPRERAPRJ466336. Call 9711557670."
         url="https://aucosmos.truelitestates.com"
         schema={homepageSchema}
       />
@@ -324,6 +329,11 @@ function App() {
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/data-usage" element={<DataUsage />} />
         <Route path="/authorized-partner" element={<AuthorizedPartner />} />
+        <Route path="/3-bhk-flats-siddharth-vihar" element={<ThreeBHKSiddharthVihar />} />
+        <Route path="/5-bhk-flats-siddharth-vihar" element={<FiveBHKSiddharthVihar />} />
+        <Route path="/new-launch-siddharth-vihar" element={<NewLaunchSiddharthVihar />} />
+        <Route path="/siddharth-vihar-ghaziabad" element={<SiddharthViharGhaziabad />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

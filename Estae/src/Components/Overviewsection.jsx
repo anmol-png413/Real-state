@@ -5,9 +5,9 @@ const OverviewSection = ({ onBookVisit }) => {
     { label: "Configuration", value: "3 BHK, 3 BHK + Servant, 5 BHK + Servant  luxury apartments" },
     { label: "Total Land Area", value: "5.60 Acres (Approx.)" },
     { label: "Total Towers", value: "Only 3 Exclusive Towers" },
-    { label: "Development Time", value: "4 Years" },
-    { label: "Size", value: "1780 Sq.Ft" },
-    { label: "Height", value: "G+36 Floors" },
+    { label: "Development Time", value: "Year 2029" },
+    { label: "Size", value: "1780 | 1972 | 3175 Sq.Ft" },
+    { label: "Height", value: "G+40 Floors" },
     { label: "Location", value: "Siddharth Vihar , Ghaziabad." },
   ];
 
@@ -61,7 +61,7 @@ const OverviewSection = ({ onBookVisit }) => {
           <p className="text-gray-700 text-base leading-relaxed text-justify">
             Spread across approx. <span className="font-semibold text-gray-900">5.6 acres</span> of
             prime land, the project features{" "}
-            <span className="font-semibold text-gray-900">3 iconic high-rise towers (G+36)</span> with
+            <span className="font-semibold text-gray-900">3 iconic high-rise towers (G+40)</span> with
             spacious residences, ensuring comfort, privacy, and elegance in every corner.
           </p>
 

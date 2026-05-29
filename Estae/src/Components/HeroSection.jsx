@@ -139,6 +139,9 @@ const HeroSection = ({ onBookVisit }) => {
           src={img}
           alt="AU Cosmos Corner luxury 3 BHK apartment towers, Siddharth Vihar Ghaziabad"
           className="absolute inset-0 w-full h-full object-cover object-center"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
         />
 
         {/* Dark Overlay */}

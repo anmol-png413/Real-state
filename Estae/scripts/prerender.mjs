@@ -28,6 +28,10 @@ const ROUTES = [
   '/terms',
   '/data-usage',
   '/authorized-partner',
+  '/3-bhk-flats-siddharth-vihar',
+  '/5-bhk-flats-siddharth-vihar',
+  '/new-launch-siddharth-vihar',
+  '/siddharth-vihar-ghaziabad',
 ];
 
 // Find system Chrome

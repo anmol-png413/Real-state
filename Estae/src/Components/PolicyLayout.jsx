@@ -8,12 +8,22 @@ export default function PolicyLayout({ title, description, canonicalPath, childr
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aucosmos.truelitestates.com" },
+      { "@type": "ListItem", "position": 2, "name": title, "item": `https://aucosmos.truelitestates.com${canonicalPath || ""}` }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-800">
       <SEO
         title={title}
         description={description}
         url={`https://aucosmos.truelitestates.com${canonicalPath || ""}`}
+        schema={breadcrumbSchema}
       />
       {/* Header */}
       <div className="w-full bg-white border-b border-yellow-500/40 shadow-sm px-6 md:px-16 py-4 flex items-center justify-between sticky top-0 z-50">

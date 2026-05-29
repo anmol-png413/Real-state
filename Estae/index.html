@@ -18,6 +18,14 @@
     <!-- Sitemap hint for crawlers -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
+    <!-- C3: Hero image preload — tells browser to fetch hero before JS runs (LCP boost) -->
+    <!-- Note: actual hashed filename set by Vite at build time; this covers dev -->
+    <link rel="preload" as="image" href="/src/assets/image.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- C10: Theme color for mobile browser chrome -->
+    <meta name="theme-color" content="#111111" />
+    <meta name="msapplication-TileColor" content="#111111" />
+
     <!-- ✅ 1. Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

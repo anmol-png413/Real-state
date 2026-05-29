@@ -82,9 +82,41 @@
   <!-- Authorized Channel Partner -->
   <url>
     <loc>https://aucosmos.truelitestates.com/authorized-partner</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- SEO Landing: 3 BHK Flats Siddharth Vihar -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/3-bhk-flats-siddharth-vihar</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- SEO Landing: 5 BHK Flats Siddharth Vihar -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/5-bhk-flats-siddharth-vihar</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- SEO Landing: New Launch Siddharth Vihar -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/new-launch-siddharth-vihar</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- SEO Landing: Siddharth Vihar Ghaziabad Location Guide -->
+  <url>
+    <loc>https://aucosmos.truelitestates.com/siddharth-vihar-ghaziabad</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>
