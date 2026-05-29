@@ -7,6 +7,12 @@
  * Auto-run via: npm run build (postbuild hook)
  */
 
+// Skip prerender on Vercel — no Chrome available in build environment
+if (process.env.VERCEL) {
+  console.log('⏭️  Skipping prerender on Vercel (no Chrome). SPA served as-is.');
+  process.exit(0);
+}
+
 import puppeteer from 'puppeteer-core';
 import { execSync, spawn } from 'child_process';
 import fs from 'fs';
