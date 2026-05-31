@@ -31,8 +31,9 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "RealEstateListing",
+      "@type": ["RealEstateListing", "ApartmentComplex"],
       "name": "5 BHK Luxury Flats in Siddharth Vihar Ghaziabad — AU Cosmos Corner",
+      "numberOfBedrooms": 5,
       "description": "5 BHK + Servant Room luxury apartments in Siddharth Vihar, Ghaziabad. 3175 Sq.Ft. Pre-launch ₹6900/sq ft. Starting ₹2.19 Cr. RERA: UPRERAPRJ466336.",
       "url": "https://aucosmos.truelitestates.com/5-bhk-flats-siddharth-vihar",
       "numberOfRooms": "5",

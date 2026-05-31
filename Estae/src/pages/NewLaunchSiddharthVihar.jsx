@@ -31,7 +31,7 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "RealEstateListing",
+      "@type": ["RealEstateListing", "ApartmentComplex"],
       "name": "New Launch in Siddharth Vihar 2026 — AU Cosmos Corner",
       "description": "AU Cosmos Corner is the top new launch residential project in Siddharth Vihar, Ghaziabad 2026. Pre-launch ₹6900/sq ft. RERA: UPRERAPRJ466336.",
       "url": "https://aucosmos.truelitestates.com/new-launch-siddharth-vihar",

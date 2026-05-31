@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const OverviewSection = ({ onBookVisit }) => {
 
   const highlights = [
@@ -94,6 +96,17 @@ const OverviewSection = ({ onBookVisit }) => {
   Call  9711557670
 </button>
         </div>
+      </div>
+      {/* Internal SEO links */}
+      <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-10 text-xs text-gray-400 uppercase tracking-widest">
+        <span>Explore:</span>
+        <Link to="/3-bhk-flats-siddharth-vihar" className="text-yellow-500 hover:text-yellow-400 transition-colors">3 BHK Flats</Link>
+        <span className="text-gray-700">·</span>
+        <Link to="/5-bhk-flats-siddharth-vihar" className="text-yellow-500 hover:text-yellow-400 transition-colors">5 BHK Flats</Link>
+        <span className="text-gray-700">·</span>
+        <Link to="/new-launch-siddharth-vihar" className="text-yellow-500 hover:text-yellow-400 transition-colors">New Launch</Link>
+        <span className="text-gray-700">·</span>
+        <Link to="/siddharth-vihar-ghaziabad" className="text-yellow-500 hover:text-yellow-400 transition-colors">Siddharth Vihar Guide</Link>
       </div>
     </section>
   );

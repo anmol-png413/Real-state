@@ -26,6 +26,7 @@ import DataUsage from './pages/DataUsage';
 import AuthorizedPartner from './pages/AuthorizedPartner';
 import NotFound from './pages/NotFound';
 import FAQSection from './Components/FAQSection';
+import Testimonials from './Components/Testimonials';
 import ThreeBHKSiddharthVihar from './pages/ThreeBHKSiddharthVihar';
 import FiveBHKSiddharthVihar from './pages/FiveBHKSiddharthVihar';
 import NewLaunchSiddharthVihar from './pages/NewLaunchSiddharthVihar';
@@ -231,6 +232,7 @@ function HomePage() {
         <LocationGallery />
         {/* <Whychoosefaq onBookVisit={() => setShowModal(true)} /> */}
         <ProjectGallery />
+        <Testimonials />
         <FAQSection onBookVisit={() => { setModalSource("FAQ Section"); setShowModal(true); }} />
         <ContactForm onPhoneClick={() => { setModalSource("Contact Form Phone"); setShowModal(true); }} source="Contact Form" />
         <Footer onBookVisit={() => { setModalSource("Footer"); setShowModal(true); }} />
