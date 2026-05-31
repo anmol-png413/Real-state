@@ -72,7 +72,8 @@ export default function About() {
             <div className="relative z-10 rounded-sm overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=90"
-                alt="Luxury Bedroom Interior — Truelite Estates LLP"
+                alt="Luxury Bedroom Interior — AU Cosmos Corner 3 BHK Siddharth Vihar"
+                loading="lazy"
                 className="w-full h-[340px] md:h-[520px] object-cover"
                 style={{ filter: "brightness(0.97) contrast(1.02)" }}
               />
@@ -125,18 +126,11 @@ export default function About() {
 
           {/* Body paragraphs */}
           <p className="about-body">
-           AU Realestate is a distinguished real estate developer in Delhi NCR, renowned
-            for delivering modern residential projects that harmoniously blend quality
-            construction, strategic locations, and lifestyle-focused design. We create
-            thoughtfully planned communities that cater to the aspirations of contemporary
-            homebuyers — offering both comfort and enduring value.
+            <strong>AU Cosmos Corner</strong> is a premium residential project by <strong>AU Real Estate Pvt. Ltd.</strong>, one of Delhi NCR's trusted real estate developers. Located in Siddharth Vihar, Ghaziabad, it offers thoughtfully designed 3 BHK luxury apartments that blend quality construction, strategic location, and lifestyle-focused design.
           </p>
 
           <p className="about-body">
-            With an unwavering focus on innovation and customer satisfaction, we uphold
-            superior construction standards, efficient layouts, and premium specifications.
-            Every home is designed with meticulous attention to detail — ensuring spacious
-            living spaces, ample natural light, and interiors that elevate everyday life.
+            This website is operated by <strong>Truelite Estates LLP</strong> — an officially authorized channel partner of AU Real Estate Pvt. Ltd. (RERA No. UPRERAPRJ466336). We are not the developer. We are your trusted advisor, helping you make the right home-buying decision with complete transparency and zero brokerage.
           </p>
 
           <p className="about-body">

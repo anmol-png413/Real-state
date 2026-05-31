@@ -9,6 +9,13 @@ const quickLinks = [
   { name: "Location Map", href: "#location" },
 ];
 
+const exploreLinks = [
+  { name: "3 BHK Flats in Siddharth Vihar", to: "/3-bhk-flats-siddharth-vihar" },
+  { name: "5 BHK Luxury Flats", to: "/5-bhk-flats-siddharth-vihar" },
+  { name: "New Launch Siddharth Vihar", to: "/new-launch-siddharth-vihar" },
+  { name: "Siddharth Vihar Guide", to: "/siddharth-vihar-ghaziabad" },
+];
+
 const features = [
   "3 BHK + 3 Toilet", "1780 Sq.Ft. Area", "11 Ft Ceiling Height",
   "Grand Clubhouse", "Swimming Pool", "24/7 Security",
@@ -34,8 +41,8 @@ export default function Footer({ onBookVisit }) {
               TE
             </div>
             <div>
-              <p className="font-bold text-white text-base leading-tight">AU Realestate</p>
-              <p className="text-gray-400 text-xs">Luxury Living, Redefined</p>
+              <p className="font-bold text-white text-base leading-tight">Truelite Estates LLP</p>
+              <p className="text-gray-400 text-xs">Authorized Channel Partner</p>
             </div>
           </div>
           <p className="text-gray-400 text-sm leading-relaxed">
@@ -74,6 +81,17 @@ export default function Footer({ onBookVisit }) {
       <span className="text-yellow-500 text-xs">›</span>
       {link.name}
     </a>
+  ))}
+  <h4 className="text-white font-semibold text-sm uppercase tracking-widest mt-3 mb-1">
+    Explore
+  </h4>
+  {exploreLinks.map((link) => (
+    <Link key={link.name} to={link.to}
+      className="text-gray-400 text-sm hover:text-yellow-400 transition-colors flex items-center gap-2"
+    >
+      <span className="text-yellow-500 text-xs">›</span>
+      {link.name}
+    </Link>
   ))}
 </div>
 
@@ -154,8 +172,18 @@ export default function Footer({ onBookVisit }) {
         ))}
       </div>
 
+      {/* SEO keyword-rich text block — visible to crawlers */}
+      <div className="w-full border-t border-gray-800 px-4 md:px-10 py-6">
+        <p className="text-gray-600 text-xs leading-relaxed text-center max-w-4xl mx-auto">
+          AU Cosmos Corner offers premium <strong className="text-gray-500">3 BHK apartments in Siddharth Vihar Ghaziabad</strong>, <strong className="text-gray-500">3 BHK+Servant luxury flats Ghaziabad</strong>, and <strong className="text-gray-500">5 BHK apartments Ghaziabad</strong> at a pre-launch price of ₹6,900/sq ft.
+          This <strong className="text-gray-500">RERA approved residential project in Ghaziabad</strong> (UPRERAPRJ466336) by AU Real Estate Pvt. Ltd. features G+40 towers on 5.6 acres in <strong className="text-gray-500">Siddharth Vihar, Ghaziabad, Uttar Pradesh</strong>.
+          Marketed by Truelite Estates LLP, Authorized Channel Partner — Golden I Tower T3, Unit 314, Greater Noida West 201309.
+          For <strong className="text-gray-500">3 BHK flat booking in Ghaziabad</strong> or <strong className="text-gray-500">luxury apartment investment near Delhi NCR</strong>, call 9711557670.
+        </p>
+      </div>
+
       {/* Bottom Bar */}
-      <div className="w-full px-4 md:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div className="w-full px-4 md:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-gray-800">
         <p className="text-gray-500 text-xs text-center sm:text-left">
           © {new Date().getFullYear()} Truelite Estates LLP. Authorized Channel Partner of AU Real Estate Pvt. Ltd.
         </p>

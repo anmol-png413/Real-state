@@ -2,7 +2,7 @@ import PolicyLayout from "../Components/PolicyLayout";
 
 export default function ContactUs() {
   return (
-    <PolicyLayout title="Contact Us">
+    <PolicyLayout title="Contact Us" description="Contact Truelite Estates LLP to book a site visit or get pricing details for AU Cosmos Corner luxury apartments in Ghaziabad. Call 9711557670." canonicalPath="/contact">
       <section>
         <h2 className="text-xl font-bold text-gray-900 mb-3">Reach Us</h2>
         <p className="text-gray-600 leading-relaxed">

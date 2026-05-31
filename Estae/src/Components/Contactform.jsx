@@ -92,7 +92,8 @@ export default function ContactForm({ onPhoneClick, source = "Contact Form", dow
           {/* Left Yellow Panel */}
           <div className="bg-yellow-500 md:w-2/5 px-6 py-6 hidden md:flex flex-col justify-between gap-4">
             <div>
-              <h3 className="text-white text-lg font-bold mb-1">AU Realestate</h3>
+              <h3 className="text-white text-lg font-bold mb-1">AU Cosmos Corner</h3>
+              <p className="text-yellow-100 text-xs mb-1">by AU Real Estate Pvt. Ltd.</p>
               <p className="text-yellow-100 text-xs leading-relaxed">
                 Experience luxury living at Siddharth Vihar, Ghaziabad. Premium 3 BHK homes designed for modern lifestyle.
               </p>

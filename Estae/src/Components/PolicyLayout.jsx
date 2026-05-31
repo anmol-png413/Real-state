@@ -1,18 +1,34 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/au-logo-black.png";
+import logo from "../assets/au-logo-black.webp";
+import SEO from "./SEO";
 
-export default function PolicyLayout({ title, children }) {
+export default function PolicyLayout({ title, description, canonicalPath, children }) {
   const navigate = useNavigate();
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aucosmos.truelitestates.com" },
+      { "@type": "ListItem", "position": 2, "name": title, "item": `https://aucosmos.truelitestates.com${canonicalPath || ""}` }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-800">
+      <SEO
+        title={title}
+        description={description}
+        url={`https://aucosmos.truelitestates.com${canonicalPath || ""}`}
+        schema={breadcrumbSchema}
+      />
       {/* Header */}
       <div className="w-full bg-white border-b border-yellow-500/40 shadow-sm px-6 md:px-16 py-4 flex items-center justify-between sticky top-0 z-50">
         <button onClick={() => navigate("/")} className="flex items-center bg-transparent border-none cursor-pointer p-0">
-          <img src={logo} alt="AU Realestate" style={{ height: "50px", width: "auto" }} />
+          <img src={logo} alt="AU Cosmos Corner - Truelite Estates LLP" style={{ height: "50px", width: "auto" }} />
         </button>
         <button
           onClick={() => navigate("/")}

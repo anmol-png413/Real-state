@@ -177,7 +177,8 @@ export default function LocationGallery() {
         >
           <img
             src={activeImg}
-            alt="Gallery preview"
+            alt="AU Cosmos Corner location and amenities gallery - Siddharth Vihar Ghaziabad"
+            loading="eager"
             className="max-w-full max-h-[85vh] rounded-xl shadow-2xl"
           />
           <button

@@ -1,12 +1,12 @@
 import { useState } from "react";
-import img1 from "../assets/corner/Screenshot 2026-05-24 115934.png";
-import img2 from "../assets/corner/Screenshot 2026-05-24 115953.png";
-import img3 from "../assets/corner/Screenshot 2026-05-24 120007.png";
-import img4 from "../assets/corner/Screenshot 2026-05-24 120020.png";
-import img5 from "../assets/corner/Screenshot 2026-05-24 120045.png";
-import img6 from "../assets/corner/Screenshot 2026-05-24 120102.png";
-import img7 from "../assets/corner/Screenshot 2026-05-24 120136.png";
-import img8 from "../assets/corner/Screenshot 2026-05-24 120149.png";
+import img1 from "../assets/corner/au-cosmos-corner-exterior-view-siddharth-vihar.webp";
+import img2 from "../assets/corner/au-cosmos-corner-3bhk-living-room-ghaziabad.webp";
+import img3 from "../assets/corner/au-cosmos-corner-luxury-bedroom-interior.webp";
+import img4 from "../assets/corner/au-cosmos-corner-modular-kitchen-design.webp";
+import img5 from "../assets/corner/au-cosmos-corner-master-bedroom-siddharth-vihar.webp";
+import img6 from "../assets/corner/au-cosmos-corner-bathroom-premium-fittings.webp";
+import img7 from "../assets/corner/au-cosmos-corner-balcony-view-ghaziabad.webp";
+import img8 from "../assets/corner/au-cosmos-corner-5bhk-luxury-flat-interior.webp";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
@@ -133,6 +133,7 @@ export default function CosmosCorner({ onBookVisit }) {
           <img
             key={current}
             src={images[current]}
+              loading="lazy"
             alt={`Cosmos Corner ${current + 1}`}
             style={{
               width: "100%",

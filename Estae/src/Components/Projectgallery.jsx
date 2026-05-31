@@ -47,6 +47,7 @@ export default function ProjectGallery() {
             <img
               src={img.src}
               alt={img.alt}
+              loading="lazy"
               className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
             />
 

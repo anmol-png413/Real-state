@@ -1,4 +1,4 @@
-import sitePlanImg from "../assets/WhatsApp Image 2026-05-04 at 12.30.51.jpeg";
+import sitePlanImg from "../assets/WhatsApp Image 2026-05-04 at 12.30.51.webp";
 
 const specs = [
   "1.5 Ton Split AC in All Bedrooms",
@@ -64,7 +64,8 @@ export default function SitePlan() {
         <div className="md:w-1/2 w-full flex justify-end">
           <img
             src={sitePlanImg}
-            alt="AU Siddharth Vihar Master Site Plan"
+            alt="AU Cosmos Corner Siddharth Vihar Master Site Plan — 3 BHK 5 BHK layout"
+            loading="lazy"
             className="w-full rounded-2xl shadow-md border border-gray-200 object-contain flex justify-end"
           />
         </div>
