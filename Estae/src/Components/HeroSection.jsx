@@ -247,8 +247,18 @@ const HeroSection = ({ onBookVisit }) => {
               color: "#fff",
               textTransform: "uppercase",
             }}>
-              Pre-launch at <br /> ₹6900/sq ft
+              Pre-launch at <br /> ₹6900 BSP/sq ft
             </span>
+            <p style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
+              fontWeight: 700,
+              color: "#f5d98b",
+              letterSpacing: "0.05em",
+              margin: "4px 0 0",
+            }}>
+              Starting ₹1.22 Cr* &nbsp;·&nbsp; 1780 Sq.Ft.
+            </p>
 
             <p style={{
               fontFamily: "'Jost', sans-serif",

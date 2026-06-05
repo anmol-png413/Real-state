@@ -263,15 +263,33 @@ export default function SitePlan() {
                 lineHeight: 1.2,
                 marginBottom: "4px",
               }}>
-                @ ₹ 6900 <span style={{ fontSize: "0.55em", fontWeight: 400, color: "#555" }}>Per Sq.ft</span>
+                @ ₹ 6900 <span style={{ fontSize: "0.55em", fontWeight: 400, color: "#555" }}>BSP / Sq.ft</span>
+              </p>
+              <p style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
+                fontWeight: 700,
+                color: "#b8893a",
+                lineHeight: 1.2,
+                marginTop: "6px",
+              }}>
+                Starting ₹1.22 Cr*
+              </p>
+              <p style={{
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "11px",
+                color: "#aaa",
+                marginTop: "2px",
+              }}>
+                1780 Sq.Ft. | 3 BHK
               </p>
               <p style={{
                 fontFamily: "'Jost', sans-serif",
                 fontSize: "12px",
                 color: "#888",
-                marginTop: "4px",
+                marginTop: "6px",
               }}>
-                (Other Charges Applicable)
+                *Other Charges Applicable
               </p>
             </div>
 

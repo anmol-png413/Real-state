@@ -256,7 +256,7 @@ export default function ProjectHighlights({ onBookVisit }) {
               </thead>
               <tbody>
                 {[
-                  { type: "3 BHK + 3 Toilet", sub: "Premium Configuration", area: "1780 Sq.Ft.", areaSub: "11 ft ceiling" },
+                  { type: "3 BHK + 3 Toilet", sub: "Premium Configuration", area: "1780 Sq.Ft.", areaSub: "11 ft ceiling", price: "₹ 1.22 Cr*", priceSub: "@ ₹6900 BSP/sq.ft" },
                   { type: "3 BHK + 3 Toilet + Servant", sub: "Premium Configuration", area: "1972 Sq.Ft.", areaSub: "11 ft ceiling" },
                   { type: "5 BHK + 3 Toilet + Servant", sub: "Ultra Luxury Configuration", area: "3175 Sq.Ft.", areaSub: "11 ft ceiling" },
                 ].map((row, i, arr) => (
@@ -279,24 +279,33 @@ export default function ProjectHighlights({ onBookVisit }) {
                       <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{row.areaSub}</p>
                     </td>
                     <td style={{ padding: "18px 24px" }}>
-                      <button
-                        onClick={onBookVisit}
-                        style={{
-                          fontFamily: "'Jost', sans-serif",
-                          fontWeight: 700,
-                          fontSize: "13px",
-                          color: "#b8893a",
-                          background: "none",
-                          border: "none",
-                          cursor: "pointer",
-                          padding: 0,
-                          textDecoration: "underline",
-                          textUnderlineOffset: "3px",
-                        }}
-                      >
-                        ₹ Get Price
-                      </button>
-                      <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>Contact for pricing</p>
+                      {row.price ? (
+                        <>
+                          <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 700, fontSize: "18px", color: "#b8893a" }}>{row.price}</p>
+                          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{row.priceSub}</p>
+                        </>
+                      ) : (
+                        <>
+                          <button
+                            onClick={onBookVisit}
+                            style={{
+                              fontFamily: "'Jost', sans-serif",
+                              fontWeight: 700,
+                              fontSize: "13px",
+                              color: "#b8893a",
+                              background: "none",
+                              border: "none",
+                              cursor: "pointer",
+                              padding: 0,
+                              textDecoration: "underline",
+                              textUnderlineOffset: "3px",
+                            }}
+                          >
+                            ₹ Get Price
+                          </button>
+                          <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>Contact for pricing</p>
+                        </>
+                      )}
                     </td>
                   </tr>
                 ))}
