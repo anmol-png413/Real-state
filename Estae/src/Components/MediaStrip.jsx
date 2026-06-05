@@ -4,6 +4,8 @@ import img09 from "../assets/gallery/image-09.jpeg";
 import img10 from "../assets/gallery/image-10.jpeg";
 import img11 from "../assets/gallery/image-11.jpeg";
 import img12 from "../assets/gallery/image-12.jpeg";
+import vid01 from "../assets/gallery/video-01.mp4";
+import vid02 from "../assets/gallery/video-02.mp4";
 import img01 from "../assets/gallery/image-01.png";
 import img02 from "../assets/gallery/image-02.png";
 import img03 from "../assets/gallery/image-03.png";
@@ -14,6 +16,8 @@ import img07 from "../assets/gallery/image-07.png";
 import img08 from "../assets/gallery/image-08.png";
 
 const mediaItems = [
+  { type: "video", src: vid01, label: "Project Video 1" },
+  { type: "video", src: vid02, label: "Project Video 2" },
   { type: "image", src: img09, label: "AU Real Estate" },
   { type: "image", src: img10, label: "Cosmos Corner" },
   { type: "image", src: img11, label: "Sunday Times Ad" },
