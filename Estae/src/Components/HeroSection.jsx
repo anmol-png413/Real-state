@@ -72,12 +72,11 @@ const HeroSection = ({ onBookVisit }) => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
         .hero-input {
           width: 100%;
           padding: 11px 16px;
-          font-family: 'Jost', sans-serif;
+          font-family: 'DM Sans', sans-serif;
           font-size: 13px;
           font-weight: 300;
           letter-spacing: 0.04em;
@@ -95,7 +94,7 @@ const HeroSection = ({ onBookVisit }) => {
           padding: 13px;
           background: #111;
           color: #fff;
-          font-family: 'Jost', sans-serif;
+          font-family: 'DM Sans', sans-serif;
           font-size: 11px;
           font-weight: 600;
           letter-spacing: 0.3em;
@@ -190,11 +189,11 @@ const HeroSection = ({ onBookVisit }) => {
               textAlign: "center",
             }}>
               <span style={{ fontSize: "14px", color: "#f5c842", lineHeight: 1 }}>★</span>
-              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "#f5c842", lineHeight: 1.2 }}>RERA</span>
-              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "17px", fontWeight: 900, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", lineHeight: 1.2 }}>APPROVED</span>
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "#f5c842", lineHeight: 1.2 }}>RERA</span>
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "17px", fontWeight: 900, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", lineHeight: 1.2 }}>APPROVED</span>
               <div style={{ width: "50px", height: "1px", background: "#f5c842", margin: "4px 0" }} />
-              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 700, letterSpacing: "0.02em", color: "#fff", lineHeight: 1.5, textAlign: "center" }}>UPRERAPRJ466336</span>
-              <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.75)", letterSpacing: "0.05em" }}>05/2026</span>
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 700, letterSpacing: "0.02em", color: "#fff", lineHeight: 1.5, textAlign: "center" }}>UPRERAPRJ466336</span>
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.75)", letterSpacing: "0.05em" }}>05/2026</span>
               <span style={{ fontSize: "14px", color: "#f5c842", lineHeight: 1, marginTop: "2px" }}>★</span>
             </div>
           </div>
@@ -213,11 +212,11 @@ const HeroSection = ({ onBookVisit }) => {
           padding: "9px 16px",
         }}>
           <span style={{ fontSize: "11px", color: "#f5c842" }}>★</span>
-          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", fontWeight: 800, letterSpacing: "0.12em", color: "#f5c842", textTransform: "uppercase", whiteSpace: "nowrap" }}>RERA APPROVED</span>
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 800, letterSpacing: "0.12em", color: "#f5c842", textTransform: "uppercase", whiteSpace: "nowrap" }}>RERA APPROVED</span>
           <span style={{ width: "1px", height: "16px", background: "rgba(245,200,66,0.5)" }} />
-          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", fontWeight: 600, color: "#fff", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>UPRERAPRJ466336</span>
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, color: "#fff", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>UPRERAPRJ466336</span>
           <span style={{ width: "1px", height: "16px", background: "rgba(245,200,66,0.5)" }} />
-          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>05/2026</span>
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>05/2026</span>
           <span style={{ fontSize: "11px", color: "#f5c842" }}>★</span>
         </div>
 
@@ -229,7 +228,7 @@ const HeroSection = ({ onBookVisit }) => {
 
 
             <span style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: "25px",
               fontWeight: 700,
               letterSpacing: "0.15em",
@@ -240,28 +239,18 @@ const HeroSection = ({ onBookVisit }) => {
             </span>
 
             <span style={{
-              fontFamily: "'Lato', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: "40px",
               fontWeight: 800,
               letterSpacing: "0.15em",
               color: "#fff",
               textTransform: "uppercase",
             }}>
-              Pre-launch at <br /> ₹6900 BSP/sq ft
+              Luxury Flats Starting at ₹1.22 Cr*
             </span>
-            <p style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
-              fontWeight: 700,
-              color: "#f5d98b",
-              letterSpacing: "0.05em",
-              margin: "4px 0 0",
-            }}>
-              Starting ₹1.22 Cr* &nbsp;·&nbsp; 1780 Sq.Ft.
-            </p>
 
             <p style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: "20px",
               fontWeight: 400,
               letterSpacing: "0.25em",
@@ -270,61 +259,6 @@ const HeroSection = ({ onBookVisit }) => {
             }}>
             </p>
 
-            {/* Tag */}
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "10px",
-              marginTop: "8px",
-              borderLeft: "3px solid #f5e6c0",
-              paddingLeft: "14px",
-            }}>
-              <span style={{
-                fontFamily: "'Jost', sans-serif",
-                fontSize: "20px",
-                fontWeight: 400,
-                letterSpacing: "0.15em",
-                color: "#fff",
-                textTransform: "uppercase",
-              }}>
-                3 BHK, 3 BHK + Servant, 5 BHK + Servant luxury apartments
-              </span>
-            </div>
-
-            {/* Specifications */}
-            <div style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "10px",
-              marginTop: "16px",
-            }}>
-              {[
-                " 1.5 Ton Split AC in All Bedrooms",
-                " Modular Kitchen",
-                " Wardrobes in  Bedrooms",
-              ].map((spec) => (
-                <div key={spec} style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  background: "rgba(255,255,255,0.1)",
-                  border: "1px solid rgba(255,255,255,0.25)",
-                  padding: "7px 14px",
-                  borderRadius: "50px",
-                  backdropFilter: "blur(6px)",
-                }}>
-                  <span style={{
-                    fontFamily: "'Lato', sans-serif",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                    color: "#fff",
-                    letterSpacing: "0.08em",
-                  }}>
-                    {spec}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* ── RIGHT: Form Card ── */}
@@ -340,7 +274,7 @@ const HeroSection = ({ onBookVisit }) => {
               textAlign: "center",
             }}>
               <p style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "'Playfair Display', Georgia, serif",
                 fontSize: "20px",
                 fontWeight: 600,
                 color: "#111",
@@ -349,7 +283,7 @@ const HeroSection = ({ onBookVisit }) => {
                 AU Cosmos Corner
               </p>
               <p style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "10px",
                 fontWeight: 400,
                 letterSpacing: "0.25em",
@@ -389,7 +323,7 @@ const HeroSection = ({ onBookVisit }) => {
                 >
                   <span style={{ fontSize: "16px" }}>📞</span>
                   <span style={{
-                    fontFamily: "'Jost', sans-serif",
+                    fontFamily: "'DM Sans', sans-serif",
                     fontSize: "13px",
                     fontWeight: 800,
                     color: "#111",
@@ -437,7 +371,7 @@ const HeroSection = ({ onBookVisit }) => {
                 </button>
 
                 <p style={{
-                  fontFamily: "'Jost', sans-serif",
+                  fontFamily: "'DM Sans', sans-serif",
                   fontSize: "10px",
                   color: "#bbb",
                   textAlign: "center",

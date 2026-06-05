@@ -37,7 +37,7 @@ const floatingBtnBase = {
   padding: "18px 10px",
   border: "none",
   cursor: "pointer",
-  fontFamily: "'Jost', sans-serif",
+  fontFamily: "'DM Sans', sans-serif",
 };
 
 function HomePage() {

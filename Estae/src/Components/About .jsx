@@ -3,12 +3,11 @@ import React from "react";
 export default function About() {
   return (
     <section
-      style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}
+      style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}
       className="w-full bg-white py-20 px-4 md:px-16 overflow-hidden"
     >
       {/* Google Font */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 
         .about-img-wrap::before {
           content: '';
@@ -24,7 +23,7 @@ export default function About() {
         }
 
         .about-tag {
-          font-family: 'Jost', sans-serif;
+          font-family: 'DM Sans', sans-serif;
           letter-spacing: 0.25em;
           font-weight: 400;
           font-size: 11px;
@@ -33,7 +32,7 @@ export default function About() {
         }
 
         .about-body {
-          font-family: 'Jost', sans-serif;
+          font-family: 'DM Sans', sans-serif;
           font-weight: 300;
           font-size: 15px;
           line-height: 1.9;
@@ -50,7 +49,7 @@ export default function About() {
         }
 
         .about-pill {
-          font-family: 'Jost', sans-serif;
+          font-family: 'DM Sans', sans-serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -82,7 +81,7 @@ export default function About() {
                 style={{ background: "rgba(18,14,10,0.62)", backdropFilter: "blur(6px)" }}
               >
                 <span
-                  style={{ fontFamily: "'Jost',sans-serif", fontSize: "12px", color: "#e8d9b8", letterSpacing: "0.15em" }}
+                  style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "12px", color: "#e8d9b8", letterSpacing: "0.15em" }}
                 >
                   MASTER BEDROOM · 3 BHK
                 </span>
@@ -105,7 +104,7 @@ export default function About() {
           <h2
             className="text-gray-900 leading-tight"
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: "clamp(2rem, 4vw, 3.2rem)",
               fontWeight: 300,
               letterSpacing: "-0.01em",
