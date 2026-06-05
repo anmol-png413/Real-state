@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 
-import imgLogo from "../assets/gallery/Logo.jpeg";
-import imgWhatsApp1 from "../assets/gallery/WhatsApp Image 2026-05-23 at 5.31.34 PM.jpeg";
-import imgWhatsApp2 from "../assets/gallery/WhatsApp Image 2026-05-24 at 9.12.11 PM.jpeg";
-import imgWhatsApp3 from "../assets/gallery/WhatsApp Image 2026-05-26 at 11.55.20 AM.jpeg";
+import img09 from "../assets/gallery/image-09.jpeg";
+import img10 from "../assets/gallery/image-10.jpeg";
+import img11 from "../assets/gallery/image-11.jpeg";
+import img12 from "../assets/gallery/image-12.jpeg";
 import img01 from "../assets/gallery/image-01.png";
 import img02 from "../assets/gallery/image-02.png";
 import img03 from "../assets/gallery/image-03.png";
@@ -14,10 +14,10 @@ import img07 from "../assets/gallery/image-07.png";
 import img08 from "../assets/gallery/image-08.png";
 
 const mediaItems = [
-  { type: "image", src: imgLogo, label: "AU Real Estate" },
-  { type: "image", src: imgWhatsApp1, label: "Cosmos Corner" },
-  { type: "image", src: imgWhatsApp2, label: "Sunday Times Ad" },
-  { type: "image", src: imgWhatsApp3, label: "Cosmos Corner Office" },
+  { type: "image", src: img09, label: "AU Real Estate" },
+  { type: "image", src: img10, label: "Cosmos Corner" },
+  { type: "image", src: img11, label: "Sunday Times Ad" },
+  { type: "image", src: img12, label: "Cosmos Corner Office" },
   { type: "image", src: img01, label: "Project View 1" },
   { type: "image", src: img02, label: "Project View 2" },
   { type: "image", src: img03, label: "Project View 3" },
