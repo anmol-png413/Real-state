@@ -23,6 +23,7 @@ import ReraDisclaimer from './pages/ReraDisclaimer';
 import TermsAndConditions from './pages/TermsAndConditions';
 import DataUsage from './pages/DataUsage';
 import AuthorizedPartner from './pages/AuthorizedPartner';
+import MediaStrip from './Components/MediaStrip';
 
 const floatingBtnBase = {
   position: "fixed",
@@ -106,7 +107,7 @@ function HomePage() {
 
       <div>
       <HeroSection onBookVisit={() => { setModalSource("Hero Section"); setShowModal(true); }} />
-
+      <MediaStrip />
 
 <OverviewSection onBookVisit={() => { setModalSource("Overview"); setShowModal(true); }} />
         <About />
