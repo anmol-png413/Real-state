@@ -43,6 +43,7 @@ export default function MediaStrip() {
   return (
     <>
       <style>{`
+        .media-strip-scroll { scrollbar-color: #c8a042 #f5f0e8; scrollbar-width: thin; }
         .media-strip-scroll::-webkit-scrollbar { height: 4px; }
         .media-strip-scroll::-webkit-scrollbar-track { background: #f5f0e8; }
         .media-strip-scroll::-webkit-scrollbar-thumb { background: #c8a042; border-radius: 2px; }
