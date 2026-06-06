@@ -1,16 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import img from "../assets/image.webp";
+
+import heroMain from "../assets/image.png";
+import hero1 from "../assets/Heroimages/1.png";
+import hero2 from "../assets/Heroimages/2.png";
+import hero3 from "../assets/Heroimages/3.png";
+import hero4 from "../assets/Heroimages/4.png";
+import hero5 from "../assets/Heroimages/5.png";
+import hero6 from "../assets/Heroimages/6.png";
+import hero7 from "../assets/Heroimages/7.png";
+import hero8 from "../assets/Heroimages/8.png";
+import hero9 from "../assets/Heroimages/9.png";
+import hero10 from "../assets/Heroimages/10.png";
+
+const heroImages = [heroMain, hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10];
 
 const HeroSection = ({ onBookVisit }) => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false); // ✅ Loading state
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     phone: "",
     interest: "",
   });
   const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -130,19 +151,36 @@ const HeroSection = ({ onBookVisit }) => {
           animation: spin 0.7s linear infinite;
           flex-shrink: 0;
         }
+        .hero-slide {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+          pointer-events: none;
+        }
+        .hero-slide.active {
+          opacity: 1;
+        }
       `}</style>
 
       <section className="relative w-full min-h-screen overflow-hidden">
 
-        {/* Background Image */}
-        <img
-          src={img}
-          alt="AU Cosmos Corner luxury 3 BHK apartment towers, Siddharth Vihar Ghaziabad"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-          fetchpriority="high"
-          loading="eager"
-          decoding="async"
-        />
+        {/* Background Carousel */}
+        {heroImages.map((src, i) => (
+          <img
+            key={i}
+            src={src}
+            alt={`AU Cosmos Corner luxury 3 BHK apartment Siddharth Vihar Ghaziabad view ${i + 1}`}
+            className={`hero-slide${currentSlide === i ? " active" : ""}`}
+            fetchpriority={i === 0 ? "high" : "low"}
+            loading={i === 0 ? "eager" : "lazy"}
+            decoding="async"
+          />
+        ))}
 
         {/* Dark Overlay */}
         <div
@@ -269,11 +307,10 @@ const HeroSection = ({ onBookVisit }) => {
           </div>
 
           {/* ── RIGHT: Form Card ── */}
-          <div
+          {/* <div
             className="w-full lg:w-[360px] flex-shrink-0"
             style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.45)" }}
           >
-            {/* Card Header */}
             <div style={{
               background: "#fff",
               borderBottom: "1px solid #eee",
@@ -302,12 +339,8 @@ const HeroSection = ({ onBookVisit }) => {
               </p>
             </div>
 
-            {/* Card Body */}
             <div style={{ background: "#fff", padding: "20px 24px 24px" }}>
-
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-
-                {/* Call strip */}
                 <button
                   type="button"
                   onClick={onBookVisit}
@@ -360,7 +393,6 @@ const HeroSection = ({ onBookVisit }) => {
                 </select>
                 {errors.interest && <p style={{ color: "red", fontSize: "11px", margin: "-4px 0" }}>{errors.interest}</p>}
 
-                {/* ✅ Fixed Submit Button with Spinner */}
                 <button
                   className="hero-submit"
                   type="submit"
@@ -391,7 +423,7 @@ const HeroSection = ({ onBookVisit }) => {
                 </p>
               </form>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </section>
