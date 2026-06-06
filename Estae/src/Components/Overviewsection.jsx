@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
+
 const OverviewSection = ({ onBookVisit }) => {
 
   const highlights = [
-    { label: "Project Name", value: "AU Realestate" },
+    { label: "Project Name", value: "AU Cosmos Corner" },
     { label: "Configuration", value: "3 BHK, 3 BHK + Servant, 5 BHK + Servant  luxury apartments" },
     { label: "Total Land Area", value: "5.60 Acres (Approx.)" },
     { label: "Total Towers", value: "Only 3 Exclusive Towers" },
-    { label: "Development Time", value: "4 Years" },
-    { label: "Size", value: "1780 Sq.Ft" },
-    { label: "Height", value: "G+36 Floors" },
+    { label: "Development Time", value: "Year 2029" },
+    { label: "Size", value: "1780 | 1972 | 3175 Sq.Ft" },
+    { label: "Height", value: "G+40 Floors" },
     { label: "Location", value: "Siddharth Vihar , Ghaziabad." },
   ];
 
@@ -17,7 +19,7 @@ const OverviewSection = ({ onBookVisit }) => {
       {/* ── Section Title ── */}
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 uppercase tracking-wide">
-         AU Realestate
+          AU Cosmos Corner
         </h2>
         <p className="text-sm text-gray-500 uppercase tracking-[3px] mt-1">Siddharth Vihar, Ghaziabad</p>
         <div className="w-32 h-[3px] bg-yellow-500 mx-auto mt-4" />
@@ -51,7 +53,7 @@ const OverviewSection = ({ onBookVisit }) => {
         {/* RIGHT: Description */}
         <div className="w-full lg:w-1/2 flex flex-col gap-6">
           <p className="text-gray-700 text-base leading-relaxed text-justify">
-      AU Realestate is an upcoming premium residential project offering thoughtfully
+      AU Cosmos Corner is an upcoming premium residential project by AU Real Estate Pvt. Ltd., offering thoughtfully
             designed <span className="font-semibold text-gray-900">"3 BHK, 3 BHK + Servant, 5 BHK + Servant luxury apartments"</span> in
             the prime location of <span className="font-semibold text-gray-900">Siddharth Vihar, Ghaziabad</span>.
             Crafted for modern families, this project blends contemporary architecture with
@@ -61,14 +63,14 @@ const OverviewSection = ({ onBookVisit }) => {
           <p className="text-gray-700 text-base leading-relaxed text-justify">
             Spread across approx. <span className="font-semibold text-gray-900">5.6 acres</span> of
             prime land, the project features{" "}
-            <span className="font-semibold text-gray-900">3 iconic high-rise towers (G+36)</span> with
+            <span className="font-semibold text-gray-900">3 iconic high-rise towers (G+40)</span> with
             spacious residences, ensuring comfort, privacy, and elegance in every corner.
           </p>
 
           {/* Payment Plan */}
           <div className="border border-yellow-400 bg-yellow-50 px-6 py-5">
             <h4 className="text-gray-900 font-bold text-sm uppercase tracking-wide mb-4">
-              Special Payment Plan — AU Realestate
+              Special Payment Plan — AU Cosmos Corner
             </h4>
             <ul className="flex flex-col gap-2">
               {[
@@ -94,6 +96,17 @@ const OverviewSection = ({ onBookVisit }) => {
   Call  9711557670
 </button>
         </div>
+      </div>
+      {/* Internal SEO links */}
+      <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-10 text-xs text-gray-400 uppercase tracking-widest">
+        <span>Explore:</span>
+        <Link to="/3-bhk-flats-siddharth-vihar" className="text-yellow-500 hover:text-yellow-400 transition-colors">3 BHK Flats</Link>
+        <span className="text-gray-700">·</span>
+        <Link to="/5-bhk-flats-siddharth-vihar" className="text-yellow-500 hover:text-yellow-400 transition-colors">5 BHK Flats</Link>
+        <span className="text-gray-700">·</span>
+        <Link to="/new-launch-siddharth-vihar" className="text-yellow-500 hover:text-yellow-400 transition-colors">New Launch</Link>
+        <span className="text-gray-700">·</span>
+        <Link to="/siddharth-vihar-ghaziabad" className="text-yellow-500 hover:text-yellow-400 transition-colors">Siddharth Vihar Guide</Link>
       </div>
     </section>
   );

@@ -3,12 +3,11 @@ import React from "react";
 export default function About() {
   return (
     <section
-      style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}
+      style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}
       className="w-full bg-white py-20 px-4 md:px-16 overflow-hidden"
     >
       {/* Google Font */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 
         .about-img-wrap::before {
           content: '';
@@ -24,7 +23,7 @@ export default function About() {
         }
 
         .about-tag {
-          font-family: 'Jost', sans-serif;
+          font-family: 'DM Sans', sans-serif;
           letter-spacing: 0.25em;
           font-weight: 400;
           font-size: 11px;
@@ -33,7 +32,7 @@ export default function About() {
         }
 
         .about-body {
-          font-family: 'Jost', sans-serif;
+          font-family: 'DM Sans', sans-serif;
           font-weight: 300;
           font-size: 15px;
           line-height: 1.9;
@@ -50,7 +49,7 @@ export default function About() {
         }
 
         .about-pill {
-          font-family: 'Jost', sans-serif;
+          font-family: 'DM Sans', sans-serif;
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.12em;
@@ -72,7 +71,8 @@ export default function About() {
             <div className="relative z-10 rounded-sm overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=90"
-                alt="Luxury Bedroom Interior — Truelite Estates LLP"
+                alt="Luxury Bedroom Interior — AU Cosmos Corner 3 BHK Siddharth Vihar"
+                loading="lazy"
                 className="w-full h-[340px] md:h-[520px] object-cover"
                 style={{ filter: "brightness(0.97) contrast(1.02)" }}
               />
@@ -82,7 +82,7 @@ export default function About() {
                 style={{ background: "rgba(18,14,10,0.62)", backdropFilter: "blur(6px)" }}
               >
                 <span
-                  style={{ fontFamily: "'Jost',sans-serif", fontSize: "12px", color: "#e8d9b8", letterSpacing: "0.15em" }}
+                  style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "12px", color: "#e8d9b8", letterSpacing: "0.15em" }}
                 >
                   MASTER BEDROOM · 3 BHK
                 </span>
@@ -105,7 +105,7 @@ export default function About() {
           <h2
             className="text-gray-900 leading-tight"
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: "clamp(2rem, 4vw, 3.2rem)",
               fontWeight: 300,
               letterSpacing: "-0.01em",
@@ -125,18 +125,11 @@ export default function About() {
 
           {/* Body paragraphs */}
           <p className="about-body">
-           AU Realestate is a distinguished real estate developer in Delhi NCR, renowned
-            for delivering modern residential projects that harmoniously blend quality
-            construction, strategic locations, and lifestyle-focused design. We create
-            thoughtfully planned communities that cater to the aspirations of contemporary
-            homebuyers — offering both comfort and enduring value.
+            <strong>AU Cosmos Corner</strong> is a premium residential project by <strong>AU Real Estate Pvt. Ltd.</strong>, one of Delhi NCR's trusted real estate developers. Located in Siddharth Vihar, Ghaziabad, it offers thoughtfully designed 3 BHK luxury apartments that blend quality construction, strategic location, and lifestyle-focused design.
           </p>
 
           <p className="about-body">
-            With an unwavering focus on innovation and customer satisfaction, we uphold
-            superior construction standards, efficient layouts, and premium specifications.
-            Every home is designed with meticulous attention to detail — ensuring spacious
-            living spaces, ample natural light, and interiors that elevate everyday life.
+            This website is operated by <strong>Truelite Estates LLP</strong> — an officially authorized channel partner of AU Real Estate Pvt. Ltd. (RERA No. UPRERAPRJ466336). We are not the developer. We are your trusted advisor, helping you make the right home-buying decision with complete transparency and zero brokerage.
           </p>
 
           <p className="about-body">

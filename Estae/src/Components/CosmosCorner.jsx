@@ -1,12 +1,12 @@
 import { useState } from "react";
-import img1 from "../assets/corner/Screenshot 2026-05-24 115934.png";
-import img2 from "../assets/corner/Screenshot 2026-05-24 115953.png";
-import img3 from "../assets/corner/Screenshot 2026-05-24 120007.png";
-import img4 from "../assets/corner/Screenshot 2026-05-24 120020.png";
-import img5 from "../assets/corner/Screenshot 2026-05-24 120045.png";
-import img6 from "../assets/corner/Screenshot 2026-05-24 120102.png";
-import img7 from "../assets/corner/Screenshot 2026-05-24 120136.png";
-import img8 from "../assets/corner/Screenshot 2026-05-24 120149.png";
+import img1 from "../assets/corner/au-cosmos-corner-exterior-view-siddharth-vihar.webp";
+import img2 from "../assets/corner/au-cosmos-corner-3bhk-living-room-ghaziabad.webp";
+import img3 from "../assets/corner/au-cosmos-corner-luxury-bedroom-interior.webp";
+import img4 from "../assets/corner/au-cosmos-corner-modular-kitchen-design.webp";
+import img5 from "../assets/corner/au-cosmos-corner-master-bedroom-siddharth-vihar.webp";
+import img6 from "../assets/corner/au-cosmos-corner-bathroom-premium-fittings.webp";
+import img7 from "../assets/corner/au-cosmos-corner-balcony-view-ghaziabad.webp";
+import img8 from "../assets/corner/au-cosmos-corner-5bhk-luxury-flat-interior.webp";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
@@ -59,7 +59,7 @@ export default function CosmosCorner({ onBookVisit }) {
           padding: 14px 36px;
           background: #111;
           color: #fff;
-          font-family: 'Jost', sans-serif;
+          font-family: 'DM Sans', sans-serif;
           font-size: 12px;
           font-weight: 700;
           letter-spacing: 0.25em;
@@ -83,7 +83,7 @@ export default function CosmosCorner({ onBookVisit }) {
       {/* Heading */}
       <div style={{ textAlign: "center", marginBottom: "40px" }}>
         <p style={{
-          fontFamily: "'Jost', sans-serif",
+          fontFamily: "'DM Sans', sans-serif",
           fontSize: "11px",
           fontWeight: 700,
           letterSpacing: "0.35em",
@@ -94,7 +94,7 @@ export default function CosmosCorner({ onBookVisit }) {
           Exclusive Collection
         </p>
         <h2 style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Playfair Display', Georgia, serif",
           fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
           fontWeight: 700,
           color: "#111",
@@ -133,6 +133,7 @@ export default function CosmosCorner({ onBookVisit }) {
           <img
             key={current}
             src={images[current]}
+              loading="lazy"
             alt={`Cosmos Corner ${current + 1}`}
             style={{
               width: "100%",
@@ -169,7 +170,7 @@ export default function CosmosCorner({ onBookVisit }) {
       {/* Counter */}
       <p style={{
         textAlign: "center",
-        fontFamily: "'Jost', sans-serif",
+        fontFamily: "'DM Sans', sans-serif",
         fontSize: "12px",
         color: "#b0a080",
         marginTop: "12px",

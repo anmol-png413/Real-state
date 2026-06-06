@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
+import SEO from './Components/SEO';
 import HeroSection from './Components/HeroSection';
 import Navbar from './Components/Navbar';
 import OverviewSection from './Components/Overviewsection';
@@ -23,6 +24,14 @@ import ReraDisclaimer from './pages/ReraDisclaimer';
 import TermsAndConditions from './pages/TermsAndConditions';
 import DataUsage from './pages/DataUsage';
 import AuthorizedPartner from './pages/AuthorizedPartner';
+import NotFound from './pages/NotFound';
+import FAQSection from './Components/FAQSection';
+import Testimonials from './Components/Testimonials';
+import ThreeBHKSiddharthVihar from './pages/ThreeBHKSiddharthVihar';
+import FiveBHKSiddharthVihar from './pages/FiveBHKSiddharthVihar';
+import NewLaunchSiddharthVihar from './pages/NewLaunchSiddharthVihar';
+import SiddharthViharGhaziabad from './pages/SiddharthViharGhaziabad';
+import MediaStrip from './Components/MediaStrip';
 
 const floatingBtnBase = {
   position: "fixed",
@@ -36,7 +45,107 @@ const floatingBtnBase = {
   padding: "18px 10px",
   border: "none",
   cursor: "pointer",
-  fontFamily: "'Jost', sans-serif",
+  fontFamily: "'DM Sans', sans-serif",
+};
+
+const homepageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "RealEstateListing",
+      "@id": "https://aucosmos.truelitestates.com/#listing",
+      "name": "AU Cosmos Corner",
+      "description": "Premium 3 BHK, 3 BHK+Servant and 5 BHK+Servant luxury apartments in Siddharth Vihar, Ghaziabad. G+40 towers on 5.6 acres. Pre-launch price ₹6900/sq ft. RERA: UPRERAPRJ466336.",
+      "url": "https://aucosmos.truelitestates.com",
+      "image": "https://aucosmos.truelitestates.com/og-image.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Siddharth Vihar",
+        "addressLocality": "Ghaziabad",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "201013",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "28.6692",
+        "longitude": "77.4538"
+      },
+      "numberOfRooms": "3-5",
+      "floorSize": {
+        "@type": "QuantitativeValue",
+        "minValue": 1780,
+        "maxValue": 3175,
+        "unitCode": "FTK"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "6900",
+        "priceCurrency": "INR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "6900",
+          "priceCurrency": "INR",
+          "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "FTK" }
+        },
+        "availability": "https://schema.org/PreOrder",
+        "seller": {
+          "@type": "RealEstateAgent",
+          "name": "Truelite Estates LLP",
+          "telephone": "+919711557670",
+          "email": "omvir.shishodia@truelitestates.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Golden I Tower T3, Unit 314",
+            "addressLocality": "Greater Noida West",
+            "addressRegion": "Uttar Pradesh",
+            "postalCode": "201309",
+            "addressCountry": "IN"
+          }
+        }
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Swimming Pool", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Gymnasium", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Clubhouse", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Children Play Area", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "24/7 Security", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Modular Kitchen", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Split AC in All Bedrooms", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Wardrobes in All Bedrooms", "value": true }
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://aucosmos.truelitestates.com/#business",
+      "name": "Truelite Estates LLP",
+      "description": "Authorized Channel Partner of AU Real Estate Pvt. Ltd. for AU Cosmos Corner, Ghaziabad.",
+      "url": "https://aucosmos.truelitestates.com",
+      "telephone": "+919711557670",
+      "email": "omvir.shishodia@truelitestates.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Golden I Tower T3, Unit 314",
+        "addressLocality": "Greater Noida West",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "201309",
+        "addressCountry": "IN"
+      },
+      "openingHours": "Mo-Su 09:00-19:00",
+      "priceRange": "₹₹₹"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aucosmos.truelitestates.com/#website",
+      "url": "https://aucosmos.truelitestates.com",
+      "name": "AU Cosmos Corner — Truelite Estates LLP",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://aucosmos.truelitestates.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
 };
 
 function HomePage() {
@@ -44,17 +153,23 @@ function HomePage() {
   const [modalSource, setModalSource] = useState("General");
   const [downloadBrochure, setDownloadBrochure] = useState(false);
   const [buttonsVisible, setButtonsVisible] = useState(false);
+  const autoPopupTimersRef = useRef([]);
   const reopenTimerRef = useRef(null);
+  const reopenCountRef = useRef(0);
   const scrollTimerRef = useRef(null);
   const initialShownRef = useRef(false);
 
-  // Auto-open popup after 3s on landing
+  // Auto-popup schedule: 0s, 30s, 60s, 120s, then every 30s up to 3 more times
   useEffect(() => {
-    const initialTimer = setTimeout(() => {
-      setModalSource("Auto Popup");
-      setShowModal(true);
-    }, 3000);
-    return () => clearTimeout(initialTimer);
+    const schedule = [0, 30000, 60000, 120000];
+    schedule.forEach((delay) => {
+      const t = setTimeout(() => {
+        setModalSource("Auto Popup");
+        setShowModal(true);
+      }, delay);
+      autoPopupTimersRef.current.push(t);
+    });
+    return () => autoPopupTimersRef.current.forEach(clearTimeout);
   }, []);
 
   // Show floating buttons after 4s, then toggle on scroll activity
@@ -66,9 +181,7 @@ function HomePage() {
 
     const handleScroll = () => {
       if (!initialShownRef.current) return;
-      // Hide while scrolling
       setButtonsVisible(false);
-      // Show again 1.5s after scroll stops
       if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
       scrollTimerRef.current = setTimeout(() => setButtonsVisible(true), 1500);
     };
@@ -81,32 +194,44 @@ function HomePage() {
     };
   }, []);
 
-  // Start 30s reopen timer when modal is closed
+  // On manual close: reopen every 30s up to 3 times
   const handleCloseModal = () => {
     setShowModal(false);
     setDownloadBrochure(false);
     setModalSource("General");
-    if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
-    reopenTimerRef.current = setTimeout(() => {
-      setModalSource("Auto Reopen");
-      setShowModal(true);
-    }, 30000);
+    if (reopenCountRef.current < 3) {
+      if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
+      reopenTimerRef.current = setTimeout(() => {
+        reopenCountRef.current += 1;
+        setModalSource("Auto Reopen");
+        setShowModal(true);
+      }, 30000);
+    }
   };
 
   // Cleanup on unmount
   useEffect(() => {
-    return () => { if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current); };
+    return () => {
+      if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
+      autoPopupTimersRef.current.forEach(clearTimeout);
+    };
   }, []);
 
   return (
     <div className="App">
+      <SEO
+        title="3 BHK Luxury Apartments in Siddharth Vihar Ghaziabad | Pre-launch ₹6900/sq ft"
+        description="Book 3 BHK, 3 BHK+Servant & 5 BHK+Servant luxury apartments at AU Cosmos Corner, Siddharth Vihar Ghaziabad. Pre-launch ₹6900/sq ft. G+40 towers, 5.6 acres. RERA: UPRERAPRJ466336. Call 9711557670."
+        url="https://aucosmos.truelitestates.com"
+        schema={homepageSchema}
+      />
 
       {/* Fixed Navbar */}
       <Navbar onBookVisit={() => { setModalSource("Navbar"); setShowModal(true); }} />
 
       <div>
       <HeroSection onBookVisit={() => { setModalSource("Hero Section"); setShowModal(true); }} />
-
+      <MediaStrip />
 
 <OverviewSection onBookVisit={() => { setModalSource("Overview"); setShowModal(true); }} />
         <About />
@@ -118,7 +243,9 @@ function HomePage() {
         <LocationGallery />
         {/* <Whychoosefaq onBookVisit={() => setShowModal(true)} /> */}
         <ProjectGallery />
-       <ContactForm onPhoneClick={() => { setModalSource("Contact Form Phone"); setShowModal(true); }} source="Contact Form" />
+        <Testimonials />
+        <FAQSection onBookVisit={() => { setModalSource("FAQ Section"); setShowModal(true); }} />
+        <ContactForm onPhoneClick={() => { setModalSource("Contact Form Phone"); setShowModal(true); }} source="Contact Form" />
         <Footer onBookVisit={() => { setModalSource("Footer"); setShowModal(true); }} />
       </div>
 
@@ -215,6 +342,11 @@ function App() {
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/data-usage" element={<DataUsage />} />
         <Route path="/authorized-partner" element={<AuthorizedPartner />} />
+        <Route path="/3-bhk-flats-siddharth-vihar" element={<ThreeBHKSiddharthVihar />} />
+        <Route path="/5-bhk-flats-siddharth-vihar" element={<FiveBHKSiddharthVihar />} />
+        <Route path="/new-launch-siddharth-vihar" element={<NewLaunchSiddharthVihar />} />
+        <Route path="/siddharth-vihar-ghaziabad" element={<SiddharthViharGhaziabad />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

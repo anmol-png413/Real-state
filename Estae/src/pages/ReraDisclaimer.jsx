@@ -2,7 +2,7 @@ import PolicyLayout from "../Components/PolicyLayout";
 
 export default function ReraDisclaimer() {
   return (
-    <PolicyLayout title="RERA Disclaimer">
+    <PolicyLayout title="RERA Disclaimer" description="RERA information for AU Cosmos Corner. RERA Registration No: UPRERAPRJ466336 under UP RERA. All project details as per RERA guidelines." canonicalPath="/rera-disclaimer">
       <section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-5">

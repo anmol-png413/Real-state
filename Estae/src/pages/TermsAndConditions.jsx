@@ -2,7 +2,7 @@ import PolicyLayout from "../Components/PolicyLayout";
 
 export default function TermsAndConditions() {
   return (
-    <PolicyLayout title="Terms & Conditions">
+    <PolicyLayout title="Terms &amp; Conditions" description="Terms and conditions for using the AU Cosmos Corner website operated by Truelite Estates LLP, authorized channel partner." canonicalPath="/terms">
       <section>
         <p className="text-gray-600 leading-relaxed">
           By accessing or using this website, you agree to be bound by the following Terms and Conditions. This website is operated by <strong>Truelite Estates LLP</strong>, an officially authorized channel partner of <strong>AU Real Estate Pvt. Ltd.</strong> Please read these terms carefully before proceeding.

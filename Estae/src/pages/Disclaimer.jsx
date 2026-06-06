@@ -2,7 +2,7 @@ import PolicyLayout from "../Components/PolicyLayout";
 
 export default function Disclaimer() {
   return (
-    <PolicyLayout title="Disclaimer">
+    <PolicyLayout title="Disclaimer" description="Read the disclaimer for AU Cosmos Corner website operated by Truelite Estates LLP, authorized channel partner of AU Real Estate Pvt. Ltd." canonicalPath="/disclaimer">
       <section>
         <p className="text-gray-600 leading-relaxed">
           This website is operated by <strong>Truelite Estates LLP</strong>, an officially authorized channel partner of <strong>AU Real Estate Pvt. Ltd.</strong> (RERA No. UPRERAPRJ466336). The information provided here is for general informational purposes and intended for prospective homebuyers interested in AU Cosmos Corner, Greater Noida West.

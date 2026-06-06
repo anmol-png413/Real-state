@@ -2,7 +2,7 @@ import PolicyLayout from "../Components/PolicyLayout";
 
 export default function DataUsage() {
   return (
-    <PolicyLayout title="Data Usage Disclosure">
+    <PolicyLayout title="Data Usage Disclosure" description="Data usage disclosure for AU Cosmos Corner. How Truelite Estates LLP collects and uses your data for property enquiries." canonicalPath="/data-usage">
       <section>
         <p className="text-gray-600 leading-relaxed">
           Truelite Estates LLP is committed to being fully transparent about how we collect and use your data. This disclosure explains exactly what data we collect, why, how it is used, and your rights.

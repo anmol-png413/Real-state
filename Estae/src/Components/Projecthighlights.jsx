@@ -49,7 +49,7 @@ const highlightCards = [
         <polyline points="16 7 22 7 22 13" />
       </svg>
     ),
-    label: "Starting from\n1780 Sq.Ft.",
+    label: "1780 | 1972 | 3175\nSq.Ft.",
   },
   {
     svg: (
@@ -61,7 +61,7 @@ const highlightCards = [
         <line x1="9" y1="19" x2="12" y2="19" />
       </svg>
     ),
-    label: "G+36 Floors",
+    label: "G+40 Floors",
   },
   {
     svg: (
@@ -95,7 +95,7 @@ export default function ProjectHighlights({ onBookVisit }) {
       {/* ── Section Heading ── */}
       <div style={{ textAlign: "center", paddingTop: "60px", paddingBottom: "40px" }}>
         <p style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Playfair Display', Georgia, serif",
           fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
           fontWeight: 700,
           color: "#111",
@@ -105,7 +105,7 @@ export default function ProjectHighlights({ onBookVisit }) {
           AU Realestate
         </p>
         <p style={{
-          fontFamily: "'Jost', sans-serif",
+          fontFamily: "'DM Sans', sans-serif",
           fontSize: "11px",
           fontWeight: 700,
           letterSpacing: "0.3em",
@@ -163,7 +163,7 @@ export default function ProjectHighlights({ onBookVisit }) {
           >
             <div style={{ color: "#b8893a" }}>{card.svg}</div>
             <p style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: "15px",
               fontWeight: 600,
               color: "#1a1a1a",
@@ -186,7 +186,7 @@ export default function ProjectHighlights({ onBookVisit }) {
       <div id="pricelist" style={{ maxWidth: "900px", margin: "0 auto", padding: "52px 20px 0" }}>
         <p style={{
           textAlign: "center",
-          fontFamily: "'Jost', sans-serif",
+          fontFamily: "'DM Sans', sans-serif",
           fontSize: "11px",
           fontWeight: 700,
           letterSpacing: "0.3em",
@@ -197,7 +197,7 @@ export default function ProjectHighlights({ onBookVisit }) {
           INVESTMENT OVERVIEW
         </p>
         <h2 style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Playfair Display', Georgia, serif",
           fontSize: "clamp(1.4rem, 3vw, 2rem)",
           fontWeight: 700,
           textAlign: "center",
@@ -217,11 +217,11 @@ export default function ProjectHighlights({ onBookVisit }) {
             background: "#f9fafb",
             borderBottom: "1px solid #e5e7eb",
           }}>
-            <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "13px", fontWeight: 600, color: "#111" }}>
+            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 600, color: "#111" }}>
               Available Units
             </span>
             <span style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: "11px",
               color: "#6b7280",
               background: "#fff",
@@ -240,7 +240,7 @@ export default function ProjectHighlights({ onBookVisit }) {
                   {["Unit Type", "Unit Area", "Unit Price"].map((h) => (
                     <th key={h} style={{
                       textAlign: "left",
-                      fontFamily: "'Jost', sans-serif",
+                      fontFamily: "'DM Sans', sans-serif",
                       fontSize: "11px",
                       fontWeight: 600,
                       letterSpacing: "0.15em",
@@ -256,7 +256,7 @@ export default function ProjectHighlights({ onBookVisit }) {
               </thead>
               <tbody>
                 {[
-                  { type: "3 BHK + 3 Toilet", sub: "Premium Configuration", area: "1780 Sq.Ft.", areaSub: "11 ft ceiling" },
+                  { type: "3 BHK + 3 Toilet", sub: "Premium Configuration", area: "1780 Sq.Ft.", areaSub: "11 ft ceiling", price: "₹ 1.22 Cr*", priceSub: "@ ₹6900 BSP/sq.ft" },
                   { type: "3 BHK + 3 Toilet + Servant", sub: "Premium Configuration", area: "1972 Sq.Ft.", areaSub: "11 ft ceiling" },
                   { type: "5 BHK + 3 Toilet + Servant", sub: "Ultra Luxury Configuration", area: "3175 Sq.Ft.", areaSub: "11 ft ceiling" },
                 ].map((row, i, arr) => (
@@ -271,32 +271,41 @@ export default function ProjectHighlights({ onBookVisit }) {
                     onMouseLeave={e => e.currentTarget.style.background = "#fff"}
                   >
                     <td style={{ padding: "18px 24px" }}>
-                      <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 600, color: "#111", fontSize: "14px" }}>{row.type}</p>
-                      <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{row.sub}</p>
+                      <p style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, color: "#111", fontSize: "14px" }}>{row.type}</p>
+                      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{row.sub}</p>
                     </td>
                     <td style={{ padding: "18px 24px" }}>
-                      <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 600, color: "#111", fontSize: "14px" }}>{row.area}</p>
-                      <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{row.areaSub}</p>
+                      <p style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, color: "#111", fontSize: "14px" }}>{row.area}</p>
+                      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{row.areaSub}</p>
                     </td>
                     <td style={{ padding: "18px 24px" }}>
-                      <button
-                        onClick={onBookVisit}
-                        style={{
-                          fontFamily: "'Jost', sans-serif",
-                          fontWeight: 700,
-                          fontSize: "13px",
-                          color: "#b8893a",
-                          background: "none",
-                          border: "none",
-                          cursor: "pointer",
-                          padding: 0,
-                          textDecoration: "underline",
-                          textUnderlineOffset: "3px",
-                        }}
-                      >
-                        ₹ Get Price
-                      </button>
-                      <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>Contact for pricing</p>
+                      {row.price ? (
+                        <>
+                          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: "18px", color: "#b8893a" }}>{row.price}</p>
+                          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{row.priceSub}</p>
+                        </>
+                      ) : (
+                        <>
+                          <button
+                            onClick={onBookVisit}
+                            style={{
+                              fontFamily: "'DM Sans', sans-serif",
+                              fontWeight: 700,
+                              fontSize: "13px",
+                              color: "#b8893a",
+                              background: "none",
+                              border: "none",
+                              cursor: "pointer",
+                              padding: 0,
+                              textDecoration: "underline",
+                              textUnderlineOffset: "3px",
+                            }}
+                          >
+                            ₹ Get Price
+                          </button>
+                          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>Contact for pricing</p>
+                        </>
+                      )}
                     </td>
                   </tr>
                 ))}

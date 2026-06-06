@@ -2,7 +2,7 @@ import PolicyLayout from "../Components/PolicyLayout";
 
 export default function PrivacyPolicy() {
   return (
-    <PolicyLayout title="Privacy Policy">
+    <PolicyLayout title="Privacy Policy" description="Read the privacy policy of Truelite Estates LLP for AU Cosmos Corner. How we collect, use and protect your personal data." canonicalPath="/privacy-policy">
       <section>
         <p className="text-gray-600 leading-relaxed">
           Truelite Estates LLP ("we", "us", "our"), an authorized channel partner of AU Real Estate Pvt. Ltd., operates this website. This Privacy Policy describes how we collect, use, store, and protect your personal information when you visit our site or submit an enquiry.
