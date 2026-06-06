@@ -221,7 +221,7 @@ const HeroSection = ({ onBookVisit }) => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 pt-10 xl:pt-20 pb-20 gap-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 pt-16 xl:pt-10 pb-20 gap-10">
 
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">
@@ -240,13 +240,15 @@ const HeroSection = ({ onBookVisit }) => {
 
             <span style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "40px",
+              fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
               fontWeight: 800,
-              letterSpacing: "0.15em",
+              letterSpacing: "0.08em",
               color: "#fff",
               textTransform: "uppercase",
+              lineHeight: 1.25,
             }}>
-              Luxury Flats Starting at ₹1.22 Cr*
+              Luxury 3 BHK Flats <br />
+              <span style={{ color: "#f5d98b" }}>Starting at ₹1.22 Cr*</span>
             </span>
 
             <p style={{
