@@ -276,7 +276,7 @@ const HeroSection = ({ onBookVisit }) => {
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
               }}>
-                Attractive 40:60 Payment Plan
+                Attractive 40:20:20:20 Payment Plan
               </span>
             </div>
 
