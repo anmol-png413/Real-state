@@ -221,7 +221,7 @@ const HeroSection = ({ onBookVisit }) => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-8 md:px-14 lg:px-20 pt-16 xl:pt-10 pb-20 gap-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-10 md:px-20 lg:px-28 pt-16 xl:pt-10 pb-20 gap-10">
 
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">

@@ -45,17 +45,23 @@ function HomePage() {
   const [modalSource, setModalSource] = useState("General");
   const [downloadBrochure, setDownloadBrochure] = useState(false);
   const [buttonsVisible, setButtonsVisible] = useState(false);
+  const autoPopupTimersRef = useRef([]);
   const reopenTimerRef = useRef(null);
+  const reopenCountRef = useRef(0);
   const scrollTimerRef = useRef(null);
   const initialShownRef = useRef(false);
 
-  // Auto-open popup after 3s on landing
+  // Auto-popup schedule: 0s, 30s, 60s, 120s, then every 30s up to 3 more times
   useEffect(() => {
-    const initialTimer = setTimeout(() => {
-      setModalSource("Auto Popup");
-      setShowModal(true);
-    }, 3000);
-    return () => clearTimeout(initialTimer);
+    const schedule = [0, 30000, 60000, 120000];
+    schedule.forEach((delay) => {
+      const t = setTimeout(() => {
+        setModalSource("Auto Popup");
+        setShowModal(true);
+      }, delay);
+      autoPopupTimersRef.current.push(t);
+    });
+    return () => autoPopupTimersRef.current.forEach(clearTimeout);
   }, []);
 
   // Show floating buttons after 4s, then toggle on scroll activity
@@ -67,9 +73,7 @@ function HomePage() {
 
     const handleScroll = () => {
       if (!initialShownRef.current) return;
-      // Hide while scrolling
       setButtonsVisible(false);
-      // Show again 1.5s after scroll stops
       if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
       scrollTimerRef.current = setTimeout(() => setButtonsVisible(true), 1500);
     };
@@ -82,21 +86,27 @@ function HomePage() {
     };
   }, []);
 
-  // Start 30s reopen timer when modal is closed
+  // On manual close: reopen every 30s up to 3 times
   const handleCloseModal = () => {
     setShowModal(false);
     setDownloadBrochure(false);
     setModalSource("General");
-    if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
-    reopenTimerRef.current = setTimeout(() => {
-      setModalSource("Auto Reopen");
-      setShowModal(true);
-    }, 30000);
+    if (reopenCountRef.current < 3) {
+      if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
+      reopenTimerRef.current = setTimeout(() => {
+        reopenCountRef.current += 1;
+        setModalSource("Auto Reopen");
+        setShowModal(true);
+      }, 30000);
+    }
   };
 
   // Cleanup on unmount
   useEffect(() => {
-    return () => { if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current); };
+    return () => {
+      if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
+      autoPopupTimersRef.current.forEach(clearTimeout);
+    };
   }, []);
 
   return (
