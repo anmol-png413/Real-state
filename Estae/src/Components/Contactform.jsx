@@ -10,7 +10,7 @@ export default function ContactForm({ onPhoneClick, source = "Contact Form", dow
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false); // ✅ Loading state
   const [form, setForm] = useState({
-    name: "", phone: "", email: "", interest: "", message: "",
+    name: "", phone: "", email: "", interest: "", purpose: "", timeline: "", message: "",
   });
   const [errors, setErrors] = useState({ name: "", phone: "", email: "" });
 
@@ -54,6 +54,8 @@ export default function ContactForm({ onPhoneClick, source = "Contact Form", dow
           phone: form.phone,
           email: form.email,
           interested_in: form.interest,
+          purpose: form.purpose,
+          timeline: form.timeline,
           message: form.message,
           source: source
         })
@@ -193,14 +195,29 @@ export default function ContactForm({ onPhoneClick, source = "Contact Form", dow
                 </select>
               </div>
 
-              {/* <div className="flex flex-col gap-1">
-                <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">Message (Optional)</label>
-                <textarea
-                  name="message" value={form.message} onChange={handleChange}
-                  rows={2} placeholder="Any specific questions or requirements..."
-                  className="border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 transition resize-none"
-                />
-              </div> */}
+              <div className="flex flex-col gap-1">
+                <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">Purpose</label>
+                <select name="purpose" value={form.purpose} onChange={handleChange}
+                  className="border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-700 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 transition bg-white"
+                >
+                  <option value="">Self-use or Investment?</option>
+                  <option value="self-use">Self Use</option>
+                  <option value="investment">Investment</option>
+                  <option value="both">Both</option>
+                </select>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">Timeline to Buy</label>
+                <select name="timeline" value={form.timeline} onChange={handleChange}
+                  className="border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-700 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 transition bg-white"
+                >
+                  <option value="">When are you planning to buy?</option>
+                  <option value="0-3months">Within 3 Months</option>
+                  <option value="3-6months">3–6 Months</option>
+                  <option value="exploring">Just Exploring</option>
+                </select>
+              </div>
 
               {/* ✅ Fixed Submit Button with Spinner */}
               <button
