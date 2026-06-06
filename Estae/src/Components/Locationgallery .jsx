@@ -114,7 +114,7 @@ export default function LocationGallery() {
                 alignItems: "center",
                 justifyContent: "center",
                 flexShrink: 0,
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "15px",
                 fontWeight: 700,
                 color: "#fff",
@@ -124,7 +124,7 @@ export default function LocationGallery() {
 
               {/* Text */}
               <p style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "13px",
                 fontWeight: 700,
                 color: "#1a1a2e",

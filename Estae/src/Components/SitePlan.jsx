@@ -78,7 +78,7 @@ export default function SitePlan() {
         {/* Section Heading */}
         <div style={{ textAlign: "center", marginBottom: "36px" }}>
           <p style={{
-            fontFamily: "'Jost', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: "11px",
             fontWeight: 700,
             letterSpacing: "0.3em",
@@ -89,7 +89,7 @@ export default function SitePlan() {
             Project Details
           </p>
           <h2 style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "'Playfair Display', Georgia, serif",
             fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
             fontWeight: 700,
             color: "#111",
@@ -127,7 +127,7 @@ export default function SitePlan() {
             }}>
               <span style={{ fontSize: "18px" }}>🏗️</span>
               <span style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "14px",
                 fontWeight: 700,
                 letterSpacing: "0.12em",
@@ -157,7 +157,7 @@ export default function SitePlan() {
                     marginTop: "5px",
                   }} />
                   <p style={{
-                    fontFamily: "'Jost', sans-serif",
+                    fontFamily: "'DM Sans', sans-serif",
                     fontSize: "14px",
                     fontWeight: 500,
                     color: "#1a1a1a",
@@ -189,7 +189,7 @@ export default function SitePlan() {
               }}>
                 <span style={{ fontSize: "18px" }}>🏠</span>
                 <span style={{
-                  fontFamily: "'Jost', sans-serif",
+                  fontFamily: "'DM Sans', sans-serif",
                   fontSize: "14px",
                   fontWeight: 700,
                   letterSpacing: "0.12em",
@@ -216,7 +216,7 @@ export default function SitePlan() {
                         background: "#c8a042",
                       }} />
                       <span style={{
-                        fontFamily: "'Jost', sans-serif",
+                        fontFamily: "'DM Sans', sans-serif",
                         fontSize: "15px",
                         fontWeight: 700,
                         color: "#111",
@@ -225,7 +225,7 @@ export default function SitePlan() {
                       </span>
                     </div>
                     <span style={{
-                      fontFamily: "'Jost', sans-serif",
+                      fontFamily: "'DM Sans', sans-serif",
                       fontSize: "14px",
                       fontWeight: 500,
                       color: "#555",
@@ -246,7 +246,7 @@ export default function SitePlan() {
               background: "#fffbf0",
             }}>
               <p style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "12px",
                 fontWeight: 600,
                 letterSpacing: "0.2em",
@@ -257,22 +257,40 @@ export default function SitePlan() {
                 Pre-Launch Price
               </p>
               <p style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "'Playfair Display', Georgia, serif",
                 fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
                 fontWeight: 700,
                 color: "#111",
                 lineHeight: 1.2,
                 marginBottom: "4px",
               }}>
-                @ ₹ 6900 <span style={{ fontSize: "0.55em", fontWeight: 400, color: "#555" }}>Per Sq.ft</span>
+                @ ₹ 6900 <span style={{ fontSize: "0.55em", fontWeight: 400, color: "#555" }}>BSP / Sq.ft</span>
               </p>
               <p style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
+                fontWeight: 700,
+                color: "#b8893a",
+                lineHeight: 1.2,
+                marginTop: "6px",
+              }}>
+                Starting ₹1.22 Cr*
+              </p>
+              <p style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "11px",
+                color: "#aaa",
+                marginTop: "2px",
+              }}>
+                1780 Sq.Ft. | 3 BHK
+              </p>
+              <p style={{
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: "12px",
                 color: "#888",
-                marginTop: "4px",
+                marginTop: "6px",
               }}>
-                (Other Charges Applicable)
+                *Other Charges Applicable
               </p>
             </div>
 

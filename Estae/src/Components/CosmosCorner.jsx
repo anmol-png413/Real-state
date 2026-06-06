@@ -59,7 +59,7 @@ export default function CosmosCorner({ onBookVisit }) {
           padding: 14px 36px;
           background: #111;
           color: #fff;
-          font-family: 'Jost', sans-serif;
+          font-family: 'DM Sans', sans-serif;
           font-size: 12px;
           font-weight: 700;
           letter-spacing: 0.25em;
@@ -83,7 +83,7 @@ export default function CosmosCorner({ onBookVisit }) {
       {/* Heading */}
       <div style={{ textAlign: "center", marginBottom: "40px" }}>
         <p style={{
-          fontFamily: "'Jost', sans-serif",
+          fontFamily: "'DM Sans', sans-serif",
           fontSize: "11px",
           fontWeight: 700,
           letterSpacing: "0.35em",
@@ -94,7 +94,7 @@ export default function CosmosCorner({ onBookVisit }) {
           Exclusive Collection
         </p>
         <h2 style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "'Playfair Display', Georgia, serif",
           fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
           fontWeight: 700,
           color: "#111",
@@ -170,7 +170,7 @@ export default function CosmosCorner({ onBookVisit }) {
       {/* Counter */}
       <p style={{
         textAlign: "center",
-        fontFamily: "'Jost', sans-serif",
+        fontFamily: "'DM Sans', sans-serif",
         fontSize: "12px",
         color: "#b0a080",
         marginTop: "12px",

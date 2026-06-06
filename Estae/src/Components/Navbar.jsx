@@ -19,7 +19,7 @@ const Navbar = ({ onBookVisit }) => {
 
       {/* ── Disclosure Bar ── */}
       <div className="w-full bg-gray-900 text-center py-1.5 px-4">
-        <p className="text-xs text-gray-300" style={{ fontFamily: "'Jost', sans-serif", letterSpacing: "0.04em" }}>
+        <p className="text-xs text-gray-300" style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: "0.04em" }}>
           Marketed by <span className="text-yellow-400 font-semibold">Truelite Estates LLP</span> — Authorized Channel Partner of AU Real Estate Pvt. Ltd. | RERA: UPRERAPRJ466336
         </p>
       </div>
@@ -82,7 +82,7 @@ const Navbar = ({ onBookVisit }) => {
           >
             <span style={{ fontSize: "16px" }}>📞</span>
             <span style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: "14px",
               fontWeight: 700,
               color: "#111",
