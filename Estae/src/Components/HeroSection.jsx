@@ -226,15 +226,30 @@ const HeroSection = ({ onBookVisit }) => {
               <span style={{ color: "#f5d98b" }}>Starting at ₹1.22 Cr*</span>
             </span> */}
 
-            <p style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: "20px",
-              fontWeight: 400,
-              letterSpacing: "0.25em",
-              color: "rgba(255,255,255,0.65)",
-              textTransform: "uppercase",
+            {/* Payment Plan Badge */}
+            <div style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              background: "rgba(200,160,66,0.15)",
+              border: "1px solid rgba(200,160,66,0.5)",
+              borderRadius: "50px",
+              padding: "8px 18px",
+              width: "fit-content",
+              backdropFilter: "blur(6px)",
             }}>
-            </p>
+              <span style={{ fontSize: "16px" }}>🏠</span>
+              <span style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "13px",
+                fontWeight: 700,
+                color: "#f5d98b",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+              }}>
+                Attractive 40:20:20:20 Payment Plan
+              </span>
+            </div>
 
           </div>
 

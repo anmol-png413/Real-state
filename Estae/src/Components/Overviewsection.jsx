@@ -76,8 +76,9 @@ const OverviewSection = ({ onBookVisit }) => {
               {[
                 "10% Booking Amount",
                 "30% in 60 Days",
-                "40% on Possession",
-                "20% Flexi Payment Plan",
+                "20% on 20th Floor",
+                "20% on Top Floor",
+                "20% on Possession",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-gray-700 text-sm font-medium">
                   <div className="w-2 h-2 rounded-full bg-yellow-500 flex-shrink-0" />
