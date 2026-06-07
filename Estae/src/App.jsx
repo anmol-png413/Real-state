@@ -227,9 +227,11 @@ function HomePage() {
         schema={homepageSchema}
       />
 
-      {/* Fixed Navbar */}
-      <Navbar onBookVisit={() => { setModalSource("Navbar"); setShowModal(true); }} />
-      <MarqueeStrip />
+      {/* Fixed Navbar + MarqueeStrip — sticky together */}
+      <div style={{ position: "sticky", top: 0, zIndex: 50 }}>
+        <Navbar onBookVisit={() => { setModalSource("Navbar"); setShowModal(true); }} />
+        <MarqueeStrip />
+      </div>
 
       <div>
       <HeroSection onBookVisit={() => { setModalSource("Hero Section"); setShowModal(true); }} />
