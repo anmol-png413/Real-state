@@ -183,84 +183,16 @@ const HeroSection = ({ onBookVisit }) => {
         ))}
 
         {/* Dark Overlay */}
-        <div
+        {/* <div
           className="absolute inset-0"
           style={{
             background: "linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.05) 100%)",
             zIndex: 1
           }}
-        />
+        /> */}
 
         {/* RERA — Circular stamp on desktop, inline strip on mobile */}
 
-        {/* Desktop stamp (hidden on mobile/tablet) */}
-        <div className="hidden xl:flex" style={{
-          position: "absolute",
-          top: "20px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 20,
-        }}>
-          <div style={{
-            position: "relative",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "170px",
-            height: "170px",
-            borderRadius: "50%",
-            border: "5px solid #f5c842",
-            boxShadow: "0 0 0 2px rgba(245,200,66,0.3), 0 0 0 8px rgba(245,200,66,0.1), 0 6px 32px rgba(0,0,0,0.6)",
-            background: "rgba(0,0,0,0.55)",
-            backdropFilter: "blur(8px)",
-          }}>
-            <div style={{
-              position: "absolute",
-              inset: "8px",
-              borderRadius: "50%",
-              border: "1.5px dashed rgba(245,200,66,0.55)",
-              pointerEvents: "none",
-            }} />
-            <div style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "3px",
-              padding: "16px",
-              textAlign: "center",
-            }}>
-              <span style={{ fontSize: "14px", color: "#f5c842", lineHeight: 1 }}>★</span>
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "#f5c842", lineHeight: 1.2 }}>RERA</span>
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "17px", fontWeight: 900, letterSpacing: "0.1em", textTransform: "uppercase", color: "#fff", lineHeight: 1.2 }}>APPROVED</span>
-              <div style={{ width: "50px", height: "1px", background: "#f5c842", margin: "4px 0" }} />
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 700, letterSpacing: "0.02em", color: "#fff", lineHeight: 1.5, textAlign: "center" }}>UPRERAPRJ466336</span>
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 500, color: "rgba(255,255,255,0.75)", letterSpacing: "0.05em" }}>05/2026</span>
-              <span style={{ fontSize: "14px", color: "#f5c842", lineHeight: 1, marginTop: "2px" }}>★</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile/tablet RERA strip (hidden on xl+) */}
-        <div className="xl:hidden flex items-center justify-center gap-3" style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 20,
-          background: "rgba(0,0,0,0.65)",
-          backdropFilter: "blur(6px)",
-          borderBottom: "1px solid rgba(245,200,66,0.4)",
-          padding: "9px 16px",
-        }}>
-          <span style={{ fontSize: "11px", color: "#f5c842" }}>★</span>
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 800, letterSpacing: "0.12em", color: "#f5c842", textTransform: "uppercase", whiteSpace: "nowrap" }}>RERA APPROVED</span>
-          <span style={{ width: "1px", height: "16px", background: "rgba(245,200,66,0.5)" }} />
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, color: "#fff", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>UPRERAPRJ466336</span>
-          <span style={{ width: "1px", height: "16px", background: "rgba(245,200,66,0.5)" }} />
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.7)", letterSpacing: "0.05em" }}>05/2026</span>
-          <span style={{ fontSize: "11px", color: "#f5c842" }}>★</span>
-        </div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-10 md:px-20 lg:px-28 pt-16 xl:pt-10 pb-20 gap-10">
@@ -268,7 +200,7 @@ const HeroSection = ({ onBookVisit }) => {
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">
 
-
+{/* 
             <span style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize: "25px",
@@ -279,8 +211,8 @@ const HeroSection = ({ onBookVisit }) => {
               margin: 0,
             }}>
               Siddharth Vihar, Ghaziabad
-            </span>
-
+            </span> */}
+{/* 
             <span style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
@@ -292,7 +224,7 @@ const HeroSection = ({ onBookVisit }) => {
             }}>
               Luxury 3 BHK Flats <br />
               <span style={{ color: "#f5d98b" }}>Starting at ₹1.22 Cr*</span>
-            </span>
+            </span> */}
 
             <p style={{
               fontFamily: "'DM Sans', sans-serif",

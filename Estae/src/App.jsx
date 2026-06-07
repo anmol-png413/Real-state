@@ -32,6 +32,7 @@ import FiveBHKSiddharthVihar from './pages/FiveBHKSiddharthVihar';
 import NewLaunchSiddharthVihar from './pages/NewLaunchSiddharthVihar';
 import SiddharthViharGhaziabad from './pages/SiddharthViharGhaziabad';
 import MediaStrip from './Components/MediaStrip';
+import MarqueeStrip from './Components/MarqueeStrip';
 
 const floatingBtnBase = {
   position: "fixed",
@@ -228,6 +229,7 @@ function HomePage() {
 
       {/* Fixed Navbar */}
       <Navbar onBookVisit={() => { setModalSource("Navbar"); setShowModal(true); }} />
+      <MarqueeStrip />
 
       <div>
       <HeroSection onBookVisit={() => { setModalSource("Hero Section"); setShowModal(true); }} />
