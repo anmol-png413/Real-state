@@ -72,7 +72,7 @@ export default function MarqueeStrip() {
           </span>
         ))}
         {/* Duplicate for seamless loop on mobile */}
-        <span className="marquee-dupe" style={{ display: "inline-flex", alignItems: "center", gap: "20px" }}>
+        <span className="marquee-dupe" style={{ alignItems: "center", gap: "20px" }}>
           {items.map((item, i) => (
             <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: "20px" }}>
               <StripItem item={item} />
