@@ -1,19 +1,32 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import heroMain from "../assets/image.png";
-import hero1 from "../assets/Heroimages/1.png";
-import hero2 from "../assets/Heroimages/2.png";
-import hero3 from "../assets/Heroimages/3.png";
-import hero4 from "../assets/Heroimages/4.png";
-import hero5 from "../assets/Heroimages/5.png";
-import hero6 from "../assets/Heroimages/6.png";
-import hero7 from "../assets/Heroimages/7.png";
-import hero8 from "../assets/Heroimages/8.png";
-import hero9 from "../assets/Heroimages/9.png";
-import hero10 from "../assets/Heroimages/10.png";
+import heroMain from "../assets/Heroimages/image.webp";
+import hero1 from "../assets/Heroimages/1.webp";
+import hero2 from "../assets/Heroimages/2.webp";
+import hero3 from "../assets/Heroimages/3.webp";
+import hero4 from "../assets/Heroimages/4.webp";
+import hero5 from "../assets/Heroimages/5.webp";
+import hero6 from "../assets/Heroimages/6.webp";
+import hero7 from "../assets/Heroimages/7.webp";
+import hero8 from "../assets/Heroimages/8.webp";
+import hero9 from "../assets/Heroimages/9.webp";
+import hero10 from "../assets/Heroimages/10.webp";
 
-const heroImages = [heroMain, hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10];
+// per-image focal point for correct cropping on all screen sizes
+const heroImages = [
+  { src: heroMain, position: "center center" },
+  { src: hero1,    position: "center top" },
+  { src: hero2,    position: "center center" },
+  { src: hero3,    position: "center center" },
+  { src: hero4,    position: "center top" },
+  { src: hero5,    position: "center center" },
+  { src: hero6,    position: "center top" },
+  { src: hero7,    position: "center center" },
+  { src: hero8,    position: "center top" },
+  { src: hero9,    position: "center center" },
+  { src: hero10,   position: "center top" },
+];
 
 const HeroSection = ({ onBookVisit }) => {
   const navigate = useNavigate();
@@ -27,9 +40,11 @@ const HeroSection = ({ onBookVisit }) => {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    const interval = isMobile ? 4000 : 2000;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 2000);
+    }, interval);
     return () => clearInterval(timer);
   }, []);
 
@@ -170,12 +185,13 @@ const HeroSection = ({ onBookVisit }) => {
       <section className="relative w-full min-h-screen overflow-hidden">
 
         {/* Background Carousel */}
-        {heroImages.map((src, i) => (
+        {heroImages.map((item, i) => (
           <img
             key={i}
-            src={src}
+            src={item.src}
             alt={`AU Cosmos Corner luxury 3 BHK apartment Siddharth Vihar Ghaziabad view ${i + 1}`}
             className={`hero-slide${currentSlide === i ? " active" : ""}`}
+            style={{ objectPosition: item.position }}
             fetchpriority={i === 0 ? "high" : "low"}
             loading={i === 0 ? "eager" : "lazy"}
             decoding="async"
