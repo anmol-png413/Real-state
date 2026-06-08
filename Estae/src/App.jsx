@@ -161,27 +161,27 @@ function HomePage() {
   const initialShownRef = useRef(false);
   const modalShownRef = useRef(false);
 
-  // Show popup after 20s of user inactivity
+  // Show popup after 20s of user inactivity (scroll/click/touch only — not mousemove)
   useEffect(() => {
     const INACTIVITY_DELAY = 20000;
 
     const showPopup = () => {
-      if (modalShownRef.current) return;
       modalShownRef.current = true;
       setModalSource("Inactivity Popup");
       setShowModal(true);
     };
 
     const resetTimer = () => {
-      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
       if (modalShownRef.current) return;
+      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
       inactivityTimerRef.current = setTimeout(showPopup, INACTIVITY_DELAY);
     };
 
-    const events = ["mousemove", "scroll", "keydown", "click", "touchstart"];
+    // Only track meaningful interactions — not mousemove (too sensitive)
+    const events = ["scroll", "keydown", "click", "touchstart"];
     events.forEach(e => window.addEventListener(e, resetTimer, { passive: true }));
 
-    // Start timer immediately in case user doesn't interact at all
+    // Start timer immediately on page load
     inactivityTimerRef.current = setTimeout(showPopup, INACTIVITY_DELAY);
 
     return () => {
@@ -217,10 +217,12 @@ function HomePage() {
     setShowModal(false);
     setDownloadBrochure(false);
     setModalSource("General");
+    modalShownRef.current = false;
     if (reopenCountRef.current < 3) {
       if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
       reopenTimerRef.current = setTimeout(() => {
         reopenCountRef.current += 1;
+        modalShownRef.current = true;
         setModalSource("Auto Reopen");
         setShowModal(true);
       }, 30000);
