@@ -1,6 +1,7 @@
 {
   "buildCommand": "cd Estae && npm install && npm run build",
   "outputDirectory": "Estae/dist",
+  "nodeVersion": "22.x",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
