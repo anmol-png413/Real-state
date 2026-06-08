@@ -15,17 +15,17 @@ import hero10 from "../assets/Heroimages/10.webp";
 
 // per-image focal point for correct cropping on all screen sizes
 const heroImages = [
-  { src: heroMain, position: "center center" },
-  { src: hero1,    position: "center top" },
-  { src: hero2,    position: "center center" },
-  { src: hero3,    position: "center center" },
-  { src: hero4,    position: "center top" },
-  { src: hero5,    position: "center center" },
-  { src: hero6,    position: "center top" },
-  { src: hero7,    position: "center center" },
-  { src: hero8,    position: "center top" },
-  { src: hero9,    position: "center center" },
-  { src: hero10,   position: "center top" },
+  { src: heroMain, position: "center 40%" },
+  { src: hero1,    position: "center 40%" },
+  { src: hero2,    position: "center 40%" },
+  { src: hero3,    position: "center 40%" },
+  { src: hero4,    position: "center 40%" },
+  { src: hero5,    position: "center 40%" },
+  { src: hero6,    position: "center 40%" },
+  { src: hero7,    position: "center 40%" },
+  { src: hero8,    position: "center 40%" },
+  { src: hero9,    position: "center 40%" },
+  { src: hero10,   position: "center 40%" },
 ];
 
 const HeroSection = ({ onBookVisit }) => {
@@ -168,21 +168,23 @@ const HeroSection = ({ onBookVisit }) => {
         }
         .hero-slide {
           position: absolute;
-          inset: 0;
+          top: 0;
+          left: 0;
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: center;
+          object-position: center 40%;
           opacity: 0;
           transition: opacity 1s ease-in-out;
           pointer-events: none;
+          display: block;
         }
         .hero-slide.active {
           opacity: 1;
         }
       `}</style>
 
-      <section className="relative w-full min-h-screen overflow-hidden">
+      <section className="relative w-full overflow-hidden" style={{ height: "100dvh", minHeight: "600px" }}>
 
         {/* Background Carousel */}
         {heroImages.map((item, i) => (
