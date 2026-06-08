@@ -89,6 +89,8 @@ const HeroSection = ({ onBookVisit }) => {
           phone: form.phone,
           email: '',
           interested_in: form.interest,
+          purpose: '',
+          timeline: '',
           message: '',
           source: 'Hero Section'
         })
