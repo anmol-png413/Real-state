@@ -233,7 +233,7 @@ function HomePage() {
   useEffect(() => {
     return () => {
       if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
-      autoPopupTimersRef.current.forEach(clearTimeout);
+      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
     };
   }, []);
 
