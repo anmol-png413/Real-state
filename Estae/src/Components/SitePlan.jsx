@@ -1,4 +1,4 @@
-import sitePlanImg from "../assets/WhatsApp Image 2026-05-04 at 12.30.51.webp";
+import sitePlanImg from "../assets/siteplan.webp";
 
 const specs = [
   "1.5 Ton Split AC in All Bedrooms",
