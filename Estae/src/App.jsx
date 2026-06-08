@@ -161,9 +161,12 @@ function HomePage() {
   const initialShownRef = useRef(false);
   const modalShownRef = useRef(false);
 
-  // Show popup after 20s of user inactivity (scroll/click/touch only — not mousemove)
+  // Reopen delays after each close: 45s, 60s, 90s (3 reopens total)
+  const REOPEN_DELAYS = [45000, 60000, 90000];
+
+  // Show popup after 30s of user inactivity
   useEffect(() => {
-    const INACTIVITY_DELAY = 20000;
+    const INACTIVITY_DELAY = 30000;
 
     const showPopup = () => {
       modalShownRef.current = true;
@@ -177,11 +180,8 @@ function HomePage() {
       inactivityTimerRef.current = setTimeout(showPopup, INACTIVITY_DELAY);
     };
 
-    // Only track meaningful interactions — not mousemove (too sensitive)
     const events = ["scroll", "keydown", "click", "touchstart"];
     events.forEach(e => window.addEventListener(e, resetTimer, { passive: true }));
-
-    // Start timer immediately on page load
     inactivityTimerRef.current = setTimeout(showPopup, INACTIVITY_DELAY);
 
     return () => {
@@ -212,20 +212,21 @@ function HomePage() {
     };
   }, []);
 
-  // On manual close: reopen every 30s up to 3 times
+  // On close: reopen after 45s → 60s → 90s (3 times), then stop
   const handleCloseModal = () => {
     setShowModal(false);
     setDownloadBrochure(false);
     setModalSource("General");
     modalShownRef.current = false;
-    if (reopenCountRef.current < 3) {
+    const delay = REOPEN_DELAYS[reopenCountRef.current];
+    if (delay !== undefined) {
       if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
       reopenTimerRef.current = setTimeout(() => {
         reopenCountRef.current += 1;
         modalShownRef.current = true;
         setModalSource("Auto Reopen");
         setShowModal(true);
-      }, 30000);
+      }, delay);
     }
   };
 
