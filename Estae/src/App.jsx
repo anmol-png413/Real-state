@@ -154,23 +154,40 @@ function HomePage() {
   const [modalSource, setModalSource] = useState("General");
   const [downloadBrochure, setDownloadBrochure] = useState(false);
   const [buttonsVisible, setButtonsVisible] = useState(false);
-  const autoPopupTimersRef = useRef([]);
   const reopenTimerRef = useRef(null);
   const reopenCountRef = useRef(0);
+  const inactivityTimerRef = useRef(null);
   const scrollTimerRef = useRef(null);
   const initialShownRef = useRef(false);
+  const modalShownRef = useRef(false);
 
-  // Auto-popup schedule: 0s, 30s, 60s, 120s, then every 30s up to 3 more times
+  // Show popup after 20s of user inactivity
   useEffect(() => {
-    const schedule = [0, 30000, 60000, 120000];
-    schedule.forEach((delay) => {
-      const t = setTimeout(() => {
-        setModalSource("Auto Popup");
-        setShowModal(true);
-      }, delay);
-      autoPopupTimersRef.current.push(t);
-    });
-    return () => autoPopupTimersRef.current.forEach(clearTimeout);
+    const INACTIVITY_DELAY = 20000;
+
+    const showPopup = () => {
+      if (modalShownRef.current) return;
+      modalShownRef.current = true;
+      setModalSource("Inactivity Popup");
+      setShowModal(true);
+    };
+
+    const resetTimer = () => {
+      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
+      if (modalShownRef.current) return;
+      inactivityTimerRef.current = setTimeout(showPopup, INACTIVITY_DELAY);
+    };
+
+    const events = ["mousemove", "scroll", "keydown", "click", "touchstart"];
+    events.forEach(e => window.addEventListener(e, resetTimer, { passive: true }));
+
+    // Start timer immediately in case user doesn't interact at all
+    inactivityTimerRef.current = setTimeout(showPopup, INACTIVITY_DELAY);
+
+    return () => {
+      events.forEach(e => window.removeEventListener(e, resetTimer));
+      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
+    };
   }, []);
 
   // Show floating buttons after 4s, then toggle on scroll activity
