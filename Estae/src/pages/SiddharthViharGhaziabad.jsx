@@ -34,7 +34,7 @@ const schema = {
       "@type": "Place",
       "name": "Siddharth Vihar, Ghaziabad",
       "description": "Siddharth Vihar is a prime residential locality in Ghaziabad, Uttar Pradesh with excellent connectivity to Delhi NCR via NH-24 and Delhi-Meerut Expressway.",
-      "url": "https://aucosmos.truelitestates.com/siddharth-vihar-ghaziabad",
+      "url": "https://aurealestateprojects.in/siddharth-vihar-ghaziabad",
       "address": { "@type": "PostalAddress", "streetAddress": "Siddharth Vihar", "addressLocality": "Ghaziabad", "addressRegion": "Uttar Pradesh", "postalCode": "201013", "addressCountry": "IN" },
       "geo": { "@type": "GeoCoordinates", "latitude": "28.6692", "longitude": "77.4538" },
     },
@@ -45,8 +45,8 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aucosmos.truelitestates.com" },
-        { "@type": "ListItem", "position": 2, "name": "Siddharth Vihar Ghaziabad", "item": "https://aucosmos.truelitestates.com/siddharth-vihar-ghaziabad" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aurealestateprojects.in" },
+        { "@type": "ListItem", "position": 2, "name": "Siddharth Vihar Ghaziabad", "item": "https://aurealestateprojects.in/siddharth-vihar-ghaziabad" },
       ],
     },
   ],
@@ -62,7 +62,7 @@ export default function SiddharthViharGhaziabad() {
       <SEO
         title="Siddharth Vihar Ghaziabad — Location Guide, Property Prices & Projects 2026"
         description="Complete guide to Siddharth Vihar, Ghaziabad: connectivity, property prices, schools, hospitals, and new launch projects. AU Cosmos Corner — luxury 3 & 5 BHK at ₹6900/sq ft."
-        url="https://aucosmos.truelitestates.com/siddharth-vihar-ghaziabad"
+        url="https://aurealestateprojects.in/siddharth-vihar-ghaziabad"
         schema={schema}
       />
 

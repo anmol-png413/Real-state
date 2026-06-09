@@ -54,11 +54,11 @@ const homepageSchema = {
   "@graph": [
     {
       "@type": "RealEstateListing",
-      "@id": "https://aucosmos.truelitestates.com/#listing",
+      "@id": "https://aurealestateprojects.in/#listing",
       "name": "AU Cosmos Corner",
       "description": "Premium 3 BHK, 3 BHK+Servant and 5 BHK+Servant luxury apartments in Siddharth Vihar, Ghaziabad. G+40 towers on 5.6 acres. Pre-launch price ₹6900/sq ft. RERA: UPRERAPRJ466336.",
-      "url": "https://aucosmos.truelitestates.com",
-      "image": "https://aucosmos.truelitestates.com/og-image.jpg",
+      "url": "https://aurealestateprojects.in",
+      "image": "https://aurealestateprojects.in/og-image.jpg",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Siddharth Vihar",
@@ -118,10 +118,10 @@ const homepageSchema = {
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://aucosmos.truelitestates.com/#business",
+      "@id": "https://aurealestateprojects.in/#business",
       "name": "Truelite Estates LLP",
       "description": "Authorized Channel Partner of AU Real Estate Pvt. Ltd. for AU Cosmos Corner, Ghaziabad.",
-      "url": "https://aucosmos.truelitestates.com",
+      "url": "https://aurealestateprojects.in",
       "telephone": "+919711557670",
       "email": "omvir.shishodia@truelitestates.com",
       "address": {
@@ -137,12 +137,12 @@ const homepageSchema = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://aucosmos.truelitestates.com/#website",
-      "url": "https://aucosmos.truelitestates.com",
+      "@id": "https://aurealestateprojects.in/#website",
+      "url": "https://aurealestateprojects.in",
       "name": "AU Cosmos Corner — Truelite Estates LLP",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://aucosmos.truelitestates.com/?s={search_term_string}",
+        "target": "https://aurealestateprojects.in/?s={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
@@ -243,7 +243,7 @@ function HomePage() {
       <SEO
         title="3 BHK Luxury Apartments in Siddharth Vihar Ghaziabad | Pre-launch ₹6900/sq ft"
         description="Book 3 BHK, 3 BHK+Servant & 5 BHK+Servant luxury apartments at AU Cosmos Corner, Siddharth Vihar Ghaziabad. Pre-launch ₹6900/sq ft. G+40 towers, 5.6 acres. RERA: UPRERAPRJ466336. Call 9711557670."
-        url="https://aucosmos.truelitestates.com"
+        url="https://aurealestateprojects.in"
         schema={homepageSchema}
       />
 

@@ -12,8 +12,8 @@ export default function PolicyLayout({ title, description, canonicalPath, childr
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aucosmos.truelitestates.com" },
-      { "@type": "ListItem", "position": 2, "name": title, "item": `https://aucosmos.truelitestates.com${canonicalPath || ""}` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aurealestateprojects.in" },
+      { "@type": "ListItem", "position": 2, "name": title, "item": `https://aurealestateprojects.in${canonicalPath || ""}` }
     ]
   };
 
@@ -22,7 +22,7 @@ export default function PolicyLayout({ title, description, canonicalPath, childr
       <SEO
         title={title}
         description={description}
-        url={`https://aucosmos.truelitestates.com${canonicalPath || ""}`}
+        url={`https://aurealestateprojects.in${canonicalPath || ""}`}
         schema={breadcrumbSchema}
       />
       {/* Header */}
