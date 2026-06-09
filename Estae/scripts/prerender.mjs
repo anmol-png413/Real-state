@@ -7,9 +7,9 @@
  * Auto-run via: npm run build (postbuild hook)
  */
 
-// Skip prerender on Vercel — no Chrome available in build environment
-if (process.env.VERCEL) {
-  console.log('⏭️  Skipping prerender on Vercel (no Chrome). SPA served as-is.');
+// Skip prerender on Vercel/CI — no Chrome available in build environment
+if (process.env.VERCEL || process.env.CI || process.env.VERCEL_ENV) {
+  console.log('⏭️  Skipping prerender on Vercel/CI (no Chrome). SPA served as-is.');
   process.exit(0);
 }
 
