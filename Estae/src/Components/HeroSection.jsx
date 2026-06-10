@@ -13,7 +13,21 @@ import hero8 from "../assets/Heroimages/8.png";
 import hero9 from "../assets/Heroimages/9.png";
 import hero10 from "../assets/Heroimages/10.png";
 
+// Mobile-optimized images (358×250)
+import mHero0 from "../assets/Heromobile/image1_358x250.webp";
+import mHero1 from "../assets/Heromobile/image1_358x250 8.webp";
+import mHero2 from "../assets/Heromobile/image2_358x250.webp";
+import mHero3 from "../assets/Heromobile/image2_358x250 7.webp";
+import mHero4 from "../assets/Heromobile/image3_358x250.webp";
+import mHero5 from "../assets/Heromobile/image4_358x250.webp";
+import mHero6 from "../assets/Heromobile/image5_358x250.webp";
+import mHero7 from "../assets/Heromobile/resized_358x250.png";
+import mHero8 from "../assets/Heromobile/resized_358x250 1.webp";
+import mHero9 from "../assets/Heromobile/resized_358x250_2.webp";
+import mHero10 from "../assets/Heromobile/sundeck_358x250 4.webp";
+
 const heroImages = [heroMain, hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10];
+const mobileHeroImages = [mHero0, mHero1, mHero2, mHero3, mHero4, mHero5, mHero6, mHero7, mHero8, mHero9, mHero10];
 
 const HeroSection = ({ onBookVisit }) => {
   const navigate = useNavigate();
@@ -156,8 +170,6 @@ const HeroSection = ({ onBookVisit }) => {
           inset: 0;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          object-position: center;
           opacity: 0;
           transition: opacity 1s ease-in-out;
           pointer-events: none;
@@ -165,8 +177,11 @@ const HeroSection = ({ onBookVisit }) => {
         .hero-slide.active {
           opacity: 1;
         }
-        @media (max-width: 768px) {
-          .hero-slide {
+        .hero-slide img {
+          object-position: center;
+        }
+        @media (max-width: 767px) {
+          .hero-slide img {
             object-position: center 30%;
           }
         }
@@ -176,15 +191,20 @@ const HeroSection = ({ onBookVisit }) => {
 
         {/* Background Carousel */}
         {heroImages.map((src, i) => (
-          <img
+          <picture
             key={i}
-            src={src}
-            alt={`AU Cosmos Corner luxury 3 BHK apartment Siddharth Vihar Ghaziabad view ${i + 1}`}
             className={`hero-slide${currentSlide === i ? " active" : ""}`}
-            fetchpriority={i === 0 ? "high" : "low"}
-            loading={i === 0 ? "eager" : "lazy"}
-            decoding="async"
-          />
+          >
+            <source media="(max-width: 767px)" srcSet={mobileHeroImages[i]} />
+            <img
+              src={src}
+              alt={`AU Cosmos Corner luxury 3 BHK apartment Siddharth Vihar Ghaziabad view ${i + 1}`}
+              fetchpriority={i === 0 ? "high" : "low"}
+              loading={i === 0 ? "eager" : "lazy"}
+              decoding="async"
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
+            />
+          </picture>
         ))}
 
         {/* Dark Overlay */}
