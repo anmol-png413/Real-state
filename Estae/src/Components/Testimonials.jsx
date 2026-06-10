@@ -1,3 +1,5 @@
+import { useState, useEffect, useRef } from "react";
+
 const testimonials = [
   {
     name: "Rajesh Kumar",
@@ -57,6 +59,31 @@ const aggregateRatingSchema = {
 };
 
 export default function Testimonials() {
+  const [current, setCurrent] = useState(0);
+  const timerRef = useRef(null);
+
+  const prev = () => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
+  const next = () => setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+
+  // Auto-scroll every 2.5 seconds on mobile
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+    }, 2500);
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  // Reset timer on manual nav
+  const handleNav = (fn) => {
+    clearInterval(timerRef.current);
+    fn();
+    timerRef.current = setInterval(() => {
+      setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+    }, 2500);
+  };
+
+  const t = testimonials[current];
+
   return (
     <section className="w-full bg-gray-950 py-16 px-6 md:px-12 lg:px-20" id="testimonials">
       <script type="application/ld+json">{JSON.stringify(aggregateRatingSchema)}</script>
@@ -75,8 +102,60 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Cards */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* ── MOBILE: Auto-sliding horizontal slider ── */}
+      <div className="md:hidden">
+        <div className="relative">
+          {/* Arrows */}
+          <button
+            onClick={() => handleNav(prev)}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 w-8 h-8 rounded-full bg-yellow-500 text-black font-bold text-lg flex items-center justify-center shadow-lg"
+          >
+            ‹
+          </button>
+          <button
+            onClick={() => handleNav(next)}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 w-8 h-8 rounded-full bg-yellow-500 text-black font-bold text-lg flex items-center justify-center shadow-lg"
+          >
+            ›
+          </button>
+
+          {/* Card */}
+          <div
+            key={current}
+            className="bg-gray-900 border border-gray-800 p-5 flex flex-col gap-3 mx-4"
+            style={{ animation: "tFadeIn 0.35s ease" }}
+          >
+            <div className="flex gap-0.5">
+              {[...Array(t.stars)].map((_, s) => <span key={s} className="text-yellow-400 text-sm">★</span>)}
+            </div>
+            <p className="text-gray-300 text-sm leading-relaxed">"{t.text}"</p>
+            <div className="border-t border-gray-800 pt-3">
+              <p className="text-white font-bold text-sm">{t.name}</p>
+              <p className="text-gray-500 text-xs mt-0.5">{t.city}</p>
+              <p className="text-yellow-500 text-xs mt-1 font-medium">{t.unit}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-5">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => handleNav(() => setCurrent(i))}
+              className={`rounded-full transition-all duration-300 ${i === current ? "w-5 h-2 bg-yellow-500" : "w-2 h-2 bg-gray-600"}`}
+            />
+          ))}
+        </div>
+
+        {/* Counter */}
+        <p className="text-center text-xs text-gray-600 mt-2 tracking-widest">
+          {current + 1} / {testimonials.length}
+        </p>
+      </div>
+
+      {/* ── DESKTOP: Grid (unchanged) ── */}
+      <div className="hidden md:grid max-w-6xl mx-auto grid-cols-2 lg:grid-cols-3 gap-6">
         {testimonials.map((t, i) => (
           <div key={i} className="bg-gray-900 border border-gray-800 p-6 flex flex-col gap-4 hover:border-yellow-500/40 transition-colors">
             <div className="flex gap-0.5">
@@ -91,6 +170,13 @@ export default function Testimonials() {
           </div>
         ))}
       </div>
+
+      <style>{`
+        @keyframes tFadeIn {
+          from { opacity: 0; transform: translateX(18px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+      `}</style>
     </section>
   );
 }

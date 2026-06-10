@@ -165,9 +165,14 @@ const HeroSection = ({ onBookVisit }) => {
         .hero-slide.active {
           opacity: 1;
         }
+        @media (max-width: 768px) {
+          .hero-slide {
+            object-position: center 30%;
+          }
+        }
       `}</style>
 
-      <section className="relative w-full min-h-screen overflow-hidden">
+      <section className="relative w-full min-h-[55vh] md:min-h-screen overflow-hidden">
 
         {/* Background Carousel */}
         {heroImages.map((src, i) => (
@@ -195,7 +200,7 @@ const HeroSection = ({ onBookVisit }) => {
 
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-10 md:px-20 lg:px-28 pt-16 xl:pt-10 pb-20 gap-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-[55vh] md:min-h-screen px-10 md:px-20 lg:px-28 pt-16 xl:pt-10 pb-20 gap-10">
 
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">

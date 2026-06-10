@@ -46,12 +46,11 @@ const AmenitiesSection = () => {
       </div>
 
       {/* ── Row 1 — 4 cards ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mb-2 sm:mb-4">
         {amenities.slice(0, 4).map((item, i) => (
           <div
             key={i}
-            className="relative overflow-hidden cursor-pointer group rounded-sm"
-            style={{ height: "220px" }}
+            className="relative overflow-hidden cursor-pointer group rounded-sm h-36 sm:h-[220px]"
           >
             <img
               src={item.image}
@@ -61,7 +60,7 @@ const AmenitiesSection = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
             <div className="absolute bottom-0 left-0 w-full px-4 py-3">
-              <p className="text-white font-bold text-base md:text-lg tracking-wide">
+              <p className="text-white font-bold text-xs sm:text-base md:text-lg tracking-wide">
                 {item.name}
               </p>
             </div>
@@ -70,12 +69,11 @@ const AmenitiesSection = () => {
       </div>
 
       {/* ── Row 2 — 4 cards ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
         {amenities.slice(4, 8).map((item, i) => (
           <div
             key={i}
-            className="relative overflow-hidden cursor-pointer group rounded-sm"
-            style={{ height: "220px" }}
+            className="relative overflow-hidden cursor-pointer group rounded-sm h-36 sm:h-[220px]"
           >
             <img
               src={item.image}
@@ -85,7 +83,7 @@ const AmenitiesSection = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
             <div className="absolute bottom-0 left-0 w-full px-4 py-3">
-              <p className="text-white font-bold text-base md:text-lg tracking-wide">
+              <p className="text-white font-bold text-xs sm:text-base md:text-lg tracking-wide">
                 {item.name}
               </p>
             </div>
