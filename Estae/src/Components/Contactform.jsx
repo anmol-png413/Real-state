@@ -45,38 +45,44 @@ export default function ContactForm({ onPhoneClick, source = "Contact Form", dow
 
     setLoading(true); // ✅ Loading start
 
+    const payload = {
+      full_name: form.name,
+      phone: form.phone,
+      email: form.email,
+      interested_in: form.interest,
+      purpose: form.purpose,
+      timeline: form.timeline,
+      message: form.message,
+      source: source
+    };
+    console.log("Submitting enquiry:", payload);
+
     try {
-      const response = await fetch('https://real-state-udkw.vercel.app/api/enquiry', {
+      const response = await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          full_name: form.name,
-          phone: form.phone,
-          email: form.email,
-          interested_in: form.interest,
-          purpose: form.purpose,
-          timeline: form.timeline,
-          message: form.message,
-          source: source
-        })
+        body: JSON.stringify(payload)
       });
 
       const data = await response.json();
-    if (data.success) {
-  if (downloadBrochure) {
-    const link = document.createElement("a");
-    link.href = "/brochure.pdf";
-    link.download = "AU-Cosmos-Corner-Brochure.pdf";
-    link.click();
-  }
-  navigate("/thank-you");
+      console.log("API response:", data);
+
+      if (data.success) {
+        if (downloadBrochure) {
+          const link = document.createElement("a");
+          link.href = "/brochure.pdf";
+          link.download = "AU-Cosmos-Corner-Brochure.pdf";
+          link.click();
+        }
+        navigate("/thank-you");
       } else {
         alert('Error: ' + JSON.stringify(data));
       }
     } catch (error) {
+      console.error("Fetch error:", error);
       alert('Something went wrong: ' + error.message);
     } finally {
-      setLoading(false); // ✅ Loading end
+      setLoading(false);
     }
   };
 

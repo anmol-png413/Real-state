@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import heroMain from "../assets/image.png";
-import hero1 from "../assets/Heroimages/1.png";
-import hero2 from "../assets/Heroimages/2.png";
-import hero3 from "../assets/Heroimages/3.png";
-import hero4 from "../assets/Heroimages/4.png";
-import hero5 from "../assets/Heroimages/5.png";
-import hero6 from "../assets/Heroimages/6.png";
-import hero7 from "../assets/Heroimages/7.png";
-import hero8 from "../assets/Heroimages/8.png";
-import hero9 from "../assets/Heroimages/9.png";
-import hero10 from "../assets/Heroimages/10.png";
+import heroMain from "../assets/Heroimages/image.webp";
+import hero1 from "../assets/Heroimages/1.webp";
+import hero2 from "../assets/Heroimages/2.webp";
+import hero3 from "../assets/Heroimages/3.webp";
+import hero4 from "../assets/Heroimages/4.webp";
+import hero5 from "../assets/Heroimages/5.webp";
+import hero6 from "../assets/Heroimages/6.webp";
+import hero7 from "../assets/Heroimages/7.webp";
+import hero8 from "../assets/Heroimages/8.webp";
+import hero9 from "../assets/Heroimages/9.webp";
+import hero10 from "../assets/Heroimages/10.webp";
 
 // Mobile-optimized images (358×250)
 import mHero0 from "../assets/Heromobile/image1_358x250.webp";
@@ -41,9 +41,11 @@ const HeroSection = ({ onBookVisit }) => {
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    const interval = isMobile ? 4000 : 2000;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 2000);
+    }, interval);
     return () => clearInterval(timer);
   }, []);
 
@@ -80,7 +82,7 @@ const HeroSection = ({ onBookVisit }) => {
     setLoading(true); // ✅ Loading start
 
     try {
-      const response = await fetch('https://real-state-udkw.vercel.app/api/enquiry', {
+      const response = await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -88,6 +90,8 @@ const HeroSection = ({ onBookVisit }) => {
           phone: form.phone,
           email: '',
           interested_in: form.interest,
+          purpose: '',
+          timeline: '',
           message: '',
           source: 'Hero Section'
         })
@@ -167,12 +171,14 @@ const HeroSection = ({ onBookVisit }) => {
         }
         .hero-slide {
           position: absolute;
-          inset: 0;
+          top: 0;
+          left: 0;
           width: 100%;
           height: 100%;
           opacity: 0;
           transition: opacity 1s ease-in-out;
           pointer-events: none;
+          display: block;
         }
         .hero-slide.active {
           opacity: 1;

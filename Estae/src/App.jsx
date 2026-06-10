@@ -54,11 +54,11 @@ const homepageSchema = {
   "@graph": [
     {
       "@type": "RealEstateListing",
-      "@id": "https://aucosmos.truelitestates.com/#listing",
+      "@id": "https://aurealestateprojects.in/#listing",
       "name": "AU Cosmos Corner",
       "description": "Premium 3 BHK, 3 BHK+Servant and 5 BHK+Servant luxury apartments in Siddharth Vihar, Ghaziabad. G+40 towers on 5.6 acres. Pre-launch price ₹6900/sq ft. RERA: UPRERAPRJ466336.",
-      "url": "https://aucosmos.truelitestates.com",
-      "image": "https://aucosmos.truelitestates.com/og-image.jpg",
+      "url": "https://aurealestateprojects.in",
+      "image": "https://aurealestateprojects.in/og-image.jpg",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Siddharth Vihar",
@@ -118,10 +118,10 @@ const homepageSchema = {
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://aucosmos.truelitestates.com/#business",
+      "@id": "https://aurealestateprojects.in/#business",
       "name": "Truelite Estates LLP",
       "description": "Authorized Channel Partner of AU Real Estate Pvt. Ltd. for AU Cosmos Corner, Ghaziabad.",
-      "url": "https://aucosmos.truelitestates.com",
+      "url": "https://aurealestateprojects.in",
       "telephone": "+919711557670",
       "email": "omvir.shishodia@truelitestates.com",
       "address": {
@@ -137,12 +137,12 @@ const homepageSchema = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://aucosmos.truelitestates.com/#website",
-      "url": "https://aucosmos.truelitestates.com",
+      "@id": "https://aurealestateprojects.in/#website",
+      "url": "https://aurealestateprojects.in",
       "name": "AU Cosmos Corner — Truelite Estates LLP",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://aucosmos.truelitestates.com/?s={search_term_string}",
+        "target": "https://aurealestateprojects.in/?s={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
@@ -154,23 +154,40 @@ function HomePage() {
   const [modalSource, setModalSource] = useState("General");
   const [downloadBrochure, setDownloadBrochure] = useState(false);
   const [buttonsVisible, setButtonsVisible] = useState(false);
-  const autoPopupTimersRef = useRef([]);
   const reopenTimerRef = useRef(null);
   const reopenCountRef = useRef(0);
+  const inactivityTimerRef = useRef(null);
   const scrollTimerRef = useRef(null);
   const initialShownRef = useRef(false);
+  const modalShownRef = useRef(false);
 
-  // Auto-popup schedule: 0s, 30s, 60s, 120s, then every 30s up to 3 more times
+  // Reopen delays after each close: 45s, 60s, 90s (3 reopens total)
+  const REOPEN_DELAYS = [45000, 60000, 90000];
+
+  // Show popup after 30s of user inactivity
   useEffect(() => {
-    const schedule = [0, 30000, 60000, 120000];
-    schedule.forEach((delay) => {
-      const t = setTimeout(() => {
-        setModalSource("Auto Popup");
-        setShowModal(true);
-      }, delay);
-      autoPopupTimersRef.current.push(t);
-    });
-    return () => autoPopupTimersRef.current.forEach(clearTimeout);
+    const INACTIVITY_DELAY = 30000;
+
+    const showPopup = () => {
+      modalShownRef.current = true;
+      setModalSource("Inactivity Popup");
+      setShowModal(true);
+    };
+
+    const resetTimer = () => {
+      if (modalShownRef.current) return;
+      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
+      inactivityTimerRef.current = setTimeout(showPopup, INACTIVITY_DELAY);
+    };
+
+    const events = ["scroll", "keydown", "click", "touchstart"];
+    events.forEach(e => window.addEventListener(e, resetTimer, { passive: true }));
+    inactivityTimerRef.current = setTimeout(showPopup, INACTIVITY_DELAY);
+
+    return () => {
+      events.forEach(e => window.removeEventListener(e, resetTimer));
+      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
+    };
   }, []);
 
   // Show floating buttons after 4s, then toggle on scroll activity
@@ -195,18 +212,21 @@ function HomePage() {
     };
   }, []);
 
-  // On manual close: reopen every 30s up to 3 times
+  // On close: reopen after 45s → 60s → 90s (3 times), then stop
   const handleCloseModal = () => {
     setShowModal(false);
     setDownloadBrochure(false);
     setModalSource("General");
-    if (reopenCountRef.current < 3) {
+    modalShownRef.current = false;
+    const delay = REOPEN_DELAYS[reopenCountRef.current];
+    if (delay !== undefined) {
       if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
       reopenTimerRef.current = setTimeout(() => {
         reopenCountRef.current += 1;
+        modalShownRef.current = true;
         setModalSource("Auto Reopen");
         setShowModal(true);
-      }, 30000);
+      }, delay);
     }
   };
 
@@ -214,7 +234,7 @@ function HomePage() {
   useEffect(() => {
     return () => {
       if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
-      autoPopupTimersRef.current.forEach(clearTimeout);
+      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
     };
   }, []);
 
@@ -223,7 +243,7 @@ function HomePage() {
       <SEO
         title="3 BHK Luxury Apartments in Siddharth Vihar Ghaziabad | Pre-launch ₹6900/sq ft"
         description="Book 3 BHK, 3 BHK+Servant & 5 BHK+Servant luxury apartments at AU Cosmos Corner, Siddharth Vihar Ghaziabad. Pre-launch ₹6900/sq ft. G+40 towers, 5.6 acres. RERA: UPRERAPRJ466336. Call 9711557670."
-        url="https://aucosmos.truelitestates.com"
+        url="https://aurealestateprojects.in"
         schema={homepageSchema}
       />
 

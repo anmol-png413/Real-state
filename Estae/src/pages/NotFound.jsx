@@ -9,7 +9,7 @@ export default function NotFound() {
       <SEO
         title="Page Not Found"
         description="The page you are looking for does not exist. Return to AU Cosmos Corner homepage to explore 3 BHK and 5 BHK luxury flats in Siddharth Vihar, Ghaziabad."
-        url="https://aucosmos.truelitestates.com/404"
+        url="https://aurealestateprojects.in/404"
       />
 
       <p className="text-yellow-500 text-xs font-bold tracking-[6px] uppercase mb-4">404 Error</p>

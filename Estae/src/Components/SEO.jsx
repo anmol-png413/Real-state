@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://aucosmos.truelitestates.com";
+const SITE_URL = "https://aurealestateprojects.in";
 const SITE_NAME = "AU Cosmos Corner | Truelite Estates LLP";
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 

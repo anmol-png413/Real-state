@@ -34,7 +34,7 @@ const schema = {
       "@type": ["RealEstateListing", "ApartmentComplex"],
       "name": "New Launch in Siddharth Vihar 2026 — AU Cosmos Corner",
       "description": "AU Cosmos Corner is the top new launch residential project in Siddharth Vihar, Ghaziabad 2026. Pre-launch ₹6900/sq ft. RERA: UPRERAPRJ466336.",
-      "url": "https://aucosmos.truelitestates.com/new-launch-siddharth-vihar",
+      "url": "https://aurealestateprojects.in/new-launch-siddharth-vihar",
       "offers": { "@type": "Offer", "price": "6900", "priceCurrency": "INR", "availability": "https://schema.org/PreOrder" },
       "address": { "@type": "PostalAddress", "streetAddress": "Siddharth Vihar", "addressLocality": "Ghaziabad", "addressRegion": "Uttar Pradesh", "postalCode": "201013", "addressCountry": "IN" },
     },
@@ -45,8 +45,8 @@ const schema = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aucosmos.truelitestates.com" },
-        { "@type": "ListItem", "position": 2, "name": "New Launch in Siddharth Vihar", "item": "https://aucosmos.truelitestates.com/new-launch-siddharth-vihar" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aurealestateprojects.in" },
+        { "@type": "ListItem", "position": 2, "name": "New Launch in Siddharth Vihar", "item": "https://aurealestateprojects.in/new-launch-siddharth-vihar" },
       ],
     },
   ],
@@ -62,7 +62,7 @@ export default function NewLaunchSiddharthVihar() {
       <SEO
         title="New Launch in Siddharth Vihar 2026 | AU Cosmos Corner | Pre-launch ₹6900/sq ft"
         description="AU Cosmos Corner — best new launch residential project in Siddharth Vihar, Ghaziabad 2026. 3 & 5 BHK luxury flats. Pre-launch ₹6900/sq ft. RERA approved. Call 9711557670."
-        url="https://aucosmos.truelitestates.com/new-launch-siddharth-vihar"
+        url="https://aurealestateprojects.in/new-launch-siddharth-vihar"
         schema={schema}
       />
 
