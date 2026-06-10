@@ -58,7 +58,7 @@ export default function ContactForm({ onPhoneClick, source = "Contact Form", dow
     console.log("Submitting enquiry:", payload);
 
     try {
-      const response = await fetch('/api/enquiry', {
+      const response = await fetch('https://api.aurealestateprojects.in/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

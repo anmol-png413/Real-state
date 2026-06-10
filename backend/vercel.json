@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "routes": [
-    {
-      "src": "/api/enquiry",
-      "dest": "/api/enquiry.js"
-    }
-  ]
+  "routes": [{ "src": "/api/enquiry", "dest": "/api/enquiry.js" }],
+  "headers": [{
+    "source": "/api/(.*)",
+    "headers": [
+      { "key": "Access-Control-Allow-Origin", "value": "https://aurealestateprojects.in" },
+      { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+      { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+    ]
+  }]
 }
