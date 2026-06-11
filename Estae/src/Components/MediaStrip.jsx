@@ -59,10 +59,11 @@ export default function MediaStrip() {
         .media-strip-scroll::-webkit-scrollbar { height: 4px; }
         .media-strip-scroll::-webkit-scrollbar-track { background: #f5f0e8; }
         .media-strip-scroll::-webkit-scrollbar-thumb { background: #c8a042; border-radius: 2px; }
+        @media (max-width: 640px) { .media-strip-scroll { padding-left: 16px !important; padding-right: 16px !important; gap: 10px; } }
         .media-tile { flex-shrink: 0; width: 320px; height: 220px; border-radius: 10px; overflow: hidden; cursor: pointer; position: relative; scroll-snap-align: start; transition: transform 0.25s, box-shadow 0.25s; }
         .media-tile:hover { transform: scale(1.03); box-shadow: 0 8px 32px rgba(200,160,66,0.25); }
-        @media (max-width: 640px) { .media-tile { width: 260px; height: 180px; } }
-        .media-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        @media (max-width: 640px) { .media-tile { width: 210px; height: 260px; } }
+        .media-tile img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
         .media-tile video { width: 100%; height: 100%; object-fit: cover; display: block; }
         .play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.25); }
         .play-btn { width: 52px; height: 52px; border-radius: 50%; background: rgba(200,160,66,0.9); display: flex; align-items: center; justify-content: center; }

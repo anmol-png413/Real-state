@@ -73,7 +73,7 @@ export default function SitePlan() {
       </div>
 
       {/* ── Specification Section ── */}
-      <div style={{ marginTop: "56px" }}>
+      <div className="spec-section" style={{ marginTop: "56px" }}>
 
         {/* Section Heading */}
         <div style={{ textAlign: "center", marginBottom: "36px" }}>
@@ -108,7 +108,12 @@ export default function SitePlan() {
           alignItems: "start",
         }} className="spec-grid">
           <style>{`
-            @media (max-width: 640px) { .spec-grid { grid-template-columns: 1fr !important; } }
+            @media (max-width: 640px) {
+              .spec-grid { grid-template-columns: 1fr !important; }
+              .spec-item { padding: 10px 14px !important; }
+              .spec-section { margin-top: 32px !important; }
+              .spec-card-header { padding: 12px 16px !important; }
+            }
           `}</style>
 
           {/* LEFT — Specifications */}
@@ -124,7 +129,7 @@ export default function SitePlan() {
               display: "flex",
               alignItems: "center",
               gap: "10px",
-            }}>
+            }} className="spec-card-header">
               <span style={{ fontSize: "18px" }}>🏗️</span>
               <span style={{
                 fontFamily: "'DM Sans', sans-serif",
@@ -147,7 +152,7 @@ export default function SitePlan() {
                   gap: "12px",
                   padding: "12px 24px",
                   borderBottom: i < specs.length - 1 ? "1px solid #f3f4f6" : "none",
-                }}>
+                }} className="spec-item">
                   <div style={{
                     width: "8px",
                     height: "8px",
@@ -180,7 +185,7 @@ export default function SitePlan() {
               borderRadius: "12px",
               overflow: "hidden",
             }}>
-              <div style={{
+              <div className="spec-card-header" style={{
                 background: "#c8a042",
                 padding: "16px 24px",
                 display: "flex",
@@ -208,7 +213,7 @@ export default function SitePlan() {
                     justifyContent: "space-between",
                     padding: "14px 24px",
                     borderBottom: i < residenceOptions.length - 1 ? "1px solid #f3f4f6" : "none",
-                  }}>
+                  }} className="spec-item">
                     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       <div style={{
                         width: "8px", height: "8px",

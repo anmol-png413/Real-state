@@ -13,20 +13,21 @@ import hero8 from "../assets/Heroimages/8.webp";
 import hero9 from "../assets/Heroimages/9.webp";
 import hero10 from "../assets/Heroimages/10.webp";
 
-// per-image focal point for correct cropping on all screen sizes
-const heroImages = [
-  { src: heroMain, position: "center 40%" },
-  { src: hero1,    position: "center 40%" },
-  { src: hero2,    position: "center 40%" },
-  { src: hero3,    position: "center 40%" },
-  { src: hero4,    position: "center 40%" },
-  { src: hero5,    position: "center 40%" },
-  { src: hero6,    position: "center 40%" },
-  { src: hero7,    position: "center 40%" },
-  { src: hero8,    position: "center 40%" },
-  { src: hero9,    position: "center 40%" },
-  { src: hero10,   position: "center 40%" },
-];
+// Mobile-optimized images (358×250)
+import mHero0 from "../assets/Heromobile/image1_358x250.webp";
+import mHero1 from "../assets/Heromobile/image1_358x250 8.webp";
+import mHero2 from "../assets/Heromobile/image2_358x250.webp";
+import mHero3 from "../assets/Heromobile/image2_358x250 7.webp";
+import mHero4 from "../assets/Heromobile/image3_358x250.webp";
+import mHero5 from "../assets/Heromobile/image4_358x250.webp";
+import mHero6 from "../assets/Heromobile/image5_358x250.webp";
+import mHero7 from "../assets/Heromobile/resized_358x250.png";
+import mHero8 from "../assets/Heromobile/resized_358x250 1.webp";
+import mHero9 from "../assets/Heromobile/resized_358x250_2.webp";
+import mHero10 from "../assets/Heromobile/sundeck_358x250 4.webp";
+
+const heroImages = [heroMain, hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10];
+const mobileHeroImages = [mHero0, mHero1, mHero2, mHero3, mHero4, mHero5, mHero6, mHero7, mHero8, mHero9, mHero10];
 
 const HeroSection = ({ onBookVisit }) => {
   const navigate = useNavigate();
@@ -174,8 +175,6 @@ const HeroSection = ({ onBookVisit }) => {
           left: 0;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          object-position: center 40%;
           opacity: 0;
           transition: opacity 1s ease-in-out;
           pointer-events: none;
@@ -184,22 +183,34 @@ const HeroSection = ({ onBookVisit }) => {
         .hero-slide.active {
           opacity: 1;
         }
+        .hero-slide img {
+          object-position: center;
+        }
+        @media (max-width: 767px) {
+          .hero-slide img {
+            object-position: center 30%;
+          }
+        }
       `}</style>
 
-      <section className="relative w-full overflow-hidden" style={{ height: "100dvh", minHeight: "600px" }}>
+      <section className="relative w-full min-h-[55vh] md:min-h-screen overflow-hidden">
 
         {/* Background Carousel */}
-        {heroImages.map((item, i) => (
-          <img
+        {heroImages.map((src, i) => (
+          <picture
             key={i}
-            src={item.src}
-            alt={`AU Cosmos Corner luxury 3 BHK apartment Siddharth Vihar Ghaziabad view ${i + 1}`}
             className={`hero-slide${currentSlide === i ? " active" : ""}`}
-            style={{ objectPosition: item.position }}
-            fetchpriority={i === 0 ? "high" : "low"}
-            loading={i === 0 ? "eager" : "lazy"}
-            decoding="async"
-          />
+          >
+            <source media="(max-width: 767px)" srcSet={mobileHeroImages[i]} />
+            <img
+              src={src}
+              alt={`AU Cosmos Corner luxury 3 BHK apartment Siddharth Vihar Ghaziabad view ${i + 1}`}
+              fetchpriority={i === 0 ? "high" : "low"}
+              loading={i === 0 ? "eager" : "lazy"}
+              decoding="async"
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
+            />
+          </picture>
         ))}
 
         {/* Dark Overlay */}
@@ -215,7 +226,7 @@ const HeroSection = ({ onBookVisit }) => {
 
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-screen px-10 md:px-20 lg:px-28 pt-16 xl:pt-10 pb-20 gap-10">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-[55vh] md:min-h-screen px-10 md:px-20 lg:px-28 pt-16 xl:pt-10 pb-20 gap-10">
 
           {/* ── LEFT: Text ── */}
           <div className="flex flex-col gap-4 flex-1">

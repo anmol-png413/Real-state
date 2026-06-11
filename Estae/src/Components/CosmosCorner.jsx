@@ -17,7 +17,7 @@ export default function CosmosCorner({ onBookVisit }) {
   const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
 
   return (
-    <section style={{ background: "#fffef8", padding: "64px 0" }}>
+    <section className="cc-section" style={{ background: "#fffef8", padding: "64px 0" }}>
       <style>{`
         .cc-arrow {
           width: 52px;
@@ -78,6 +78,14 @@ export default function CosmosCorner({ onBookVisit }) {
           from { opacity: 0; transform: scale(1.015); }
           to   { opacity: 1; transform: scale(1); }
         }
+        @media (max-width: 640px) {
+          .cc-section { padding: 36px 0 !important; }
+          .cc-slider-wrap { padding: 0 12px !important; gap: 0 !important; position: relative; }
+          .cc-img-wrap { flex: 1; }
+          .cc-arrow { width: 36px; height: 36px; font-size: 20px; position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; background: rgba(255,255,255,0.85); border: 1.5px solid #c8a042; }
+          .cc-arrow-left { left: 18px; }
+          .cc-arrow-right { right: 18px; }
+        }
       `}</style>
 
       {/* Heading */}
@@ -107,7 +115,7 @@ export default function CosmosCorner({ onBookVisit }) {
       </div>
 
       {/* Slider */}
-      <div style={{
+      <div className="cc-slider-wrap" style={{
         maxWidth: "920px",
         margin: "0 auto",
         padding: "0 20px",
@@ -116,12 +124,12 @@ export default function CosmosCorner({ onBookVisit }) {
         gap: "20px",
       }}>
         {/* Left Arrow */}
-        <button className="cc-arrow" onClick={prev} aria-label="Previous">
+        <button className="cc-arrow cc-arrow-left" onClick={prev} aria-label="Previous">
           &#8249;
         </button>
 
         {/* Image */}
-        <div style={{
+        <div className="cc-img-wrap" style={{
           flex: 1,
           borderRadius: "12px",
           overflow: "hidden",
@@ -146,7 +154,7 @@ export default function CosmosCorner({ onBookVisit }) {
         </div>
 
         {/* Right Arrow */}
-        <button className="cc-arrow" onClick={next} aria-label="Next">
+        <button className="cc-arrow cc-arrow-right" onClick={next} aria-label="Next">
           &#8250;
         </button>
       </div>

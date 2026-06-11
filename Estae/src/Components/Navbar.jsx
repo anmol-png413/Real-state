@@ -113,6 +113,26 @@ const Navbar = ({ onBookVisit }) => {
           </button>
         </div>
 
+        {/* Mobile: Book Site Visit */}
+        <button
+          className="lg:hidden"
+          onClick={onBookVisit}
+          style={{
+            fontSize: "11px",
+            fontWeight: 700,
+            letterSpacing: "1.5px",
+            textTransform: "uppercase",
+            padding: "9px 14px",
+            background: "#111",
+            color: "#fff",
+            border: "none",
+            cursor: "pointer",
+            borderRadius: "4px",
+          }}
+        >
+          Book Site Visit
+        </button>
+
         {/* Mobile Hamburger */}
         <button
           className="lg:hidden flex flex-col gap-[6px] p-2 bg-transparent border-none cursor-pointer"

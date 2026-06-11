@@ -328,22 +328,23 @@ function HomePage() {
       {/* Contact Form Modal */}
       {showModal && (
         <div
-          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/60 z-50 overflow-y-auto"
           onClick={handleCloseModal}
-
         >
-          <div
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={handleCloseModal}
-              className="absolute top-3 right-4 text-white hover:text-yellow-400 text-3xl font-light z-10 bg-black/40 rounded-full w-9 h-9 flex items-center justify-center"
+          <div className="flex min-h-full items-center justify-center p-3 sm:p-4">
+            <div
+              className="relative w-full max-w-4xl rounded-3xl"
+              onClick={(e) => e.stopPropagation()}
             >
-              ✕
-            </button>
-         <ContactForm source={modalSource} downloadBrochure={downloadBrochure} />
+              {/* Close Button */}
+              <button
+                onClick={handleCloseModal}
+                className="absolute top-3 right-4 text-white hover:text-yellow-400 text-3xl font-light z-10 bg-black/40 rounded-full w-9 h-9 flex items-center justify-center"
+              >
+                ✕
+              </button>
+              <ContactForm source={modalSource} downloadBrochure={downloadBrochure} isModal={true} />
+            </div>
           </div>
         </div>
       )}
