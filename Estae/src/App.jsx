@@ -155,39 +155,17 @@ function HomePage() {
   const [downloadBrochure, setDownloadBrochure] = useState(false);
   const [buttonsVisible, setButtonsVisible] = useState(false);
   const reopenTimerRef = useRef(null);
-  const reopenCountRef = useRef(0);
-  const inactivityTimerRef = useRef(null);
+  const autoReopenCountRef = useRef(0); // tracks how many auto-reopens have fired (max 2)
   const scrollTimerRef = useRef(null);
   const initialShownRef = useRef(false);
-  const modalShownRef = useRef(false);
 
-  // Reopen delays after each close: 45s, 60s, 90s (3 reopens total)
-  const REOPEN_DELAYS = [45000, 60000, 90000];
-
-  // Show popup after 30s of user inactivity
+  // 1. Open on launch after 3s
   useEffect(() => {
-    const INACTIVITY_DELAY = 30000;
-
-    const showPopup = () => {
-      modalShownRef.current = true;
-      setModalSource("Inactivity Popup");
+    const t = setTimeout(() => {
+      setModalSource("Auto Launch");
       setShowModal(true);
-    };
-
-    const resetTimer = () => {
-      if (modalShownRef.current) return;
-      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
-      inactivityTimerRef.current = setTimeout(showPopup, INACTIVITY_DELAY);
-    };
-
-    const events = ["scroll", "keydown", "click", "touchstart"];
-    events.forEach(e => window.addEventListener(e, resetTimer, { passive: true }));
-    inactivityTimerRef.current = setTimeout(showPopup, INACTIVITY_DELAY);
-
-    return () => {
-      events.forEach(e => window.removeEventListener(e, resetTimer));
-      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
-    };
+    }, 3000);
+    return () => clearTimeout(t);
   }, []);
 
   // Show floating buttons after 4s, then toggle on scroll activity
@@ -212,29 +190,26 @@ function HomePage() {
     };
   }, []);
 
-  // On close: reopen after 45s → 60s → 90s (3 times), then stop
+  // 2. On close: reopen after 30s — but only 2 times total, then stop auto
   const handleCloseModal = () => {
     setShowModal(false);
     setDownloadBrochure(false);
     setModalSource("General");
-    modalShownRef.current = false;
-    const delay = REOPEN_DELAYS[reopenCountRef.current];
-    if (delay !== undefined) {
+    if (autoReopenCountRef.current < 2) {
       if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
       reopenTimerRef.current = setTimeout(() => {
-        reopenCountRef.current += 1;
-        modalShownRef.current = true;
+        autoReopenCountRef.current += 1;
         setModalSource("Auto Reopen");
         setShowModal(true);
-      }, delay);
+      }, 30000);
     }
+    // 3rd close onwards: no auto reopen — only CTA buttons can open it
   };
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
       if (reopenTimerRef.current) clearTimeout(reopenTimerRef.current);
-      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
     };
   }, []);
 
