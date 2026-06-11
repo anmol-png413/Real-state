@@ -327,7 +327,7 @@ function HomePage() {
               {/* Close Button */}
               <button
                 onClick={handleCloseModal}
-                className="absolute top-3 right-4 text-white hover:text-yellow-400 text-3xl font-light z-10 bg-black/40 rounded-full w-9 h-9 flex items-center justify-center"
+                className="absolute top-3 right-4 text-white hover:text-yellow-400 text-lg font-light z-10 bg-black/40 rounded-full w-7 h-7 flex items-center justify-center"
               >
                 ✕
               </button>
