@@ -12,6 +12,12 @@ const server = createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') { res.writeHead(200); res.end(); return; }
+  // Health check for Playwright webServer readiness probe
+  if (req.url === '/health' && req.method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ ok: true }));
+    return;
+  }
   if (req.url !== '/api/enquiry' || req.method !== 'POST') {
     res.writeHead(404); res.end(); return;
   }

@@ -11,6 +11,8 @@ export default defineConfig({
 
   use: {
     baseURL: "http://localhost:5173",
+    // ?test disables the 3s auto-popup in App.jsx so it doesn't block CTAs
+    extraHTTPHeaders: {},
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "off",
@@ -31,7 +33,7 @@ export default defineConfig({
   webServer: [
     {
       command: "node local-api.mjs",
-      url: "http://localhost:3000",
+      url: "http://localhost:3001/health",
       reuseExistingServer: true,
       timeout: 15_000,
     },

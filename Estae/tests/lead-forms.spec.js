@@ -14,6 +14,8 @@
 import { test, expect } from "@playwright/test";
 import { captureEnquiry, fillAndSubmit, testName, TEST_PHONE } from "./helpers.js";
 
+// All tests navigate to /?test which disables the 3s auto-popup in App.jsx.
+
 // ═══════════════════════════════════════════════════════════════════════════
 // GROUP 1 — MODAL ContactForm  (opened via CTAs throughout the page)
 // ═══════════════════════════════════════════════════════════════════════════
@@ -22,7 +24,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-01 ──────────────────────────────────────────────────────────────
   test("TC-01 · Navbar 'Book Site Visit' opens modal → submits lead", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     const btn = page.locator("nav").getByRole("button", { name: /book/i })
@@ -44,7 +46,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-02 ──────────────────────────────────────────────────────────────
   test("TC-02 · Mobile hamburger → 'Book Site Visit' opens modal → submits lead", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
 
     const hamburger = page.locator("button[aria-label]").filter({ hasText: /menu|☰/i })
       .or(page.locator('button:has(svg[class*="menu"]), button:has(svg[class*="bar"])'))
@@ -74,7 +76,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-03 ──────────────────────────────────────────────────────────────
   test("TC-03 · Desktop Hero CTA 'Book Site Visit' → source = 'Hero Section'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     // Desktop hero is inside section.hidden.md:block — look for Book button visible on desktop
@@ -94,7 +96,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-04 ──────────────────────────────────────────────────────────────
   test("TC-04 · Hero price pill '₹ 1.22 Cr*' opens modal → submits lead", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     const pricePill = page.locator("button").filter({ hasText: /1\.22|Cr\*/ }).first();
@@ -113,7 +115,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-05 ──────────────────────────────────────────────────────────────
   test("TC-05 · Overview Section CTA → source = 'Overview'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     await page.locator("#overview").scrollIntoViewIfNeeded();
@@ -132,7 +134,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-06 ──────────────────────────────────────────────────────────────
   test("TC-06 · CosmosCorner 'Download Brochure' → source = 'Download Brochure from Collection'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     const brochureBtn = page.locator(".cc-brochure-btn, button:has-text('Download Brochure')").first();
@@ -151,7 +153,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-07 ──────────────────────────────────────────────────────────────
   test("TC-07 · Price List '₹ 1.22 Cr*' row button → source = 'Project Highlights'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     await page.locator("#pricelist").scrollIntoViewIfNeeded();
@@ -170,7 +172,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-08 ──────────────────────────────────────────────────────────────
   test("TC-08 · FAQ Section CTA → source = 'FAQ Section'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     const faqCta = page.locator("#faq").getByRole("button", { name: /book|get|visit/i }).first();
@@ -189,7 +191,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-09 ──────────────────────────────────────────────────────────────
   test("TC-09 · Footer CTA → source = 'Footer'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
@@ -208,7 +210,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-10 ──────────────────────────────────────────────────────────────
   test("TC-10 · Download Brochure floating button → source = 'Download Brochure'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     // Left floating button — desktop only
@@ -229,7 +231,7 @@ test.describe("Group 1 · Modal ContactForm CTAs", () => {
 
   // ── TC-11 ──────────────────────────────────────────────────────────────
   test("TC-11 · Download Prices floating button → source = 'Download Prices'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     const floatBtn = page.locator("button, a").filter({ hasText: /Download Prices|Price List/i })
@@ -257,7 +259,7 @@ test.describe("Group 2 · Standalone Forms", () => {
 
   // ── TC-12 ──────────────────────────────────────────────────────────────
   test("TC-12 · Inline Contact Form (page bottom) → source = 'Contact Form'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const apiDone = captureEnquiry(page);
 
     // Scroll to the inline ContactForm at the bottom
@@ -278,10 +280,10 @@ test.describe("Group 2 · Standalone Forms", () => {
 
   // ── TC-13 ──────────────────────────────────────────────────────────────
   test("TC-13 · Desktop Sticky Lead Form → source = 'Sticky Form'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
 
-    // Sticky form slides in after 2 s
-    await page.waitForTimeout(2_500);
+    // Sticky form slides in after 2 s — advance frozen clock
+    await page.clock.fastForward(3_000);
 
     // If panel starts collapsed, open it
     const getPrice = page.locator("button:has-text('Get Price')").first();
@@ -303,7 +305,7 @@ test.describe("Group 2 · Standalone Forms", () => {
 
   // ── TC-14 ──────────────────────────────────────────────────────────────
   test("TC-14 · Mobile Hero inline form → source = 'Mobile Hero Form'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
 
     const heroForm = page.locator(".md\\:hidden form, div.md\\:hidden form").first();
     await expect(heroForm).toBeVisible({ timeout: 10_000 });
@@ -318,10 +320,10 @@ test.describe("Group 2 · Standalone Forms", () => {
 
   // ── TC-15 ──────────────────────────────────────────────────────────────
   test("TC-15 · Mobile Sticky Form bottom sheet → source = 'Mobile Sticky Form'", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
 
-    // Gold pill appears after 4 s
-    await page.waitForTimeout(4_500);
+    // Gold pill appears after 4 s — advance frozen clock
+    await page.clock.fastForward(5_000);
     const pill = page.locator("button:has-text('Get Best Price')").first();
     await expect(pill).toBeVisible({ timeout: 6_000 });
     await pill.click();
@@ -347,7 +349,7 @@ test.describe("Group 3 · Form Validation", () => {
 
   // ── TC-16 ──────────────────────────────────────────────────────────────
   test("TC-16 · Empty submit shows required-field errors (no API call)", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     let apiCalled = false;
     page.on("request", (req) => {
       if (req.url().includes("/api/enquiry")) apiCalled = true;
@@ -368,7 +370,7 @@ test.describe("Group 3 · Form Validation", () => {
 
   // ── TC-17 ──────────────────────────────────────────────────────────────
   test("TC-17 · Invalid phone (5 digits) shows phone error (no API call)", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     let apiCalled = false;
     page.on("request", (req) => {
       if (req.url().includes("/api/enquiry")) apiCalled = true;
@@ -390,7 +392,7 @@ test.describe("Group 3 · Form Validation", () => {
 
   // ── TC-18 ──────────────────────────────────────────────────────────────
   test("TC-18 · Mobile Hero Form: empty submit shows validation (no API call)", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     let apiCalled = false;
     page.on("request", (req) => {
       if (req.url().includes("/api/enquiry")) apiCalled = true;
@@ -407,7 +409,7 @@ test.describe("Group 3 · Form Validation", () => {
 
   // ── TC-19 ──────────────────────────────────────────────────────────────
   test("TC-19 · Backdrop click closes modal without submitting", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     let apiCalled = false;
     page.on("request", (req) => {
       if (req.url().includes("/api/enquiry")) apiCalled = true;
@@ -434,7 +436,7 @@ test.describe("Group 4 · Post-Submit Redirect", () => {
 
   // ── TC-20 ──────────────────────────────────────────────────────────────
   test("TC-20 · Modal form submit → redirects to /thank-you", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const btn = page.locator("button:has-text('Book'), a:has-text('Book')").first();
     await btn.click();
     const modal = page.locator(".fixed.inset-0").first();
@@ -447,7 +449,7 @@ test.describe("Group 4 · Post-Submit Redirect", () => {
 
   // ── TC-21 ──────────────────────────────────────────────────────────────
   test("TC-21 · Mobile Hero Form submit → redirects to /thank-you", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const heroForm = page.locator(".md\\:hidden form").first();
     await expect(heroForm).toBeVisible({ timeout: 10_000 });
 
@@ -466,7 +468,7 @@ test.describe("Group 5 · API Payload Integrity", () => {
 
   // ── TC-22 ──────────────────────────────────────────────────────────────
   test("TC-22 · Payload has full_name, phone, interested_in, source — all non-empty", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     let capturedPayload = null;
     page.on("request", (req) => {
       if (req.url().includes("/api/enquiry") && req.method() === "POST") {
@@ -491,7 +493,7 @@ test.describe("Group 5 · API Payload Integrity", () => {
 
   // ── TC-23 ──────────────────────────────────────────────────────────────
   test("TC-23 · Phone +91 prefix is stripped before submission", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     let capturedPayload = null;
     page.on("request", (req) => {
       if (req.url().includes("/api/enquiry") && req.method() === "POST") {
@@ -514,7 +516,7 @@ test.describe("Group 5 · API Payload Integrity", () => {
 
   // ── TC-24 ──────────────────────────────────────────────────────────────
   test("TC-24 · Double-click submit sends only one API request", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     let callCount = 0;
     page.on("request", (req) => {
       if (req.url().includes("/api/enquiry") && req.method() === "POST") callCount++;
@@ -543,7 +545,7 @@ test.describe("Group 6 · Mobile Bottom Bar", () => {
 
   // ── TC-25 ──────────────────────────────────────────────────────────────
   test("TC-25 · 'Call Now' button has valid tel: href", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const callBtn = page.locator('a[href^="tel:"]').first();
     await expect(callBtn).toBeVisible({ timeout: 10_000 });
     const href = await callBtn.getAttribute("href");
@@ -553,7 +555,7 @@ test.describe("Group 6 · Mobile Bottom Bar", () => {
 
   // ── TC-26 ──────────────────────────────────────────────────────────────
   test("TC-26 · 'WhatsApp' button has valid wa.me href with pre-filled message", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/?test");
     const waBtn = page.locator('a[href*="wa.me"]').first();
     await expect(waBtn).toBeVisible({ timeout: 10_000 });
     const href = await waBtn.getAttribute("href");
