@@ -18,23 +18,16 @@ const Navbar = ({ onBookVisit }) => {
     <nav className="w-full bg-white z-50 sticky top-0 shadow-sm">
 
       {/* ── Top Bar ── */}
-      <div className="flex items-center justify-between px-6 md:px-10 lg:px-16 py-4 border-b border-yellow-500/40">
+      <div className="flex items-center justify-between px-4 md:px-10 lg:px-16 py-2 md:py-4 border-b border-yellow-500/40">
 
         {/* Logo */}
         <div className="flex items-center">
-          <div style={{
-            background: "#fff",
-            padding: "4px 10px",
-            borderRadius: "4px",
-            display: "inline-flex",
-            alignItems: "center",
-          }}>
-            <img
-              src={logo}
-              alt="AU Cosmos Corner - Truelite Estates LLP Authorized Channel Partner"
-              style={{ height: "60px", width: "auto", objectFit: "contain", display: "block" }}
-            />
-          </div>
+          <img
+            src={logo}
+            alt="AU Cosmos Corner - Truelite Estates LLP Authorized Channel Partner"
+            className="h-9 md:h-14 w-auto"
+            style={{ objectFit: "contain", display: "block" }}
+          />
         </div>
 
         {/* Desktop Nav Links */}
@@ -108,7 +101,7 @@ const Navbar = ({ onBookVisit }) => {
 
         {/* Mobile Hamburger */}
         <button
-          className="lg:hidden flex flex-col gap-[6px] p-2 bg-transparent border-none cursor-pointer"
+          className="lg:hidden flex flex-col gap-[5px] p-1.5 bg-transparent border-none cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle Menu"
         >
