@@ -39,6 +39,7 @@ export default function CustomSelect({ name, value, onChange, options, placehold
       {/* Trigger */}
       <button
         type="button"
+        data-testid={`select-trigger-${name}`}
         onClick={() => setOpen(o => !o)}
         style={{
           ...triggerStyle,
@@ -67,6 +68,7 @@ export default function CustomSelect({ name, value, onChange, options, placehold
             <button
               key={opt.value}
               type="button"
+              data-testid={`select-option-${opt.value.replace(/\s+/g, "-").toLowerCase()}`}
               onMouseEnter={() => setHovered(opt.value)}
               onMouseLeave={() => setHovered(null)}
               onClick={() => {

@@ -161,8 +161,10 @@ function HomePage() {
   const scrollTimerRef = useRef(null);
   const initialShownRef = useRef(false);
 
-  // 1. Open on launch after 3s
+  // 1. Open on launch after 3s (disabled in test mode via ?test URL param)
+  const isTestMode = new URLSearchParams(window.location.search).has("test");
   useEffect(() => {
+    if (isTestMode) return;
     const t = setTimeout(() => {
       setModalSource("Auto Launch");
       setShowModal(true);

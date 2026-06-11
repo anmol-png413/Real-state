@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomSelect from "./CustomSelect";
 
-const nameRegex = /^[a-zA-Z\s]{2,50}$/;
+const nameRegex = /^[a-zA-Z0-9\s'.\-[\]]{2,60}$/;
 const phoneRegex = /^[6-9]\d{9}$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
