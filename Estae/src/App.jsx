@@ -249,8 +249,10 @@ function HomePage() {
       </div>
 
       {/* Left Floating Button — Download Brochure */}
+      {/* Left Floating Button — Download Brochure (desktop only) */}
       <button
         onClick={() => { setModalSource("Download Brochure"); setDownloadBrochure(true); setShowModal(true); }}
+        className="hidden md:block"
         style={{
           ...floatingBtnBase,
           left: 0,
@@ -267,9 +269,10 @@ function HomePage() {
         Download Brochure
       </button>
 
-      {/* Right Floating Button — Download Prices */}
+      {/* Right Floating Button — Download Prices (desktop only) */}
       <button
         onClick={() => { setModalSource("Download Prices"); setDownloadBrochure(false); setShowModal(true); }}
+        className="hidden md:block"
         style={{
           ...floatingBtnBase,
           right: 0,
