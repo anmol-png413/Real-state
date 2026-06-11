@@ -7,6 +7,11 @@
     "node": ">=22.0.0"
   },
   "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report",
+    "test:cleanup": "node tests/cleanup-test-leads.mjs",
     "dev": "vite",
     "build": "vite build",
     "postbuild": "node scripts/prerender.mjs",
@@ -22,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.60.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.3.4",

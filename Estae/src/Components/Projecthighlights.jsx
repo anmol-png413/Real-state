@@ -281,7 +281,16 @@ export default function ProjectHighlights({ onBookVisit }) {
                     <td style={{ padding: "18px 24px" }}>
                       {row.price ? (
                         <>
-                          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: "18px", color: "#b8893a" }}>{row.price}</p>
+                          <button
+                            onClick={onBookVisit}
+                            style={{
+                              fontFamily: "'Playfair Display', Georgia, serif",
+                              fontWeight: 700, fontSize: "18px", color: "#b8893a",
+                              background: "none", border: "none", cursor: "pointer", padding: 0,
+                              textDecoration: "underline", textDecorationStyle: "dotted",
+                              textUnderlineOffset: "3px",
+                            }}
+                          >{row.price}</button>
                           <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>{row.priceSub}</p>
                         </>
                       ) : (

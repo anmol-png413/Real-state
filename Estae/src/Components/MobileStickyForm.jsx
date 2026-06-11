@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import CustomSelect from "./CustomSelect";
 
 const phoneRegex = /^[6-9]\d{9}$/;
 
@@ -245,24 +246,20 @@ export default function MobileStickyForm() {
                   fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700,
                   color: "#111", letterSpacing: "1px", textTransform: "uppercase", display: "block", marginBottom: "5px",
                 }}>I'm Interested In *</label>
-                <select
-                  className="msf-input"
-                  name="interest" value={form.interest} onChange={handleChange}
-                  style={{
-                    width: "100%", padding: "11px 14px", boxSizing: "border-box",
-                    fontFamily: "'DM Sans', sans-serif", fontSize: "14px",
-                    background: "#f9fafb", border: `1px solid ${errors.interest ? "#ef4444" : "#e5e7eb"}`,
-                    borderRadius: "8px", color: form.interest ? "#111" : "#9ca3af",
-                    appearance: "auto",
-                  }}
-                >
-                  <option value="" disabled>Select configuration</option>
-                  <option value="3 BHK + 3 Toilet (1780 Sq.Ft.)">3 BHK · 1780 Sq.Ft.</option>
-                  <option value="3 BHK + Servant (1972 Sq.Ft.)">3 BHK+S · 1972 Sq.Ft.</option>
-                  <option value="5 BHK + Servant (3175 Sq.Ft.)">5 BHK+S · 3175 Sq.Ft.</option>
-                  <option value="Free Site Visit">Free Site Visit</option>
-                  <option value="Investment / Rental">Investment / Rental</option>
-                </select>
+                <CustomSelect
+                  name="interest"
+                  value={form.interest}
+                  onChange={handleChange}
+                  placeholder="Select configuration"
+                  error={errors.interest}
+                  options={[
+                    { value: "3 BHK + 3 Toilet (1780 Sq.Ft.)", label: "3 BHK · 1780 Sq.Ft." },
+                    { value: "3 BHK + Servant (1972 Sq.Ft.)", label: "3 BHK+S · 1972 Sq.Ft." },
+                    { value: "5 BHK + Servant (3175 Sq.Ft.)", label: "5 BHK+S · 3175 Sq.Ft." },
+                    { value: "Free Site Visit", label: "Free Site Visit" },
+                    { value: "Investment / Rental", label: "Investment / Rental" },
+                  ]}
+                />
                 {errors.interest && <p style={{ color: "#ef4444", fontSize: "11px", margin: "4px 0 0" }}>{errors.interest}</p>}
               </div>
 

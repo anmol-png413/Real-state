@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CustomSelect from "./CustomSelect";
 
 const nameRegex = /^[a-zA-Z\s]{2,50}$/;
 const phoneRegex = /^[6-9]\d{9}$/;
@@ -175,40 +176,49 @@ export default function ContactForm({ onPhoneClick, source = "Contact Form", dow
 
               <div className="flex flex-col gap-0.5 md:gap-1">
                 <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">Interested In</label>
-                <select name="interest" value={form.interest} onChange={handleChange}
-                  className="border border-gray-200 rounded-lg md:rounded-xl px-3 py-2 md:py-2.5 text-sm text-gray-700 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 transition bg-white"
-                >
-                  <option value="">Select configuration</option>
-                  <option value="3bhk-1780">3 BHK + 3 Toilet (1780 Sq.Ft.)</option>
-                  <option value="3bhk-1972">3 BHK + Servant (1972 Sq.Ft.)</option>
-                  <option value="5bhk-3175">5 BHK + Servant (3175 Sq.Ft.)</option>
-                  <option value="site-visit">Free Site Visit</option>
-                  <option value="investment">Investment / Rental</option>
-                </select>
+                <CustomSelect
+                  name="interest"
+                  value={form.interest}
+                  onChange={handleChange}
+                  placeholder="Select configuration"
+                  options={[
+                    { value: "3bhk-1780", label: "3 BHK + 3 Toilet (1780 Sq.Ft.)" },
+                    { value: "3bhk-1972", label: "3 BHK + Servant (1972 Sq.Ft.)" },
+                    { value: "5bhk-3175", label: "5 BHK + Servant (3175 Sq.Ft.)" },
+                    { value: "site-visit", label: "Free Site Visit" },
+                    { value: "investment", label: "Investment / Rental" },
+                  ]}
+                />
               </div>
 
               <div className="flex flex-col gap-0.5 md:gap-1">
                 <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">Purpose</label>
-                <select name="purpose" value={form.purpose} onChange={handleChange}
-                  className="border border-gray-200 rounded-lg md:rounded-xl px-3 py-2 md:py-2.5 text-sm text-gray-700 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 transition bg-white"
-                >
-                  <option value="">Self-use or Investment?</option>
-                  <option value="self-use">Self Use</option>
-                  <option value="investment">Investment</option>
-                  <option value="both">Both</option>
-                </select>
+                <CustomSelect
+                  name="purpose"
+                  value={form.purpose}
+                  onChange={handleChange}
+                  placeholder="Self-use or Investment?"
+                  options={[
+                    { value: "self-use", label: "Self Use" },
+                    { value: "investment", label: "Investment" },
+                    { value: "both", label: "Both" },
+                  ]}
+                />
               </div>
 
               <div className="flex flex-col gap-0.5 md:gap-1">
                 <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">Timeline to Buy</label>
-                <select name="timeline" value={form.timeline} onChange={handleChange}
-                  className="border border-gray-200 rounded-lg md:rounded-xl px-3 py-2 md:py-2.5 text-sm text-gray-700 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 transition bg-white"
-                >
-                  <option value="">When are you planning to buy?</option>
-                  <option value="0-3months">Within 3 Months</option>
-                  <option value="3-6months">3–6 Months</option>
-                  <option value="exploring">Just Exploring</option>
-                </select>
+                <CustomSelect
+                  name="timeline"
+                  value={form.timeline}
+                  onChange={handleChange}
+                  placeholder="When are you planning to buy?"
+                  options={[
+                    { value: "0-3months", label: "Within 3 Months" },
+                    { value: "3-6months", label: "3–6 Months" },
+                    { value: "exploring", label: "Just Exploring" },
+                  ]}
+                />
               </div>
 
               <button

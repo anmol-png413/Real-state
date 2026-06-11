@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import CustomSelect from "./CustomSelect";
 
 import heroMain from "../assets/Heroimages/image.webp";
 import hero1 from "../assets/Heroimages/1.webp";
@@ -25,8 +27,12 @@ const mobileSlides = [
 const heroImages = [heroMain, hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10];
 
 const HeroSection = ({ onBookVisit }) => {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mobileSlide, setMobileSlide] = useState(0);
+  const [form, setForm] = useState({ name: "", phone: "", interest: "" });
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   // Desktop carousel
   useEffect(() => {
@@ -44,106 +50,204 @@ const HeroSection = ({ onBookVisit }) => {
     return () => clearInterval(timer);
   }, []);
 
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const errs = {};
+    if (!form.name.trim() || form.name.trim().length < 2) errs.name = "Enter your name";
+    const clean = form.phone.replace(/\D/g, "").replace(/^91/, "");
+    if (!/^[6-9]\d{9}$/.test(clean)) errs.phone = "Valid 10-digit number";
+    if (!form.interest) errs.interest = "Please select";
+    if (Object.keys(errs).length) { setErrors(errs); return; }
+    setLoading(true);
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          full_name: form.name.trim(), phone: clean,
+          email: "", interested_in: form.interest,
+          purpose: "", timeline: "", message: "",
+          source: "Mobile Hero Form",
+        }),
+      });
+      const data = await res.json();
+      if (data.success) navigate("/thank-you");
+    } catch { /* silent */ }
+    finally { setLoading(false); }
+  };
+
   return (
     <>
       {/* ── MOBILE HERO ── */}
-      <section className="md:hidden relative w-full overflow-hidden" style={{ minHeight: "70vh", background: "#0f0f0f" }}>
+      <div className="md:hidden w-full" style={{ background: "#fff" }}>
 
-        {/* Carousel images */}
-        {mobileSlides.map((slide, i) => (
-          <img
-            key={i}
-            src={slide.src}
-            alt={slide.alt}
-            fetchpriority={i === 0 ? "high" : "low"}
-            loading={i === 0 ? "eager" : "lazy"}
-            style={{
-              position: "absolute", inset: 0, width: "100%", height: "100%",
-              objectFit: "cover", objectPosition: "center",
-              opacity: mobileSlide === i ? 0.7 : 0,
-              transition: "opacity 0.8s ease-in-out",
-            }}
-          />
-        ))}
+        {/* ── 1. LEAD FORM ── */}
+        <div style={{ background: "#2a2a2a", padding: "20px 16px 24px" }}>
 
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.05) 100%)" }} />
+          {/* Project identity */}
+          <div style={{ marginBottom: "16px" }}>
+            <span style={{
+              display: "inline-block",
+              background: "rgba(245,200,66,0.15)",
+              border: "1px solid rgba(245,200,66,0.4)",
+              color: "#f5c842",
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "9px", fontWeight: 700,
+              letterSpacing: "2px", textTransform: "uppercase",
+              padding: "3px 10px", borderRadius: "20px", marginBottom: "8px",
+            }}>RERA: UPRERAPRJ466336</span>
+            <h1 style={{
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontSize: "22px", fontWeight: 700, color: "#fff",
+              margin: "0 0 3px", lineHeight: 1.2,
+            }}>AU Cosmos Corner</h1>
+            <p style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "11px", color: "rgba(255,255,255,0.5)",
+              letterSpacing: "0.5px", margin: 0,
+            }}>Siddharth Vihar, Ghaziabad · G+40 · 5.6 Acres</p>
+          </div>
 
-        <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", justifyContent: "flex-end", minHeight: "70vh", padding: "0 20px 28px" }}>
-          {/* RERA badge */}
-          <span style={{
-            display: "inline-block",
-            background: "rgba(245,200,66,0.15)",
-            border: "1px solid rgba(245,200,66,0.5)",
-            color: "#f5c842",
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: "9px",
-            fontWeight: 700,
-            letterSpacing: "2px",
-            textTransform: "uppercase",
-            padding: "4px 10px",
-            borderRadius: "20px",
-            marginBottom: "12px",
-            width: "fit-content",
-          }}>RERA: UPRERAPRJ466336</span>
-
-          <h1 style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: "clamp(1.8rem, 8vw, 2.6rem)",
-            fontWeight: 700,
-            color: "#fff",
-            lineHeight: 1.2,
-            margin: "0 0 6px",
-          }}>
-            AU Cosmos Corner
-          </h1>
-          <p style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: "13px",
-            fontWeight: 400,
-            color: "rgba(255,255,255,0.7)",
-            letterSpacing: "0.08em",
-            margin: "0 0 18px",
-          }}>
-            Siddharth Vihar, Ghaziabad · G+40 · 5.6 Acres
-          </p>
-
-          {/* Price pills */}
-          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "20px" }}>
-            {["3 BHK from ₹1.22 Cr*", "5 BHK from ₹2.19 Cr*"].map(tag => (
-              <span key={tag} style={{
+          {/* Price pills — clickable, opens lead form */}
+          <div style={{ display: "flex", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
+            {[
+              { label: "3 BHK from ₹1.22 Cr*" },
+              { label: "5 BHK from ₹2.19 Cr*" },
+            ].map(({ label }) => (
+              <button key={label} onClick={onBookVisit} style={{
                 background: "#f5c842", color: "#111",
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "11px", fontWeight: 800, letterSpacing: "0.5px",
-                padding: "5px 12px", borderRadius: "2px",
-              }}>{tag}</span>
+                fontSize: "10px", fontWeight: 800,
+                padding: "4px 10px", borderRadius: "2px",
+                border: "none", cursor: "pointer",
+                textDecoration: "underline", textDecorationStyle: "dotted",
+                textUnderlineOffset: "2px",
+              }}>{label}</button>
             ))}
           </div>
 
-          <button
-            onClick={onBookVisit}
+          {/* Form */}
+          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <style>{`
+              .mhf::placeholder { color: rgba(255,255,255,0.3); }
+              .mhf:focus { border-color: #f5c842 !important; outline: none; }
+              .mhf option { background: #111; color: #fff; }
+            `}</style>
+
+            <input
+              className="mhf"
+              type="text" name="name" placeholder="Your Name"
+              value={form.name} onChange={handleChange}
+              style={{
+                width: "100%", padding: "10px 12px", boxSizing: "border-box",
+                fontFamily: "'DM Sans', sans-serif", fontSize: "13px",
+                background: "rgba(255,255,255,0.18)",
+                border: `1px solid ${errors.name ? "#ef4444" : "rgba(255,255,255,0.3)"}`,
+                borderRadius: "4px", color: "#fff",
+              }}
+            />
+            {errors.name && <p style={{ color: "#ef4444", fontSize: "10px", margin: "-4px 0 0" }}>{errors.name}</p>}
+
+            <input
+              className="mhf"
+              type="tel" name="phone" placeholder="Phone Number"
+              value={form.phone} onChange={handleChange}
+              style={{
+                width: "100%", padding: "10px 12px", boxSizing: "border-box",
+                fontFamily: "'DM Sans', sans-serif", fontSize: "13px",
+                background: "rgba(255,255,255,0.18)",
+                border: `1px solid ${errors.phone ? "#ef4444" : "rgba(255,255,255,0.3)"}`,
+                borderRadius: "4px", color: "#fff",
+              }}
+            />
+            {errors.phone && <p style={{ color: "#ef4444", fontSize: "10px", margin: "-4px 0 0" }}>{errors.phone}</p>}
+
+            <CustomSelect
+              name="interest" value={form.interest} onChange={handleChange}
+              placeholder="I'm Interested In..." error={errors.interest} dark={true}
+              options={[
+                { value: "3 BHK + 3 Toilet (1780 Sq.Ft.)", label: "3 BHK · 1780 Sq.Ft." },
+                { value: "3 BHK + Servant (1972 Sq.Ft.)", label: "3 BHK+S · 1972 Sq.Ft." },
+                { value: "5 BHK + Servant (3175 Sq.Ft.)", label: "5 BHK+S · 3175 Sq.Ft." },
+                { value: "Free Site Visit", label: "Free Site Visit" },
+                { value: "Investment / Rental", label: "Investment / Rental" },
+              ]}
+            />
+            {errors.interest && <p style={{ color: "#ef4444", fontSize: "10px", margin: "-4px 0 0" }}>{errors.interest}</p>}
+
+            <button
+              type="submit" disabled={loading}
+              style={{
+                background: loading ? "#555" : "#f5c842",
+                color: "#111", border: "none", borderRadius: "4px",
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "12px", fontWeight: 800,
+                letterSpacing: "2px", textTransform: "uppercase",
+                padding: "12px", cursor: loading ? "not-allowed" : "pointer",
+                marginTop: "2px",
+              }}
+            >
+              {loading ? "Sending..." : "Book Free Site Visit →"}
+            </button>
+
+            <p style={{
+              fontFamily: "'DM Sans', sans-serif", fontSize: "9px",
+              color: "rgba(255,255,255,0.3)", textAlign: "center", margin: 0,
+            }}>🔒 100% secure · No spam</p>
+          </form>
+        </div>
+
+        {/* ── 2. IMAGE CAROUSEL ── */}
+        <div style={{ position: "relative", background: "#000" }}>
+          {/* Images */}
+          <div style={{ position: "relative", width: "100%", paddingTop: "62%", overflow: "hidden" }}>
+            {mobileSlides.map((slide, i) => (
+              <img
+                key={i}
+                src={slide.src}
+                alt={slide.alt}
+                fetchpriority={i === 0 ? "high" : "low"}
+                loading={i === 0 ? "eager" : "lazy"}
+                style={{
+                  position: "absolute", inset: 0,
+                  width: "100%", height: "100%",
+                  objectFit: "cover", objectPosition: "center",
+                  opacity: mobileSlide === i ? 1 : 0,
+                  transition: "opacity 0.7s ease-in-out",
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Prev / Next arrows */}
+          <button onClick={() => setMobileSlide(i => (i - 1 + mobileSlides.length) % mobileSlides.length)}
             style={{
-              background: "#fff", color: "#111",
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: "12px", fontWeight: 800,
-              letterSpacing: "2px", textTransform: "uppercase",
-              padding: "14px 0", border: "none", cursor: "pointer",
-              width: "100%", borderRadius: "2px", marginBottom: "16px",
-            }}
-          >
-            Book Free Site Visit
-          </button>
+              position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)",
+              background: "rgba(0,0,0,0.45)", border: "none", borderRadius: "50%",
+              width: "32px", height: "32px", color: "#fff", fontSize: "18px",
+              cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+            }}>‹</button>
+          <button onClick={() => setMobileSlide(i => (i + 1) % mobileSlides.length)}
+            style={{
+              position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)",
+              background: "rgba(0,0,0,0.45)", border: "none", borderRadius: "50%",
+              width: "32px", height: "32px", color: "#fff", fontSize: "18px",
+              cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+            }}>›</button>
 
           {/* Dots */}
-          <div style={{ display: "flex", justifyContent: "center", gap: "8px" }}>
+          <div style={{ display: "flex", justifyContent: "center", gap: "7px", padding: "10px 0" }}>
             {mobileSlides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setMobileSlide(i)}
+              <button key={i} onClick={() => setMobileSlide(i)}
                 style={{
-                  width: mobileSlide === i ? "20px" : "7px",
-                  height: "7px",
+                  width: mobileSlide === i ? "20px" : "7px", height: "7px",
                   borderRadius: "4px",
-                  background: mobileSlide === i ? "#f5c842" : "rgba(255,255,255,0.35)",
+                  background: mobileSlide === i ? "#f5c842" : "rgba(255,255,255,0.4)",
                   border: "none", cursor: "pointer", padding: 0,
                   transition: "all 0.35s ease",
                 }}
@@ -151,7 +255,7 @@ const HeroSection = ({ onBookVisit }) => {
             ))}
           </div>
         </div>
-      </section>
+      </div>
 
       {/* ── DESKTOP HERO (carousel) ── */}
       <section className="hidden md:block">

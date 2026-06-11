@@ -111,6 +111,28 @@ const Navbar = ({ onBookVisit }) => {
         </button>
       </div>
 
+      {/* ── Mobile Quick Links Row ── */}
+      <div className="lg:hidden flex items-center gap-2 px-4 py-2 overflow-x-auto border-b border-gray-100"
+        style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
+        <style>{`.mobile-ql::-webkit-scrollbar { display: none; }`}</style>
+        {[
+          { name: "Overview", href: "#overview" },
+          { name: "Price List", href: "#pricelist" },
+          { name: "Location", href: "#location" },
+          { name: "Amenities", href: "#amenities" },
+          { name: "FAQ", href: "#faq" },
+        ].map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            style={{ textDecoration: "none", flexShrink: 0 }}
+            className="text-[10px] font-bold tracking-[1.5px] uppercase text-gray-700 bg-gray-100 hover:bg-yellow-500 hover:text-black px-3 py-1.5 rounded-full transition-colors whitespace-nowrap"
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
+
       {/* ── Mobile Dropdown Menu ── */}
       <div className={`lg:hidden bg-zinc-950 border-t border-yellow-600/20 overflow-hidden transition-all duration-500
         ${menuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>

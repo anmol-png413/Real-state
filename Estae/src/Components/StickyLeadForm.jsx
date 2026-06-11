@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import CustomSelect from "./CustomSelect";
 
 const phoneRegex = /^[6-9]\d{9}$/;
 
@@ -219,23 +220,20 @@ export default function StickyLeadForm() {
 
               {/* Interest */}
               <div>
-                <select
-                  className="slf-input slf-select"
+                <CustomSelect
                   name="interest"
                   value={form.interest}
                   onChange={handleChange}
-                  style={{
-                    ...inputStyle(errors.interest),
-                    color: form.interest ? "#111" : "#9ca3af",
-                  }}
-                >
-                  <option value="" disabled>I'm Interested In...</option>
-                  <option value="3 BHK + 3 Toilet (1780 Sq.Ft.)">3 BHK · 1780 Sq.Ft.</option>
-                  <option value="3 BHK + Servant (1972 Sq.Ft.)">3 BHK+S · 1972 Sq.Ft.</option>
-                  <option value="5 BHK + Servant (3175 Sq.Ft.)">5 BHK+S · 3175 Sq.Ft.</option>
-                  <option value="Free Site Visit">Free Site Visit</option>
-                  <option value="Investment / Rental">Investment / Rental</option>
-                </select>
+                  placeholder="I'm Interested In..."
+                  error={errors.interest}
+                  options={[
+                    { value: "3 BHK + 3 Toilet (1780 Sq.Ft.)", label: "3 BHK · 1780 Sq.Ft." },
+                    { value: "3 BHK + Servant (1972 Sq.Ft.)", label: "3 BHK+S · 1972 Sq.Ft." },
+                    { value: "5 BHK + Servant (3175 Sq.Ft.)", label: "5 BHK+S · 3175 Sq.Ft." },
+                    { value: "Free Site Visit", label: "Free Site Visit" },
+                    { value: "Investment / Rental", label: "Investment / Rental" },
+                  ]}
+                />
                 {errors.interest && <p style={{ color: "#ef4444", fontSize: "10px", margin: "3px 0 0" }}>{errors.interest}</p>}
               </div>
 
