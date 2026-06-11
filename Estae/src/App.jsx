@@ -214,7 +214,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App pb-[72px] lg:pb-0">
       <SEO
         title="3 BHK Luxury Apartments in Siddharth Vihar Ghaziabad | Pre-launch ₹6900/sq ft"
         description="Book 3 BHK, 3 BHK+Servant & 5 BHK+Servant luxury apartments at AU Cosmos Corner, Siddharth Vihar Ghaziabad. Pre-launch ₹6900/sq ft. G+40 towers, 5.6 acres. RERA: UPRERAPRJ466336. Call 9711557670."
@@ -291,7 +291,7 @@ function HomePage() {
         href="https://wa.me/9711557670?text=Hello%2C%20I%20am%20interested%20in%20buying%20a%20property%20at%20AU%20Real%20Estate.%20Please%20share%20details."
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-6 right-5 z-50"
+        className="fixed bottom-24 lg:bottom-6 right-5 z-50"
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"

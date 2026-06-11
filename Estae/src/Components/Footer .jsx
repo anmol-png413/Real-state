@@ -29,6 +29,7 @@ const nearbyPlaces = [
 
 export default function Footer({ onBookVisit }) {
   return (
+    <>
     <footer className="w-full bg-gray-900 text-white">
 
       {/* Main Footer Grid */}
@@ -182,6 +183,13 @@ export default function Footer({ onBookVisit }) {
         </p>
       </div>
 
+      {/* Disclosure Strip */}
+      <div className="w-full border-t border-gray-800 px-4 py-2.5 text-center" style={{ background: "#0a0a0a" }}>
+        <p className="text-xs text-gray-500" style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: "0.04em" }}>
+          Marketed by <span className="text-yellow-500 font-semibold">Truelite Estates LLP</span> — Authorized Channel Partner of AU Real Estate Pvt. Ltd. | RERA: UPRERAPRJ466336
+        </p>
+      </div>
+
       {/* Bottom Bar */}
       <div className="w-full px-4 md:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-gray-800">
         <p className="text-gray-500 text-xs text-center sm:text-left">
@@ -193,5 +201,65 @@ export default function Footer({ onBookVisit }) {
       </div>
 
     </footer>
+
+    {/* ── Mobile Fixed Bottom Action Bar ── */}
+    <div
+      className="lg:hidden fixed bottom-0 left-0 right-0 z-50 flex"
+      style={{ boxShadow: "0 -3px 12px rgba(0,0,0,0.2)" }}
+    >
+      {/* Book Visit — Yellow */}
+      <button
+        onClick={onBookVisit}
+        className="flex-1 flex items-center justify-center gap-1.5 py-3"
+        style={{ background: "#f5c842", border: "none", cursor: "pointer" }}
+      >
+        <span style={{ fontSize: "14px" }}>📅</span>
+        <span style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "11px",
+          fontWeight: 800,
+          letterSpacing: "0.5px",
+          textTransform: "uppercase",
+          color: "#111",
+        }}>Book Visit</span>
+      </button>
+
+      {/* Call — Light Blue */}
+      <a
+        href="tel:9711557670"
+        className="flex-1 flex items-center justify-center gap-1.5 py-3"
+        style={{ background: "#3b82f6", textDecoration: "none" }}
+      >
+        <span style={{ fontSize: "14px" }}>📞</span>
+        <span style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "11px",
+          fontWeight: 800,
+          letterSpacing: "0.5px",
+          textTransform: "uppercase",
+          color: "#fff",
+        }}>Call Now</span>
+      </a>
+
+      {/* WhatsApp — Green */}
+      <a
+        href="https://wa.me/9711557670?text=Hello%2C%20I%20am%20interested%20in%20buying%20a%20property%20at%20AU%20Real%20Estate.%20Please%20share%20details."
+        target="_blank"
+        rel="noreferrer"
+        className="flex-1 flex items-center justify-center gap-1.5 py-3"
+        style={{ background: "#25d366", textDecoration: "none" }}
+      >
+        <span style={{ fontSize: "14px" }}>💬</span>
+        <span style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "11px",
+          fontWeight: 800,
+          letterSpacing: "0.5px",
+          textTransform: "uppercase",
+          color: "#fff",
+        }}>WhatsApp</span>
+      </a>
+    </div>
+    </>
   );
 }

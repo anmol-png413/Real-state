@@ -26,7 +26,7 @@ export default function ProjectGallery() {
   const next = () => setCurrent((c) => (c === galleryImages.length - 1 ? 0 : c + 1));
 
   return (
-    <section className="w-full bg-gray-50 px-4 md:px-10 py-14">
+    <section className="hidden md:block w-full bg-gray-50 px-4 md:px-10 py-14">
 
       {/* Heading */}
       <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900 mb-3 tracking-tight">

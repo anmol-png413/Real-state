@@ -17,13 +17,6 @@ const Navbar = ({ onBookVisit }) => {
   return (
     <nav className="w-full bg-white z-50 sticky top-0 shadow-sm">
 
-      {/* ── Disclosure Bar ── */}
-      <div className="w-full bg-gray-900 text-center py-1.5 px-4">
-        <p className="text-xs text-gray-300" style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: "0.04em" }}>
-          Marketed by <span className="text-yellow-400 font-semibold">Truelite Estates LLP</span> — Authorized Channel Partner of AU Real Estate Pvt. Ltd. | RERA: UPRERAPRJ466336
-        </p>
-      </div>
-
       {/* ── Top Bar ── */}
       <div className="flex items-center justify-between px-6 md:px-10 lg:px-16 py-4 border-b border-yellow-500/40">
 
@@ -112,26 +105,6 @@ const Navbar = ({ onBookVisit }) => {
             Book Site Visit
           </button>
         </div>
-
-        {/* Mobile: Book Site Visit */}
-        <button
-          className="lg:hidden"
-          onClick={onBookVisit}
-          style={{
-            fontSize: "11px",
-            fontWeight: 700,
-            letterSpacing: "1.5px",
-            textTransform: "uppercase",
-            padding: "9px 14px",
-            background: "#111",
-            color: "#fff",
-            border: "none",
-            cursor: "pointer",
-            borderRadius: "4px",
-          }}
-        >
-          Book Site Visit
-        </button>
 
         {/* Mobile Hamburger */}
         <button

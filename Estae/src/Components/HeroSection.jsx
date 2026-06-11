@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 import heroMain from "../assets/Heroimages/image.webp";
 import hero1 from "../assets/Heroimages/1.webp";
@@ -13,104 +12,149 @@ import hero8 from "../assets/Heroimages/8.webp";
 import hero9 from "../assets/Heroimages/9.webp";
 import hero10 from "../assets/Heroimages/10.webp";
 
-// Mobile-optimized images (358×250)
-import mHero0 from "../assets/Heromobile/image1_358x250.webp";
-import mHero1 from "../assets/Heromobile/image1_358x250 8.webp";
-import mHero2 from "../assets/Heromobile/image2_358x250.webp";
-import mHero3 from "../assets/Heromobile/image2_358x250 7.webp";
-import mHero4 from "../assets/Heromobile/image3_358x250.webp";
-import mHero5 from "../assets/Heromobile/image4_358x250.webp";
-import mHero6 from "../assets/Heromobile/image5_358x250.webp";
-import mHero7 from "../assets/Heromobile/resized_358x250.png";
-import mHero8 from "../assets/Heromobile/resized_358x250 1.webp";
-import mHero9 from "../assets/Heromobile/resized_358x250_2.webp";
-import mHero10 from "../assets/Heromobile/sundeck_358x250 4.webp";
+import mobileImg0 from "../assets/Images_mobile/Outer.png";
+import mobileImg1 from "../assets/Images_mobile/Flat.png";
+import mobileImg2 from "../assets/Images_mobile/Amenities.png";
+
+const mobileSlides = [
+  { src: mobileImg0, alt: "AU Cosmos Corner exterior view Siddharth Vihar Ghaziabad" },
+  { src: mobileImg1, alt: "AU Cosmos Corner 3 BHK flat interior Ghaziabad" },
+  { src: mobileImg2, alt: "AU Cosmos Corner amenities clubhouse Ghaziabad" },
+];
 
 const heroImages = [heroMain, hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10];
-const mobileHeroImages = [mHero0, mHero1, mHero2, mHero3, mHero4, mHero5, mHero6, mHero7, mHero8, mHero9, mHero10];
 
 const HeroSection = ({ onBookVisit }) => {
-  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    interest: "",
-  });
-  const [errors, setErrors] = useState({});
+  const [mobileSlide, setMobileSlide] = useState(0);
 
+  // Desktop carousel
   useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-    const interval = isMobile ? 4000 : 2000;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, interval);
+    }, 2000);
     return () => clearInterval(timer);
   }, []);
 
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
-
-  const validate = () => {
-    const newErrors = {};
-    const nameRegex = /^[a-zA-Z\s]{3,}$/;
-    const phoneRegex = /^[6-9]\d{9}$/;
-
-    if (!nameRegex.test(form.name)) {
-      newErrors.name = "Only letters, minimum 3 characters";
-    }
-    if (!phoneRegex.test(form.phone)) {
-      newErrors.phone = "Valid 10 digit Indian number";
-    }
-    if (!form.interest) {
-      newErrors.interest = "Interest select required";
-    }
-    return newErrors;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-    setErrors({});
-
-    setLoading(true); // ✅ Loading start
-
-    try {
-      const response = await fetch('/api/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          full_name: form.name,
-          phone: form.phone,
-          email: '',
-          interested_in: form.interest,
-          purpose: '',
-          timeline: '',
-          message: '',
-          source: 'Hero Section'
-        })
-      });
-      const data = await response.json();
-      if (data.success) {
-        navigate("/thank-you");
-      } else {
-        alert('Error: ' + JSON.stringify(data));
-      }
-    } catch (error) {
-      alert('Something went wrong: ' + error.message);
-    } finally {
-      setLoading(false); // ✅ Loading end
-    }
-  };
+  // Mobile carousel — 3.5s auto-advance
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setMobileSlide((prev) => (prev + 1) % mobileSlides.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
+      {/* ── MOBILE HERO ── */}
+      <section className="md:hidden relative w-full overflow-hidden" style={{ minHeight: "70vh", background: "#0f0f0f" }}>
+
+        {/* Carousel images */}
+        {mobileSlides.map((slide, i) => (
+          <img
+            key={i}
+            src={slide.src}
+            alt={slide.alt}
+            fetchpriority={i === 0 ? "high" : "low"}
+            loading={i === 0 ? "eager" : "lazy"}
+            style={{
+              position: "absolute", inset: 0, width: "100%", height: "100%",
+              objectFit: "cover", objectPosition: "center",
+              opacity: mobileSlide === i ? 0.7 : 0,
+              transition: "opacity 0.8s ease-in-out",
+            }}
+          />
+        ))}
+
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.05) 100%)" }} />
+
+        <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", justifyContent: "flex-end", minHeight: "70vh", padding: "0 20px 28px" }}>
+          {/* RERA badge */}
+          <span style={{
+            display: "inline-block",
+            background: "rgba(245,200,66,0.15)",
+            border: "1px solid rgba(245,200,66,0.5)",
+            color: "#f5c842",
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "9px",
+            fontWeight: 700,
+            letterSpacing: "2px",
+            textTransform: "uppercase",
+            padding: "4px 10px",
+            borderRadius: "20px",
+            marginBottom: "12px",
+            width: "fit-content",
+          }}>RERA: UPRERAPRJ466336</span>
+
+          <h1 style={{
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontSize: "clamp(1.8rem, 8vw, 2.6rem)",
+            fontWeight: 700,
+            color: "#fff",
+            lineHeight: 1.2,
+            margin: "0 0 6px",
+          }}>
+            AU Cosmos Corner
+          </h1>
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "13px",
+            fontWeight: 400,
+            color: "rgba(255,255,255,0.7)",
+            letterSpacing: "0.08em",
+            margin: "0 0 18px",
+          }}>
+            Siddharth Vihar, Ghaziabad · G+40 · 5.6 Acres
+          </p>
+
+          {/* Price pills */}
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "20px" }}>
+            {["3 BHK from ₹1.22 Cr*", "5 BHK from ₹2.19 Cr*"].map(tag => (
+              <span key={tag} style={{
+                background: "#f5c842", color: "#111",
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "11px", fontWeight: 800, letterSpacing: "0.5px",
+                padding: "5px 12px", borderRadius: "2px",
+              }}>{tag}</span>
+            ))}
+          </div>
+
+          <button
+            onClick={onBookVisit}
+            style={{
+              background: "#fff", color: "#111",
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "12px", fontWeight: 800,
+              letterSpacing: "2px", textTransform: "uppercase",
+              padding: "14px 0", border: "none", cursor: "pointer",
+              width: "100%", borderRadius: "2px", marginBottom: "16px",
+            }}
+          >
+            Book Free Site Visit
+          </button>
+
+          {/* Dots */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "8px" }}>
+            {mobileSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setMobileSlide(i)}
+                style={{
+                  width: mobileSlide === i ? "20px" : "7px",
+                  height: "7px",
+                  borderRadius: "4px",
+                  background: mobileSlide === i ? "#f5c842" : "rgba(255,255,255,0.35)",
+                  border: "none", cursor: "pointer", padding: 0,
+                  transition: "all 0.35s ease",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── DESKTOP HERO (carousel) ── */}
+      <section className="hidden md:block">
       <style>{`
 
         .hero-input {
@@ -201,7 +245,6 @@ const HeroSection = ({ onBookVisit }) => {
             key={i}
             className={`hero-slide${currentSlide === i ? " active" : ""}`}
           >
-            <source media="(max-width: 767px)" srcSet={mobileHeroImages[i]} />
             <img
               src={src}
               alt={`AU Cosmos Corner luxury 3 BHK apartment Siddharth Vihar Ghaziabad view ${i + 1}`}
@@ -380,6 +423,7 @@ const HeroSection = ({ onBookVisit }) => {
           </div> */}
 
         </div>
+      </section>
       </section>
     </>
   );

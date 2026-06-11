@@ -74,7 +74,7 @@ export default function MediaStrip() {
         .lb-close { position: absolute; top: 20px; right: 24px; background: rgba(255,255,255,0.15); border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 22px; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; }
       `}</style>
 
-      <section style={{ background: "#fffef8", padding: "52px 0 40px" }}>
+      <section className="hidden md:block" style={{ background: "#fffef8", padding: "52px 0 40px" }}>
         <div style={{ textAlign: "center", marginBottom: "32px", padding: "0 20px" }}>
           <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", color: "#c8a042", marginBottom: "6px" }}>
             Visual Tour
