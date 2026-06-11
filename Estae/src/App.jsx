@@ -33,6 +33,8 @@ import NewLaunchSiddharthVihar from './pages/NewLaunchSiddharthVihar';
 import SiddharthViharGhaziabad from './pages/SiddharthViharGhaziabad';
 import MediaStrip from './Components/MediaStrip';
 import MarqueeStrip from './Components/MarqueeStrip';
+import StickyLeadForm from './Components/StickyLeadForm';
+import MobileStickyForm from './Components/MobileStickyForm';
 
 const floatingBtnBase = {
   position: "fixed",
@@ -289,12 +291,12 @@ function HomePage() {
         Download Prices
       </button>
 
-      {/* WhatsApp Fixed Floating Button */}
+      {/* WhatsApp Fixed Floating Button — desktop only */}
       <a
         href="https://wa.me/9711557670?text=Hello%2C%20I%20am%20interested%20in%20buying%20a%20property%20at%20AU%20Real%20Estate.%20Please%20share%20details."
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-24 lg:bottom-6 right-5 z-50"
+        className="hidden lg:block fixed bottom-6 right-5 z-50"
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
@@ -302,6 +304,12 @@ function HomePage() {
           className="w-14 h-14 drop-shadow-xl hover:scale-110 transition-transform duration-300"
         />
       </a>
+
+      {/* Sticky Lead Form — desktop only */}
+      <StickyLeadForm />
+
+      {/* Mobile Sticky Form — mobile only */}
+      <MobileStickyForm />
 
       {/* Contact Form Modal */}
       {showModal && (
