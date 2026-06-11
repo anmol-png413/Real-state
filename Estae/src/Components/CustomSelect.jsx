@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-export default function CustomSelect({ name, value, onChange, options, placeholder, error, dark = false }) {
+export default function CustomSelect({ name, value, onChange, options, placeholder, error, dark = false, className = "" }) {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(null);
   const ref = useRef(null);
@@ -35,7 +35,7 @@ export default function CustomSelect({ name, value, onChange, options, placehold
   };
 
   return (
-    <div ref={ref} style={{ position: "relative", width: "100%" }}>
+    <div ref={ref} className={className} style={{ position: "relative", width: "100%" }}>
       {/* Trigger */}
       <button
         type="button"

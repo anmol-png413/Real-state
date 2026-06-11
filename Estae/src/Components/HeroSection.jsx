@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomSelect from "./CustomSelect";
 
@@ -33,6 +33,39 @@ const HeroSection = ({ onBookVisit }) => {
   const [form, setForm] = useState({ name: "", phone: "", interest: "" });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [shakeFields, setShakeFields] = useState(false);
+  const [pulseCta, setPulseCta] = useState(false);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setShakeFields(true);
+      setTimeout(() => setShakeFields(false), 600);
+    }, 1200);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Pulse the CTA button every 3s while the form is in viewport
+  useEffect(() => {
+    let interval = null;
+    const trigger = () => {
+      setPulseCta(true);
+      setTimeout(() => setPulseCta(false), 700);
+    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          trigger();
+          interval = setInterval(trigger, 3000);
+        } else {
+          clearInterval(interval);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (formRef.current) observer.observe(formRef.current);
+    return () => { observer.disconnect(); clearInterval(interval); };
+  }, []);
 
   // Desktop carousel
   useEffect(() => {
@@ -87,15 +120,15 @@ const HeroSection = ({ onBookVisit }) => {
       <div className="md:hidden w-full" style={{ background: "#fff" }}>
 
         {/* ── 1. LEAD FORM ── */}
-        <div style={{ background: "#2a2a2a", padding: "20px 16px 24px" }}>
+        <div ref={formRef} style={{ background: "#fffef8", padding: "20px 16px 24px", borderBottom: "1px solid #f0ead8" }}>
 
           {/* Project identity */}
           <div style={{ marginBottom: "16px" }}>
             <span style={{
               display: "inline-block",
-              background: "rgba(245,200,66,0.15)",
-              border: "1px solid rgba(245,200,66,0.4)",
-              color: "#f5c842",
+              background: "rgba(180,140,0,0.08)",
+              border: "1px solid rgba(180,140,0,0.3)",
+              color: "#8a6800",
               fontFamily: "'DM Sans', sans-serif",
               fontSize: "9px", fontWeight: 700,
               letterSpacing: "2px", textTransform: "uppercase",
@@ -103,12 +136,12 @@ const HeroSection = ({ onBookVisit }) => {
             }}>RERA: UPRERAPRJ466336</span>
             <h1 style={{
               fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: "22px", fontWeight: 700, color: "#fff",
+              fontSize: "22px", fontWeight: 700, color: "#111",
               margin: "0 0 3px", lineHeight: 1.2,
             }}>AU Cosmos Corner</h1>
             <p style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "11px", color: "rgba(255,255,255,0.5)",
+              fontSize: "11px", color: "#888",
               letterSpacing: "0.5px", margin: 0,
             }}>Siddharth Vihar, Ghaziabad · G+40 · 5.6 Acres</p>
           </div>
@@ -134,42 +167,57 @@ const HeroSection = ({ onBookVisit }) => {
           {/* Form */}
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
             <style>{`
-              .mhf::placeholder { color: rgba(255,255,255,0.3); }
-              .mhf:focus { border-color: #f5c842 !important; outline: none; }
-              .mhf option { background: #111; color: #fff; }
+              .mhf::placeholder { color: #aaa; }
+              .mhf:focus { border-color: #c9a800 !important; outline: none; }
+              @keyframes mhf-shake {
+                0%,100% { transform: translateX(0); }
+                20%      { transform: translateX(-5px); }
+                40%      { transform: translateX(5px); }
+                60%      { transform: translateX(-4px); }
+                80%      { transform: translateX(4px); }
+              }
+              .mhf-shake { animation: mhf-shake 0.55s ease; }
+              @keyframes cta-bounce {
+                0%,100% { transform: translateY(0) scale(1); }
+                25%      { transform: translateY(-4px) scale(1.03); }
+                50%      { transform: translateY(0) scale(1); }
+                75%      { transform: translateY(-2px) scale(1.015); }
+              }
+              .cta-bounce { animation: cta-bounce 0.65s ease; }
             `}</style>
 
             <input
-              className="mhf"
+              className={`mhf${shakeFields ? " mhf-shake" : ""}`}
               type="text" name="name" placeholder="Your Name"
               value={form.name} onChange={handleChange}
               style={{
                 width: "100%", padding: "10px 12px", boxSizing: "border-box",
                 fontFamily: "'DM Sans', sans-serif", fontSize: "13px",
-                background: "rgba(255,255,255,0.18)",
-                border: `1px solid ${errors.name ? "#ef4444" : "rgba(255,255,255,0.3)"}`,
-                borderRadius: "4px", color: "#fff",
+                background: "#fff",
+                border: `1px solid ${errors.name ? "#ef4444" : "#ddd"}`,
+                borderRadius: "4px", color: "#111",
               }}
             />
             {errors.name && <p style={{ color: "#ef4444", fontSize: "10px", margin: "-4px 0 0" }}>{errors.name}</p>}
 
             <input
-              className="mhf"
+              className={`mhf${shakeFields ? " mhf-shake" : ""}`}
               type="tel" name="phone" placeholder="Phone Number"
               value={form.phone} onChange={handleChange}
               style={{
                 width: "100%", padding: "10px 12px", boxSizing: "border-box",
                 fontFamily: "'DM Sans', sans-serif", fontSize: "13px",
-                background: "rgba(255,255,255,0.18)",
-                border: `1px solid ${errors.phone ? "#ef4444" : "rgba(255,255,255,0.3)"}`,
-                borderRadius: "4px", color: "#fff",
+                background: "#fff",
+                border: `1px solid ${errors.phone ? "#ef4444" : "#ddd"}`,
+                borderRadius: "4px", color: "#111",
               }}
             />
             {errors.phone && <p style={{ color: "#ef4444", fontSize: "10px", margin: "-4px 0 0" }}>{errors.phone}</p>}
 
             <CustomSelect
               name="interest" value={form.interest} onChange={handleChange}
-              placeholder="I'm Interested In..." error={errors.interest} dark={true}
+              placeholder="I'm Interested In..." error={errors.interest} dark={false}
+              className={shakeFields ? "mhf-shake" : ""}
               options={[
                 { value: "3 BHK + 3 Toilet (1780 Sq.Ft.)", label: "3 BHK · 1780 Sq.Ft." },
                 { value: "3 BHK + Servant (1972 Sq.Ft.)", label: "3 BHK+S · 1972 Sq.Ft." },
@@ -182,6 +230,7 @@ const HeroSection = ({ onBookVisit }) => {
 
             <button
               type="submit" disabled={loading}
+              className={pulseCta && !loading ? "cta-bounce" : ""}
               style={{
                 background: loading ? "#555" : "#f5c842",
                 color: "#111", border: "none", borderRadius: "4px",
@@ -197,7 +246,7 @@ const HeroSection = ({ onBookVisit }) => {
 
             <p style={{
               fontFamily: "'DM Sans', sans-serif", fontSize: "9px",
-              color: "rgba(255,255,255,0.3)", textAlign: "center", margin: 0,
+              color: "#bbb", textAlign: "center", margin: 0,
             }}>🔒 100% secure · No spam</p>
           </form>
         </div>
