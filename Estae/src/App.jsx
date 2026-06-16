@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
-import popupDesktopImage from './assets/popupimage/Desktop.png'
-import popupMobileImage from './assets/popupimage/Mobile.png'
+import popupDesktopImage from './assets/popupimage/Desktop.webp'
+import popupMobileImage from './assets/popupimage/Mobile.webp'
 import SEO from './Components/SEO';
 import HeroSection from './Components/HeroSection';
 import Navbar from './Components/Navbar';
@@ -343,12 +343,16 @@ function HomePage() {
               alt="Last Chance — Book at ₹6900/SqFt"
               className="hidden md:block w-full rounded-xl shadow-2xl"
               style={{maxHeight: "80vh", objectFit: "contain"}}
+              loading="eager"
+              fetchpriority="high"
             />
             {/* Mobile image */}
             <img
               src={popupDesktopImage}
               alt="Last Chance — Book at ₹6900/SqFt"
               className="block md:hidden w-full rounded-xl shadow-2xl"
+              loading="eager"
+              fetchpriority="high"
             />
           </div>
         </div>
