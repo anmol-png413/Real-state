@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
-import popupDesktopImage from './assets/popupimage/Desktop.png'
-import popupMobileImage from './assets/popupimage/Mobile.png'
 import SEO from './Components/SEO';
 import HeroSection from './Components/HeroSection';
 import Navbar from './Components/Navbar';
@@ -154,7 +152,6 @@ const homepageSchema = {
 };
 
 function HomePage() {
-  const [showImagePopup, setShowImagePopup] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalSource, setModalSource] = useState("General");
   const [downloadBrochure, setDownloadBrochure] = useState(false);
@@ -164,21 +161,16 @@ function HomePage() {
   const scrollTimerRef = useRef(null);
   const initialShownRef = useRef(false);
 
-  // 1. Open image popup first after 3s, then contact form opens when image popup is closed
+  // 1. Open on launch after 3s (disabled in test mode via ?test URL param)
   const isTestMode = new URLSearchParams(window.location.search).has("test");
   useEffect(() => {
     if (isTestMode) return;
     const t = setTimeout(() => {
-      setShowImagePopup(true);
+      setModalSource("Auto Launch");
+      setShowModal(true);
     }, 3000);
     return () => clearTimeout(t);
   }, []);
-
-  const handleCloseImagePopup = () => {
-    setShowImagePopup(false);
-    setModalSource("Auto Launch");
-    setShowModal(true);
-  };
 
   // Show floating buttons after 4s, then toggle on scroll activity
   useEffect(() => {
@@ -320,39 +312,6 @@ function HomePage() {
 
       {/* Mobile Sticky Form — mobile only */}
       <MobileStickyForm />
-
-      {/* Image Ad Popup — shows first, contact form opens on close */}
-      {showImagePopup && (
-        <div
-          className="fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"
-          onClick={handleCloseImagePopup}
-        >
-          <div
-            className="relative w-full" style={{maxWidth: "450px"}}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={handleCloseImagePopup}
-              className="absolute -top-3 -right-3 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center z-10 hover:bg-yellow-400 hover:text-black font-bold text-sm"
-            >
-              ✕
-            </button>
-            {/* Desktop image */}
-            <img
-              src={popupMobileImage}
-              alt="Last Chance — Book at ₹6900/SqFt"
-              className="hidden md:block w-full rounded-xl shadow-2xl"
-              style={{maxHeight: "80vh", objectFit: "contain"}}
-            />
-            {/* Mobile image */}
-            <img
-              src={popupDesktopImage}
-              alt="Last Chance — Book at ₹6900/SqFt"
-              className="block md:hidden w-full rounded-xl shadow-2xl"
-            />
-          </div>
-        </div>
-      )}
 
       {/* Contact Form Modal */}
       {showModal && (
