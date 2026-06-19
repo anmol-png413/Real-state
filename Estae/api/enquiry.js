@@ -104,19 +104,32 @@ module.exports = async (req, res) => {
 
   if (error) return res.status(500).json({ success: false, error: error.message });
 
-  // Send admin notification email (non-blocking)
+  // Send admin notification email
+  let emailStatus = 'not_attempted';
   try {
+    console.log('[email] SMTP config:', {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      user: process.env.SMTP_USER ? process.env.SMTP_USER.slice(0, 5) + '***' : 'MISSING',
+      pass: process.env.SMTP_PASS ? '***set***' : 'MISSING',
+      to: process.env.ADMIN_EMAIL || 'MISSING',
+    });
+
     const { subject, html } = getEmailContent(source, { full_name, phone, email, interested_in, purpose, timeline, message });
 
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"AU Real Estate Leads" <${process.env.SMTP_USER}>`,
       to: process.env.ADMIN_EMAIL,
       subject,
       html,
     });
+
+    emailStatus = 'sent';
+    console.log('[email] sent successfully. messageId:', info.messageId);
   } catch (emailErr) {
-    console.error('Email send failed:', emailErr.message);
+    emailStatus = 'failed';
+    console.error('[email] send failed:', emailErr.message, emailErr.code || '');
   }
 
-  return res.status(200).json({ success: true, message: 'Enquiry saved!' });
+  return res.status(200).json({ success: true, message: 'Enquiry saved!', emailStatus });
 };
