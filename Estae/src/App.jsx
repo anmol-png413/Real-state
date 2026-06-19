@@ -158,13 +158,21 @@ function HomePage() {
   const [modalSource, setModalSource] = useState("General");
   const [downloadBrochure, setDownloadBrochure] = useState(false);
   const [buttonsVisible, setButtonsVisible] = useState(false);
+  const [showImagePopup, setShowImagePopup] = useState(false);
   const reopenTimerRef = useRef(null);
   const autoReopenCountRef = useRef(0); // tracks how many auto-reopens have fired (max 2)
   const scrollTimerRef = useRef(null);
   const initialShownRef = useRef(false);
 
-  // 1. Open on launch after 3s (disabled in test mode via ?test URL param)
+  // 0. Show discount image popup after 5s (once per session)
   const isTestMode = new URLSearchParams(window.location.search).has("test");
+  useEffect(() => {
+    if (isTestMode) return;
+    const t = setTimeout(() => setShowImagePopup(true), 5000);
+    return () => clearTimeout(t);
+  }, []);
+
+  // 1. Open contact form modal after 3s (disabled in test mode via ?test URL param)
   useEffect(() => {
     if (isTestMode) return;
     const t = setTimeout(() => {
@@ -316,6 +324,36 @@ function HomePage() {
       <MobileStickyForm />
 
 
+
+      {/* Discount Image Popup */}
+      {showImagePopup && (
+        <div
+          className="fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"
+          onClick={() => setShowImagePopup(false)}
+        >
+          <div className="relative max-w-sm w-full" onClick={e => e.stopPropagation()}>
+            <button
+              onClick={() => setShowImagePopup(false)}
+              className="absolute -top-3 -right-3 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center z-10 hover:bg-yellow-400 hover:text-black font-bold text-sm"
+            >✕</button>
+            <img
+              src={popupMobileImage}
+              alt="Special Offer — Book at ₹6900/SqFt"
+              className="block md:hidden w-full rounded-xl shadow-2xl"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <img
+              src={popupDesktopImage}
+              alt="Special Offer — Book at ₹6900/SqFt"
+              className="hidden md:block w-full rounded-xl shadow-2xl"
+              style={{ maxHeight: "85vh", objectFit: "contain" }}
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Contact Form Modal */}
       {showModal && (
