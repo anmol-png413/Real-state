@@ -125,7 +125,7 @@ export default function About() {
 
           {/* Body paragraphs */}
           <p className="about-body">
-            <strong>AU Cosmos Corner</strong> is a premium residential project by <strong>AU Real Estate Pvt. Ltd.</strong>, one of Delhi NCR's trusted real estate developers. Located in Siddharth Vihar, Ghaziabad, it offers thoughtfully designed 3 BHK luxury apartments that blend quality construction, strategic location, and lifestyle-focused design.
+            <strong>AU Cosmos Corner</strong> is a premiums residential project by <strong>AU Real Estate Pvt. Ltd.</strong>, one of Delhi NCR's trusted real estate developers. Located in Siddharth Vihar, Ghaziabad, it offers thoughtfully designed 3 BHK luxury apartments that blend quality construction, strategic location, and lifestyle-focused design.
           </p>
 
           <p className="about-body">
