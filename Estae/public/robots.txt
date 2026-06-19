@@ -5,7 +5,7 @@ Allow: /
 Disallow: /thank-you
 
 # Sitemap location
-Sitemap: https://aucosmos.truelitestates.com/sitemap.xml
+Sitemap: https://aurealestateprojects.in/sitemap.xml
 
 # Crawl-delay for bots other than Googlebot
 Crawl-delay: 1
