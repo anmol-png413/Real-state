@@ -315,46 +315,8 @@ function HomePage() {
       {/* Mobile Sticky Form — mobile only */}
       <MobileStickyForm />
 
-<<<<<<< HEAD
-=======
-      {/* Image Ad Popup — shows first, contact form opens on close */}
-      {showImagePopup && (
-        <div
-          className="fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"
-          onClick={handleCloseImagePopup}
-        >
-          <div
-            className="relative w-full" style={{maxWidth: "450px"}}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={handleCloseImagePopup}
-              className="absolute -top-3 -right-3 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center z-10 hover:bg-yellow-400 hover:text-black font-bold text-sm"
-            >
-              ✕
-            </button>
-            {/* Desktop image */}
-            <img
-              src={popupMobileImage}
-              alt="Last Chance — Book at ₹6900/SqFt"
-              className="hidden md:block w-full rounded-xl shadow-2xl"
-              style={{maxHeight: "80vh", objectFit: "contain"}}
-              loading="eager"
-              fetchpriority="high"
-            />
-            {/* Mobile image */}
-            <img
-              src={popupDesktopImage}
-              alt="Last Chance — Book at ₹6900/SqFt"
-              className="block md:hidden w-full rounded-xl shadow-2xl"
-              loading="eager"
-              fetchpriority="high"
-            />
-          </div>
-        </div>
-      )}
 
->>>>>>> 84c2f3789172bd611bd002bd08b5eda4b25c0c4f
+
       {/* Contact Form Modal */}
       {showModal && (
         <div
