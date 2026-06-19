@@ -164,21 +164,13 @@ function HomePage() {
   const scrollTimerRef = useRef(null);
   const initialShownRef = useRef(false);
 
-  // 0. Show discount image popup after 5s (once per session)
+  // 0. Show discount image popup after 3s (once per session)
+  // Contact form auto-launch fires only AFTER user closes the image popup
   const isTestMode = new URLSearchParams(window.location.search).has("test");
+  const formAutoLaunchedRef = useRef(false);
   useEffect(() => {
     if (isTestMode) return;
-    const t = setTimeout(() => setShowImagePopup(true), 5000);
-    return () => clearTimeout(t);
-  }, []);
-
-  // 1. Open contact form modal after 3s (disabled in test mode via ?test URL param)
-  useEffect(() => {
-    if (isTestMode) return;
-    const t = setTimeout(() => {
-      setModalSource("Auto Launch");
-      setShowModal(true);
-    }, 3000);
+    const t = setTimeout(() => setShowImagePopup(true), 1000);
     return () => clearTimeout(t);
   }, []);
 
@@ -325,15 +317,29 @@ function HomePage() {
 
 
 
-      {/* Discount Image Popup */}
+      {/* Discount Image Popup — form auto-launches after this is closed */}
       {showImagePopup && (
         <div
           className="fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"
-          onClick={() => setShowImagePopup(false)}
+          onClick={() => {
+            setShowImagePopup(false);
+            if (!isTestMode && !formAutoLaunchedRef.current) {
+              formAutoLaunchedRef.current = true;
+              setModalSource("Auto Launch");
+              setShowModal(true);
+            }
+          }}
         >
           <div className="relative max-w-sm w-full" onClick={e => e.stopPropagation()}>
             <button
-              onClick={() => setShowImagePopup(false)}
+              onClick={() => {
+                setShowImagePopup(false);
+                if (!isTestMode && !formAutoLaunchedRef.current) {
+                  formAutoLaunchedRef.current = true;
+                  setModalSource("Auto Launch");
+                  setShowModal(true);
+                }
+              }}
               className="absolute -top-3 -right-3 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center z-10 hover:bg-yellow-400 hover:text-black font-bold text-sm"
             >✕</button>
             <img
